@@ -1,0 +1,229 @@
+
+/*font-family: 'Oswald', sans-serif;*/
+@font-face {
+    font-family: 'Mega Sans S';
+    src: url('public/fonts/MegaSansS-Regular_4-09.otf');
+    /*url('fonts/название_шрифта.woff') format('woff');*/
+    /* Дополнительно можно указать другие форматы шрифтов, например, ttf или otf */
+}
+/************ Default Css ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mega Sans S', sans-serif !important;
+
+}
+.MuiContainer-root{
+    /*overflow: hidden*/
+}
+.MuiCheckbox-root{
+    border: none !important;
+
+}
+.MuiInputBase-root{
+    border-radius: 50px !important;
+    background: #F0F0F0 !important;
+    /*height: 68px;*/
+    /*font-size: 20px !important;*/
+}
+.MuiAutocomplete-root .MuiInputBase-root  {
+    border-radius: 10px !important;
+    padding: 10px 0 !important;
+    /*background: black !important;*/
+    /*height: 68px;*/
+    font-size: 40px !important;
+}
+.MuiPaper-root{
+    border-radius: 15px !important;
+    /*width: 150px;*/
+
+}
+.MuiList-root{
+    text-align: center !important;
+}
+@media  (max-width: 600px) {
+    .MuiAutocomplete-root .MuiInputBase-root  {
+        border-radius: 10px !important;
+        padding:   10px !important;
+        /*background: black !important;*/
+        /*height: 68px;*/
+        font-size: 20px !important;
+    }
+    /*.MuiButtonBase-root {*/
+    /*    font-size: 10px !important;*/
+    /*    border-radius: 10px !important;*/
+    /*    padding:   0 !important;*/
+    /*}*/
+}
+.MuiTooltip-tooltip {
+    background-color: #F0F0F0 !important;
+    color: #8A8A8A !important;
+    padding: 20px 24px !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+    /* другие стили */
+}
+/*.MuiOutlinedInput-notchedOutline legend{*/
+/*    color: red !important;*/
+/*}*/
+.MuiAutocomplete-endAdornment button{
+    color: #F0F0F0;
+}
+.MuiInputBase-input  {
+
+}
+/*.css-yjsfm1 span{*/
+/*    color: red !important;*/
+/*}*/
+/*.MuiPopupWindow-root{*/
+/*    color: red !important;*/
+/*}*/
+.MuiAutocomplete{
+    color: #8A8A8A !important;
+}
+.MuiAutocomplete-listbox {
+    background: #F0F0F0;
+    color: #8A8A8A;
+}
+#root{
+    --main: white;
+    --grey: rgba(138, 138, 138, 1);
+    --accent: rgba(53, 53, 53, 1);
+    --main-btn: rgba(107, 107, 107, 1);
+    --cards-phone: rgba(217, 217, 217, 1);
+    --main-blue: #3278FF;
+    --main-black: #353535;
+    --main-white: #FEFDFD;
+    --light-grey: #F0F0F0;
+    --dark-grey: #8A8A8A;
+    --coral: #FF3278;
+    --green: #58E011;
+    --blue: #32DFFF;
+    --orange: #FFB932;
+
+}
+html {
+    /*overflow-y: hidden !important;*/
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    font-weight: 400;
+    overflow-x: hidden !important;
+
+    position: relative;
+    background-color: #FFFFFF !important;
+    /*background-color: var(--grey) !important;*/
+    color: #FFFFFF !important;
+    /*min-width: 450px;*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+p, a, li, button, ul {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*img {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*}*/
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+@media (min-width:1700px) {
+    main .container {
+        max-width: 100%;
+        padding: 0 150px;
+    }
+}
+
+p.success {
+    color: green;
+}
+
+p.danger {
+    color: red;
+}
+
+/*SCROLL*/
+
+*::-webkit-scrollbar{
+    background: #FEFDFD !important;
+    width: 4px;
+    height: 4px  !important;
+}
+*::-webkit-scrollbar-track{
+    background: #FEFDFD !important;
+    width: 4px;
+    height: 4px   !important;
+}
+*::-webkit-scrollbar-thumb{
+    background: #353535 !important;
+    width: 4px;
+    height: 4px  !important;
+}
+*::-webkit-scrollbar-thumb:hover{
+    background: #FEFDFD !important;
+    width: 4px;
+    height: 4px   !important;
+}
+.textEllipsis{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5; /* Указываем максимальное количество строк */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.appBar{
+    animation: colorFade 0.5s;
+}
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+}
+@keyframes colorFade {
+    from {
+        background-color: transparent;
+    }
+    to {
+        background-color: #282828;
+    }
+}

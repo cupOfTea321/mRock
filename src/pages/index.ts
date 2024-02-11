@@ -1,0 +1,6 @@
+export { default as AboutPage } from './AboutPage'
+export { default as AuthPage } from './AuthPage'
+export { default as IdeaPage } from './IdeaPage'
+export { default as MainPage } from './MainPage'
+export { default as ThousandPage } from './ThousandPage'
+export { default as CabPage } from './CabPage'
