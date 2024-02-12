@@ -6,6 +6,7 @@ import logo from "../../assets/logo.png"
 import mobileLogo from "../../assets/Лого.png"
 import menuBack from "../../assets/menuBack.svg"
 import authBack from "../../assets/back/authBack.png"
+import authBackM from "../../assets/pinkBackM.svg";
 import { CSSTransition } from 'react-transition-group'
 import BlackBackground from "../BlackBackground";
 const MyBar = () => {
@@ -128,9 +129,12 @@ const MyBar = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundImage: `url(${authBack})`,
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
+                        backgroundImage: {
+                            sm: `url(${authBack})`,
+                            xs: `url(${authBackM})`,
+                        },
+                        // backgroundSize: 'contain',
+                        // backgroundRepeat: 'no-repeat',
                         // transform: 'rotate(26deg)',
                         width: {sm: '161px', xs: '115px'},
                         height: {sm: '41px', xs: '36px'},
@@ -144,7 +148,6 @@ const MyBar = () => {
                             <Typography sx={{
                                 color: "#FEFDFD",
                                 fontSize: {sm: "16px", xs: '12px'},
-                                marginBottom: {sm: 0, xs: '5px'},
 
                             }}>Авторизация</Typography>
                         </NavLink>
@@ -164,14 +167,15 @@ const MyBar = () => {
                             backgroundRepeat: 'no-repeat',
                             borderRadius: 0,
                             backgroundSize: 'contain',
-                            marginLeft: '-30px'
+                            marginLeft: '-30px',
+                            width: {sm: "54px", xs: "38px"},
+                            height: {sm: "54px", xs: "35px"},
                         }}
                     >
                         <MenuIcon
                             sx={{
                                 color: "black",
-                                width: {sm: "54px", xs: "36px"},
-                                height: {sm: "54px", xs: "36px"},
+
 
                             }}
 

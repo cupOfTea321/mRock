@@ -177,7 +177,9 @@ const Footer = () => {
                     position: 'absolute',
                     zIndex: 500,
                     right: 250,
-                    top: -50
+                    width: {sm: '187px', xs: '95px'},
+                    height: {sm: '180px', xs: '76px'},
+                    top: {sm: -50, xs: 0}
                 }}
             />
             <Box

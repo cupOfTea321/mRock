@@ -21,7 +21,7 @@ const MainPage = () => {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 height: '100px',
-                marginTop: '-50px',
+                marginTop: '-100px',
                 zIndex: 450,
                 marginLeft: {sm: '-50px', xs: 0},
                 position: 'relative',

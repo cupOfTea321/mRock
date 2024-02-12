@@ -48,13 +48,16 @@ const Partners = () => {
             <Box sx={{
                 display: 'flex',
                 alignItems: 'flex-start',
+                flexDirection: {sm: 'row', xs: 'column'},
+
                 marginTop: '40px'
             }}>
                 <Box sx={{
                     // marginLeft: '100px',
                     background: `url(${itemLeft})`,
-                    width: '549px',
-                    height: '390px',
+                    width: {lg: '549px', md: '439px', sm: '329px', xs: '271px'},
+                    height: {lg: '390px', md: '321px', sm: '234px', xs: '175px'},
+                    backgroundSize: 'cover',
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: 'center'
@@ -64,43 +67,49 @@ const Partners = () => {
                     // right: 0,
                 }}>
                     <Typography sx={{
-                        fontSize: '80px',
+                        fontSize: {lg: '80px', md: '60px', sm: '50px', xs: '40px'},
                         fontWeight: 700,
                         color: '#6833b0',
                         width: '60%',
-                        lineHeight: '63.6px',
-                        marginBottom: '50px'
+                        lineHeight: {lg: '63.6px', md: '50px', sm: '40px', xs: '32px'},
+                        marginBottom: {sm: '50px', xs: '30px'}
                         // textAlign: 'center'
                     }}>
                         мега маркет
                     </Typography>
                 </Box>
                 <Box component={'img'} src={rock} sx={{
-
+                    marginTop: {sm: 0, xs: '19px'},
+                    position: 'relative',
+                    marginLeft: '50%',
+                    width: {lg: '254px', md: '203px', sm: '152px', xs: '149px'},
+                    height: {lg: '184px', md: '147px', sm: '110px', xs: '100px'},
                 }}/>
 
             </Box>
             <Box component={'img'} src={back4} sx={{
                 position: 'absolute',
-                bottom: 150,
+                bottom: {sm: 150, xs: 50},
                 zIndex: 500,
-                right: 200,
+                right: {sm: 200, xs: -20},
+                width: {lg: '324px', md: '259px', sm: '200px', xs: '184px'},
+                height: {lg: '224px', md: '179px', sm: '130px', xs: '118px'},
             }}/>
             <Box component={'img'} src={back5} sx={{
                 position: 'absolute',
-                top: 131,
-                right: -20,
+                top: {sm: 131, xs: 450},
+                right: { sm: -20, xs: 'auto'},
+                left: { sm: 'auto', xs: -70},
                 zIndex: 500,
+                width: {lg: '371px', md: '297px', sm: '222px', xs: '194px'},
+                height: {lg: '307px', md: '246px', sm: '184px', xs: '123px'},
             }}/>
             <Box component={'img'} src={back3} sx={{
-                // background: `url(${back3})`,
                 display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 top: -31,
                 left: 200,
                 zIndex: 500,
-                // top: 0,
-                // right: 0,
             }}/>
             </Container>
         </WhiteContainer>

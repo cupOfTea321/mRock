@@ -1,5 +1,6 @@
 import React from 'react';
 import authBack from "../../assets/back/authBack.png";
+import authBackM from "../../assets/pinkBackM.svg";
 import {Box, Typography} from "@mui/material";
 import {backText} from "../../mui/palette";
 
@@ -14,18 +15,20 @@ const CastingItem = ({sx}) => {
         // justifyContent: 'centre',
         // alignItems: 'centre',
         textAlign: 'centre',
-        paddingBottom: {sm: 0, xs: '10px '}
     }
     return (
         <Box sx={{
             ...castingBtn,
-            backgroundImage: `url(${authBack})`,
+            backgroundImage: {
+                sm: `url(${authBack})`,
+                xs: `url(${authBackM})`,
+            },
             ...sx
         }}>
             {/*<Typography>*/}
-                Кастинг
+            Кастинг
             {/*</Typography>*/}
-            </Box>
+        </Box>
     );
 };
 
