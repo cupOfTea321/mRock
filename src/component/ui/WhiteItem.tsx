@@ -7,12 +7,14 @@ const WhiteItem = ({sx}) => {
     return (
         <Box  sx={{...backText,
             cursor: 'pointer',
-            width: '200px',
-            height: '50px',
+            width: {sm: '200px', xs: '115px'},
+            height: {sm: '50px', xs: '40px'},
             backgroundImage: `url(${whiteBack})`,
             color: 'black',
             ...sx
-        }}></Box>
+        }}>
+
+        </Box>
     );
 };
 

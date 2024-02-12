@@ -5,6 +5,7 @@ import footerItem from "../../assets/footerItem.png";
 import footerRock from "../../assets/footerRock.svg";
 import back6 from "../../assets/back6.svg";
 import back7 from "../../assets/back7.svg";
+import back8 from "../../assets/back8.svg";
 import React from "react";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
@@ -179,6 +180,17 @@ const Footer = () => {
                     top: -50
                 }}
             />
+            <Box
+                src={back8}
+                component={'img'}
+                sx={{
+                    position: 'absolute',
+                    zIndex: 500,
+                    right: 0,
+                    bottom: 250
+                }}
+            />
+
         </Box>
     );
 };

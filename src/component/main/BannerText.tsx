@@ -6,24 +6,30 @@ import {h3} from "../../mui/palette";
 
 const BannerText = () => {
     const mainTypo = {
-        fontSize: '80px',
-        lineHeight: '93.6px',
+        fontSize: {sm: '80px', xs: '40px'},
+        lineHeight: {sm: '93.6px', xs: '46.8px'},
     }
     return (
         <>
 
             <Box sx={{
                 display: 'flex',
-
+                alignItems: 'center'
             }}>
                 <Typography sx={mainTypo} component={'h1'}>
                     ШОУ 1
                 </Typography>
-                <Box component={'img'} src={greenZiro}/>
+                <Box component={'img'} src={greenZiro} sx={{
+                    width: {sm: '55px', xs: '27px'},
+                    height: {sm: '94px', xs: '45px'}
+                }}/>
                 <Typography sx={mainTypo}>
                     0
                 </Typography>
-                <Box component={'img'} src={pinkZiro}/>
+                <Box component={'img'} src={pinkZiro} sx={{
+                    width: {sm: '55px', xs: '27px'},
+                    height: {sm: '94px', xs: '45px'}
+                }}/>
             </Box>
             <Typography sx={mainTypo} component={'h1'}>
                 МУЗЫКАНТОВ

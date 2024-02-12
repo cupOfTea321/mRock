@@ -15,7 +15,9 @@ const Partners = () => {
         <WhiteContainer sx={{
             marginTop: '-120px',
             // marginBottom: '0',
+
             paddingBottom: '220px',
+
         }}>
             <Container>
             <Box sx={{
@@ -73,7 +75,9 @@ const Partners = () => {
                         мега маркет
                     </Typography>
                 </Box>
-                <Box component={'img'} src={rock} sx={{}}/>
+                <Box component={'img'} src={rock} sx={{
+
+                }}/>
 
             </Box>
             <Box component={'img'} src={back4} sx={{
@@ -90,6 +94,7 @@ const Partners = () => {
             }}/>
             <Box component={'img'} src={back3} sx={{
                 // background: `url(${back3})`,
+                display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 top: -31,
                 left: 200,

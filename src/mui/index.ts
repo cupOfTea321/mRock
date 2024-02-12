@@ -17,8 +17,8 @@ export const theme = createTheme({
       xl: 1536,
       xxl: 1900,
       // добавьте свои кастомные breakpoints
-      custom1: 500,
-      custom2: 800,
+      // custom1: 500,
+      // custom2: 800,
     },
   },
   palette: {
@@ -78,15 +78,15 @@ theme.typography.h1 = {
 };
 theme.typography.h2 = {
   fontSize: "40px",
+  lineHeight: '37.2px',
   fontWeight: 400,
-  [theme.breakpoints.only("md")]: {
-    fontSize: "40px",
-  },
   [theme.breakpoints.only("sm")]: {
-    fontSize: "30px",
+    fontSize: "32px",
+    lineHeight: '32px',
   },
   [theme.breakpoints.only("xs")]: {
-    fontSize: "30px",
+    fontSize: "24px",
+    lineHeight: '24px',
   },
 };
 theme.typography.h3 = {

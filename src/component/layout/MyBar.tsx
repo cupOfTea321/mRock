@@ -2,8 +2,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
-import logo from "../../assets/Лого.png"
+import logo from "../../assets/logo.png"
 import mobileLogo from "../../assets/Лого.png"
+import menuBack from "../../assets/menuBack.svg"
 import authBack from "../../assets/back/authBack.png"
 import { CSSTransition } from 'react-transition-group'
 import BlackBackground from "../BlackBackground";
@@ -56,41 +57,28 @@ const MyBar = () => {
 
             <Box
                 sx={{
-
-
                     position: "fixed",
                     top: 0,
                     right: 0,
                     left: 0,
                     zIndex: 800,
-                    height: '104px',
+                    height: {sm: '124px', xs: '104px'},
                     display: 'flex',
                     animation: 'colorFade 0.5s'
                 }} className={'appBar'}
             >
-
                 <CSSTransition in={show} timeout={500} classNames="fade">
                     <BlackBackground sx={{
                         background
                     }}/>
-                {/*<Box sx={{*/}
-                {/*    background,*/}
-                {/*    width: '100%',*/}
-                {/*    height: '100%',*/}
-                {/*    position: 'absolute',*/}
-                {/*    zIndex: 1000*/}
-                {/*}}>*/}
-
-                {/*</Box>*/}
                 </CSSTransition>
                 <Container
                     maxWidth={"lg"}
                     sx={{
                         display: "flex",
-                        // width: '100%',
                         justifyContent: "space-between",
                         alignItems: "center",
-                        marginTop: {sm: "26px", xs: "10px"},
+                        marginTop: {sm: "20px", xs: "10px"},
                         marginBottom: {sm: "20px", xs: "10px"},
                         position: 'relative',
                         zIndex: 1200
@@ -99,8 +87,6 @@ const MyBar = () => {
                 >
                     <Typography
                         sx={{
-                            // float: 'left',
-                            // marginLeft: '0'
                             textAlign: "left",
                             width: "40%",
                             fontSize: "32px",
@@ -111,18 +97,10 @@ const MyBar = () => {
                                 component={"img"}
                                 src={logo}
                                 sx={{
-                                    width: "96.6px",
-                                    height: "87.43",
-                                    display: {sm: "flex", xs: "none"},
-                                }}
-                            />
-                            <Box
-                                component={"img"}
-                                src={mobileLogo}
-                                sx={{
-                                    width: "47px",
-                                    height: "16px",
-                                    display: {sm: "none", xs: "block"},
+                                    width: {md: "96.6px", sm: '65.76px', xs: '65.76px'},
+                                    height: {md: "104.34px", sm: '70.94px', xs: '70.94px'},
+                                    // display: {sm: "flex", xs: "none"},
+                                    display: 'flex'
                                 }}
                             />
                         </NavLink>
@@ -154,8 +132,8 @@ const MyBar = () => {
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
                         // transform: 'rotate(26deg)',
-                        width: '161px',
-                        height: '41px'
+                        width: {sm: '161px', xs: '115px'},
+                        height: {sm: '41px', xs: '36px'},
 
                     }}>
                         <NavLink to={'auth'}
@@ -165,7 +143,8 @@ const MyBar = () => {
                                  }}>
                             <Typography sx={{
                                 color: "#FEFDFD",
-                                fontSize: "16px",
+                                fontSize: {sm: "16px", xs: '12px'},
+                                marginBottom: {sm: 0, xs: '5px'},
 
                             }}>Авторизация</Typography>
                         </NavLink>
@@ -180,14 +159,22 @@ const MyBar = () => {
                         onClick={handleClick}
                         sx={{
                             display: {md: "none", sm: "block", xs: "block"},
+                            // background: 'red'
+                            background: `url(${menuBack})`,
+                            backgroundRepeat: 'no-repeat',
+                            borderRadius: 0,
+                            backgroundSize: 'contain',
+                            marginLeft: '-30px'
                         }}
                     >
                         <MenuIcon
                             sx={{
-                                color: "white",
+                                color: "black",
                                 width: {sm: "54px", xs: "36px"},
                                 height: {sm: "54px", xs: "36px"},
+
                             }}
+
                             onClick={handleMobileClose}
                         />
                         <Menu

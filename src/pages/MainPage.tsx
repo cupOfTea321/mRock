@@ -23,7 +23,7 @@ const MainPage = () => {
                 height: '100px',
                 marginTop: '-50px',
                 zIndex: 450,
-                marginLeft: '-50px',
+                marginLeft: {sm: '-50px', xs: 0},
                 position: 'relative',
                 // opacity: 0.1,
             }}/>

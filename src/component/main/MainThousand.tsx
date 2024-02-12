@@ -37,24 +37,41 @@ const MainThousand = () => {
     ]
 
     return (
-        <WhiteContainer>
+        <WhiteContainer sx={{
+            paddingBottom: {sm: '120px', xs: '80px'},
+            // // backgroundRepeat: {sm: 'repeat', xs: 'no-repeat'},
+            // backgroundRepeat: 'no-repeat',
+            // width: '120%',
+            // marginLeft: '20%'
+        }}>
             <Box sx={{
                 display: 'flex',
+                // flexDirection: {sm: 'row', xs: 'column'},
                 alignItems: 'center',
+                width: {sm: '100%', xs: '70%'},
+                flexWrap: 'wrap',
+                margin: '0 auto',
                 justifyContent: 'center',
-                paddingTop: '100px',
+                // marginTop: '200px',
+                paddingTop: {sm: '100px', xs: '60px'},
+                // marginBottom: {sm: 0, xs: '-250px'}
+                // paddingTop: '-50px'
             }}>
                 <Typography variant={'h2'} sx={blackText}>
                     Самый масштабный
                 </Typography>
-                <Box component={'img'} src={item1} sx={{}}/>
+                <Box component={'img'} src={item1} sx={{
+                    width: {md: '238px', sm: '180px', xs: '144px'},
+                    height: {md: '55px', sm: '40px', xs: '28px'},
+                }}/>
                 <Typography variant={'h2'} sx={blackText}>
                     страны
                 </Typography>
             </Box>
             <Container sx={{
                 display: 'flex',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                // paddingTop: {sm: 0, xs: '250px'}
             }}>
                 {slides.map((item, index) => {
                     let imageStyle = {}
@@ -119,6 +136,7 @@ const MainThousand = () => {
             }}/>
             <Box component={'img'} src={backItem7} sx={{
                 position: 'absolute',
+                display: {sm: 'block', xs: 'none'},
                 top: -30,
                 left: 100,
                 zIndex: 600,

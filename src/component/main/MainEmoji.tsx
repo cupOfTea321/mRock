@@ -9,16 +9,16 @@ const MainEmoji = () => {
     return (
         <Box
         sx={{
-            // marginTop: '-140px',
             zIndex: 250,
             position: 'relative',
-            marginBottom: '500px',
+            marginBottom: '300px',
 
         }}>
             <BlackBackground back={peopleBack} sx={{
                 height: '200%',
                 // backgroundSize: 'auto 80%',
                 // width: '150%'
+
             }}/>
             <Container sx={{
                 zIndex: 360,
@@ -28,15 +28,20 @@ const MainEmoji = () => {
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',
+                flexDirection: {sm: 'row', xs: 'column'},
+                flexWrap: 'wrap',
                 alignItems: 'center',
                 textAlign: 'center',
-                paddingTop: '182px',
+                paddingTop: {sm: '182px', xs: '100px'},
 
             }}>
                 <Typography variant={'h2'}>
                     Испытайте
                 </Typography>
-                <Box component={'img'} src={item2} />
+                <Box component={'img'} src={item2} sx={{
+                    width: {md: '351px', sm: '300px', xs: '231px'},
+                    height: {md: '52px', sm: '40px', xs: '37px'},
+                }}/>
                 <Typography variant={'h2'}>
                     музыкальную эмоцию,
                 </Typography>

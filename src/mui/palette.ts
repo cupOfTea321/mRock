@@ -11,7 +11,7 @@ export const backText = {
   justifyContent: 'center',
 }
 export const h3 = {
-  fontSize: '16px',
+  fontSize: {sm: '16px', xs: '14px'},
   textAlign: 'center',
   lineHeight: '18.72px',
 
