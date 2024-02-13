@@ -12,6 +12,7 @@ import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import {useNavigate} from "react-router-dom";
 import {NavLink} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {blackText} from "../../mui/palette";
 type FooterMenu = {
     page: string;
@@ -32,7 +33,7 @@ const InviteText = ({sx}) => {
         </Typography>
     )
 }
-const Footer = () => {
+const Footer = ({path}) => {
     const footerMenu: FooterMenu[] = [
         {
             page: 'Главная', to: '/'
@@ -71,7 +72,8 @@ const Footer = () => {
                 background: "#353535",
             }}
         >
-            <BlackBackground/>
+            {path !== "/idea" && <BlackBackground/>}
+
             <Container sx={{
                 position: 'relative',
                 zIndex: 500,

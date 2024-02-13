@@ -3,7 +3,7 @@ import Footer from "./Footer.js";
 import MyBar from "./MyBar.js";
 import {Box} from "@mui/material";
 
-const Layout = () => {
+const Layout = ({location}) => {
   return (
     <>
       <MyBar />
@@ -16,7 +16,7 @@ const Layout = () => {
       <Outlet />
       {/*</Container>*/}
 
-      <Footer />
+      <Footer path={location.pathname}/>
     </>
   );
 };

@@ -102,7 +102,7 @@
     --green: #58E011;
     --blue: #32DFFF;
     --orange: #FFB932;
-
+    --swiper-navigation-size: 20px;
 }
 html {
     /*overflow-y: hidden !important;*/
