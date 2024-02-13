@@ -81,7 +81,7 @@ const Partners = () => {
                 <Box component={'img'} src={rock} sx={{
                     marginTop: {sm: 0, xs: '19px'},
                     position: 'relative',
-                    marginLeft: '50%',
+                    marginLeft: {sm: 0, xs: '50%'},
                     width: {lg: '254px', md: '203px', sm: '152px', xs: '149px'},
                     height: {lg: '184px', md: '147px', sm: '110px', xs: '100px'},
                 }}/>

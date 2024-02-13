@@ -2,6 +2,7 @@ import {Box, Container, Link, Typography} from "@mui/material";
 import BlackBackground from "../BlackBackground";
 import item5 from "../../assets/item5.svg";
 import footerItem from "../../assets/footerItem.png";
+import footerItemM from "../../assets/footerM.png";
 import footerRock from "../../assets/footerRock.svg";
 import back6 from "../../assets/back6.svg";
 import back7 from "../../assets/back7.svg";
@@ -9,12 +10,28 @@ import back8 from "../../assets/back8.svg";
 import React from "react";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
+import {useNavigate} from "react-router-dom";
 import {NavLink} from "react-router-dom";
 import {blackText} from "../../mui/palette";
 type FooterMenu = {
     page: string;
     to?: string
 };
+const InviteText = ({sx}) => {
+    return(
+        <Typography sx={{
+            fontSize: {xl: '81.41px', lg: '60px', md: '40px', sm: '30px', xs: '40px'},
+            lineHeight: '95.25px',
+            marginTop: '34px',
+            paddingBottom: '28px',
+            display: {sm: 'block', xs: 'none'},
+            ...sx,
+            // textAlign: {xl: 'left', lg: 'right'}
+        }}>
+            ПРИСОЕДИНЯЙТЕСЬ!
+        </Typography>
+    )
+}
 const Footer = () => {
     const footerMenu: FooterMenu[] = [
         {
@@ -36,7 +53,12 @@ const Footer = () => {
     const footerText = {
         color: 'white',
         fontSize: '12px',
-        marginRight: '16px'
+        marginRight: {sm: '16px', xs: '8px'},
+        lineHeight: '14.4px'
+    }
+    const navigate = useNavigate()
+    const handleMenu = (to) => {
+        navigate(to);
     }
     return (
         <Box
@@ -54,21 +76,29 @@ const Footer = () => {
                 position: 'relative',
                 zIndex: 500,
             }}>
+
                 <Box sx={{
                     display: 'flex',
-
+                    flexDirection: {sm: 'row', xs: 'column-reverse'},
                     paddingTop: '100px',
                 }}>
+
                     <Box sx={{
-                        width: '50%'
+                        // width: '10%',
+                        textAlign: {sm: 'left', xs: 'center'},
+                        // margin: '0 auto',
+                        // display: 'flex',
+                        // flexDirection: 'column',
+                        // alignItems: 'centre'
                     }}>
                         <Typography variant={'h2'} sx={{
-
+                            // width: '100%'
+                            // margin: '0 auto'
                         }}>
                             Остались вопросы?
                         </Typography>
                         <Typography sx={{
-                            fontSize: '32px'
+                            fontSize: {md: '32px', sm: '24px', xs: '16px'}
                         }}>
                             Свяжитесь с нами
                         </Typography>
@@ -77,58 +107,77 @@ const Footer = () => {
                         }}/>
                     </Box>
                     <Box sx={{
-                        backgroundImage: `url(${footerItem})`,
+                        backgroundImage: {
+                            sm: `url(${footerItem})`,
+                            xs: `url(${footerItemM})`,
+                        },
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
-                        width: '90%',
+                        width: {sm: '90%', xs: '320px'},
+                        margin: '0 auto',
+                        marginBottom: {sm: 0, xs: '-40px'},
                         height: '350px',
-                        position: 'relative'
+                        position: 'relative',
                     }}>
                         <CastingItem sx={{
                             position: 'absolute',
-                            bottom: 0,
-                            left: 0
+                            bottom: {md: 0, sm: 80, xs: 'auto'},
+                            top: {sm: 'auto', xs: 0},
+                            left: 0,
+
                         }}/>
                         <WhiteItem sx={{
                             position: 'absolute',
-                            bottom: 0,
-                            right: 50
+                            bottom: {md: 0, sm: 80, xs: 70},
+                            right: {md: 50, sm: 20, xs: 0},
+                            // top: {sm: 'auto', xs: 0}
                         }}/>
                     </Box>
-
+                    <InviteText
+                        sx={{
+                            display: {sm: 'none', xs: 'block'},
+                            textAlign: 'center',
+                            marginTop: '-20px',
+                            marginBottom: '-20px',
+                        }}
+                    />
                 </Box>
+
                 <Box sx={{
-                    marginLeft: {xl: '17%', lg: '38%'},
+                    marginLeft: {xl: '17%', lg: '38%', md: '40%', sm: '38%'},
                     paddingBottom: '40px'
                 }}>
-                    <Typography sx={{
-                        fontSize: {xl: '81.41px', lg: '60px'},
-                        lineHeight: '95.25px',
-                        marginTop: '34px',
-                        paddingBottom: '28px',
-                        // textAlign: {xl: 'left', lg: 'right'}
-                    }}>
-                        ПРИСОЕДИНЯЙТЕСЬ!
-                    </Typography>
+                    <InviteText/>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        marginBottom: {sm: 0, xs: '300px'},
+
                     }}>
-                        <Box>
+                        <Box sx={{
+                            display: 'flex',
+                            gap: {sm: 2, xs: 1},
+                            width: {sm: 'auto', xs: '200px'},
+                            margin: '0 auto',
+                            flexWrap: 'wrap',
+                            justifyContent: {sm: 'flex-start', xs: 'center'},
+                        }}>
                             {footerMenu.map(item => (
-                                <NavLink to={item.to} key={item.page} style={footerText}>
+                                <Box onClick={() => handleMenu(item.to)} key={item.page} style={footerText}>
                                     {item.page}
-                                </NavLink>
+                                </Box>
                             ))}
                         </Box>
-                        <NavLink to={''}  style={{
+                        <Box   sx={{
                             ...footerText,
                             textAlign: 'right',
+                            display: {sm: 'block', xs: 'none'},
+
                             // marginBottom: '-15px'
                         }}>
                             Политика конфиденциальности
-                        </NavLink>
+                        </Box>
                     </Box>
                 </Box>
 
@@ -141,8 +190,8 @@ const Footer = () => {
                 zIndex: 400,
                 bottom: 0,
                 left: 0,
-                width: '419px',
-                height: '361px',
+                width: {lg: '419px', md: '335px', sm: '300px', xs: '347px'},
+                height: {lg: '361px', md: '289px', sm: '270px', xs: '290px'},
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: 'flex-end',
@@ -150,9 +199,11 @@ const Footer = () => {
                 <Typography sx={{
                     ...footerText,
                     ...blackText,
-                    paddingBottom: '30px',
-                    width: '65%',
-                    paddingRight: '60px'
+                    paddingBottom: {lg: '30px', md: '15px', sm: '15px', xs: '30px'},
+                    width: {lg: '65%', md: '80%', xs: '347px'},
+                    paddingRight: '60px',
+                    textAlign: {lg: 'left', md: 'center', sm: 'center', xs: 'center'},
+                    marginRight: {md: '16px', sm: '-15px', xs: 0},
                 }}>
                     Организатор мероприятия продюсерский центр “ПОЗИЦИЯ”
                     (ИП Жарков К.С.,
@@ -165,6 +216,7 @@ const Footer = () => {
                 component={'img'}
                 sx={{
                     position: 'absolute',
+                    display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
                     zIndex: 500,
                     left: 0,
                     top: 50
@@ -187,6 +239,7 @@ const Footer = () => {
                 component={'img'}
                 sx={{
                     position: 'absolute',
+                    display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
                     zIndex: 500,
                     right: 0,
                     bottom: 250
