@@ -2,7 +2,7 @@ import React from 'react';
 import backItem1 from "../../assets/idea/item1.svg";
 import {h3} from "../../mui/palette";
 import ideaImg from "../../assets/idea/ideaImg.png";
-import ideaImgM from "../../assets/idea/ideaImg.png";
+import ideaImgM from "../../assets/idea/ideaImgM.png";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import {Box, Typography} from "@mui/material";
@@ -13,24 +13,29 @@ const IdeaBanner = () => {
             position: 'relative',
             zIndex: 400,
             textAlign: 'center',
-            width: '65%',
+            width: {xl: '65%', lg: '80%'},
             margin: '0 auto',
             paddingTop: '150px',
             paddingBottom: '100px',
         }}>
 
-            <Typography variant={'h2'}>
+            <Typography sx={{width: {sm: '100%', xs: '70%'}, margin: '0 auto'}} variant={'h2'}>
                 МЕГАРОК открывает самую большую сцену для 1000 начинающих и известных музыкантов. Вместе
             </Typography>
             <Box sx={{
                 display: 'flex',
+                flexDirection: {md: 'row', sm: 'column', xs: 'column'},
                 justifyContent: 'center',
                 alignItems: 'center',
+                width: {sm: '100%', xs: '70%'},
+                margin: '0 auto'
             }}>
                 <Typography variant={'h2'}>
                     мы создадим
                 </Typography>
                 <Box component={'img'} src={backItem1} sx={{
+                    width: {sm: '349px', xs: '221px'},
+                    height: {sm: '50px', xs: '31px'}
                 }}/>
                 <Typography variant={'h2'}>
                     рок-концерт года
@@ -54,8 +59,9 @@ const IdeaBanner = () => {
                 backgroundRepeat: 'no-repeat',
                 width: {sm: '90%', xs: '320px'},
                 margin: '0 auto',
-                marginBottom: {sm: 0, xs: '-40px'},
-                height: '552px',
+                marginBottom: {sm: 0, xs: '-50px'},
+                marginTop: {sm: 0, xs: '32px'},
+                height: {md: '552px', sm: '400px', xs: '228px'},
                 position: 'relative',
             }}>
                 <CastingItem sx={{

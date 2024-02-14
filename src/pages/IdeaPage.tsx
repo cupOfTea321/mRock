@@ -28,7 +28,7 @@ const IdeaPage = () => {
                 position: 'relative',
                 zIndex: 500,
                 textAlign: 'center',
-                width: '65%',
+                width: {md: '65%', sm: '80%', xs: '100%'},
                 margin: '0 auto',
                 // paddingTop: '90px',
                 // paddingBottom: '60px',
@@ -42,6 +42,8 @@ const IdeaPage = () => {
                         Мы —
                     </Typography>
                     <Box component={'img'} src={ideaItem2} sx={{
+                        width: {sm: '216px', xs: '123px'},
+                        height: {sm: '52px', xs: '27px'}
                     }}/>
                     <Typography variant={'h2'}>
                         которая делает
