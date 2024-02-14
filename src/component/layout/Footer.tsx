@@ -61,6 +61,7 @@ const Footer = ({path}) => {
     const handleMenu = (to) => {
         navigate(to);
     }
+
     return (
         <Box
             sx={{
@@ -72,7 +73,7 @@ const Footer = ({path}) => {
                 background: "#353535",
             }}
         >
-            {path !== "/idea" && <BlackBackground/>}
+            {path !== "/idea" && path !== "/about" && <BlackBackground/>}
 
             <Container sx={{
                 position: 'relative',
