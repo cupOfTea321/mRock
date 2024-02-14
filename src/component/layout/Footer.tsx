@@ -21,7 +21,7 @@ type FooterMenu = {
 const InviteText = ({sx}) => {
     return(
         <Typography sx={{
-            fontSize: {xl: '81.41px', lg: '60px', md: '40px', sm: '30px', xs: '40px'},
+            fontSize: {xl: '81.41px', lg: '60px', md: '40px', sm: '30px', xs: '30px'},
             lineHeight: '95.25px',
             marginTop: '34px',
             paddingBottom: '28px',
@@ -78,7 +78,7 @@ const Footer = ({path}) => {
             <Container sx={{
                 position: 'relative',
                 zIndex: 500,
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
 
                 <Box sx={{
                     display: 'flex',
@@ -149,7 +149,7 @@ const Footer = ({path}) => {
                 <Box sx={{
                     marginLeft: {xl: '17%', lg: '38%', md: '40%', sm: '38%'},
                     paddingBottom: '40px'
-                }}>
+                }} >
                     <InviteText/>
                     <Box sx={{
                         display: 'flex',
@@ -198,7 +198,7 @@ const Footer = ({path}) => {
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: 'flex-end',
-            }}>
+            }} className={'animate__fadeInLeft animate__animated wow'}>
                 <Typography sx={{
                     ...footerText,
                     ...blackText,
@@ -223,7 +223,7 @@ const Footer = ({path}) => {
                     zIndex: 500,
                     left: 0,
                     top: 50
-                }}
+                }} className={'animate__fadeInLeft animate__animated wow'}
             />
             <Box
                 src={back6}
@@ -235,7 +235,7 @@ const Footer = ({path}) => {
                     width: {sm: '187px', xs: '95px'},
                     height: {sm: '180px', xs: '76px'},
                     top: {sm: -50, xs: 0}
-                }}
+                }} className={'animate__fadeInUp animate__animated wow'}
             />
             <Box
                 src={back8}
@@ -246,7 +246,7 @@ const Footer = ({path}) => {
                     zIndex: 500,
                     right: 0,
                     bottom: 250
-                }}
+                }} className={'animate__fadeInRight animate__animated wow'}
             />
 
         </Box>

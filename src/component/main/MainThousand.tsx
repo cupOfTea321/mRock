@@ -43,7 +43,7 @@ const MainThousand = () => {
             // backgroundRepeat: 'no-repeat',
             // width: '120%',
             // marginLeft: '20%'
-        }}>
+        }} >
             <Box sx={{
                 display: 'flex',
                 // flexDirection: {sm: 'row', xs: 'column'},
@@ -56,7 +56,7 @@ const MainThousand = () => {
                 paddingTop: {sm: '100px', xs: '60px'},
                 // marginBottom: {sm: 0, xs: '-250px'}
                 // paddingTop: '-50px'
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Typography variant={'h2'} sx={blackText}>
                     Самый масштабный
                 </Typography>
@@ -72,7 +72,7 @@ const MainThousand = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 // paddingTop: {sm: 0, xs: '250px'}
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 {slides.map((item, index) => {
                     let imageStyle = {}
                     let textStyle = {}
@@ -133,14 +133,14 @@ const MainThousand = () => {
                 margin: '0 auto',
                 display: 'flex',
                 marginTop: '25px'
-            }}/>
+            }} className={'animate__fadeInUp animate__animated wow'}/>
             <Box component={'img'} src={backItem7} sx={{
                 position: 'absolute',
                 display: {sm: 'block', xs: 'none'},
                 top: -30,
                 left: 100,
                 zIndex: 600,
-            }}/>
+            }} className={'animate__fadeInLeft animate__animated wow'}/>
         </WhiteContainer>
     );
 };

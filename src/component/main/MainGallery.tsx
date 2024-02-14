@@ -33,12 +33,12 @@ const MainGallery = () => {
                 flexWrap: 'no-wrap',
                 position: 'relative',
                 zIndex: 400,
-            }}>
+            }} >
                 <Box component={'img'} src={leftGallery} sx={{
                     cursor: 'pointer',
                     width: {md: '385px', sm: '308px', xs: '308px'},
                     height: {md: '530px', sm: '424px', xs: '424px'},
-                }}/>
+                }} className={'animate__fadeInLeft animate__animated wow'}/>
                 <Box component={'img'} src={centreGallery} sx={{
                     marginRight: {md: '-8%', sm: '-10%', xs: 0},
                     marginLeft: {md: '-8%', sm: '-10%', xs: 0},
@@ -46,12 +46,12 @@ const MainGallery = () => {
                     cursor: 'pointer',
                     width: {md: '698px', sm: '558px', xs: '300px'},
                     height: {md: '490px', sm: '392px', xs: '221px'},
-                }}/>
+                }} className={'animate__fadeInUp animate__animated wow'}/>
                 <Box component={'img'} src={rightGallery} sx={{
                     cursor: 'pointer',
                     width: {md: '393px', sm: '308px', xs: '235px'},
                     height: {md: '530px', sm: '424px', xs: '176px'},
-                }}/>
+                }} className={'animate__fadeInRight animate__animated wow'}/>
             </Box>
             {/* МОБИЛЬНАЯ ГАЛЕРЕЯ */}
             <Box sx={{
@@ -63,7 +63,7 @@ const MainGallery = () => {
                 flexWrap: 'no-wrap',
                 position: 'relative',
                 zIndex: 400,
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Box component={'img'} src={leftGalleryM} sx={{
                     cursor: 'pointer',
                     width: '90%'

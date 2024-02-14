@@ -18,7 +18,7 @@ const BlackBackground = ({
                 height: '100%',
                 backgroundColor: 'black',
                 ...sx
-            }}>
+            }} >
             </Box>
             <Box sx={{
                 position: 'absolute',

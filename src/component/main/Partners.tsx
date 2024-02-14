@@ -25,7 +25,7 @@ const Partners = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 paddingTop: '100px',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Typography sx={blackText} variant={'h2'}>
                     Партнеры
                 </Typography>
@@ -51,7 +51,7 @@ const Partners = () => {
                 flexDirection: {sm: 'row', xs: 'column'},
 
                 marginTop: '40px'
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Box sx={{
                     // marginLeft: '100px',
                     background: `url(${itemLeft})`,
@@ -65,7 +65,7 @@ const Partners = () => {
                     // zIndex: 500,
                     // top: 0,
                     // right: 0,
-                }}>
+                }} >
                     <Typography sx={{
                         fontSize: {lg: '80px', md: '60px', sm: '50px', xs: '40px'},
                         fontWeight: 700,
@@ -84,7 +84,7 @@ const Partners = () => {
                     marginLeft: {sm: 0, xs: '50%'},
                     width: {lg: '254px', md: '203px', sm: '152px', xs: '149px'},
                     height: {lg: '184px', md: '147px', sm: '110px', xs: '100px'},
-                }}/>
+                }} />
 
             </Box>
             <Box component={'img'} src={back4} sx={{
@@ -94,7 +94,7 @@ const Partners = () => {
                 right: {sm: 200, xs: -20},
                 width: {lg: '324px', md: '259px', sm: '200px', xs: '184px'},
                 height: {lg: '224px', md: '179px', sm: '130px', xs: '118px'},
-            }}/>
+            }} className={'animate__fadeInUp animate__animated wow'}/>
             <Box component={'img'} src={back5} sx={{
                 position: 'absolute',
                 top: {sm: 131, xs: 450},
@@ -103,14 +103,14 @@ const Partners = () => {
                 zIndex: 500,
                 width: {lg: '371px', md: '297px', sm: '222px', xs: '194px'},
                 height: {lg: '307px', md: '246px', sm: '184px', xs: '123px'},
-            }}/>
+            }} className={'animate__fadeInRight animate__animated wow'}/>
             <Box component={'img'} src={back3} sx={{
                 display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 top: -31,
                 left: 200,
                 zIndex: 500,
-            }}/>
+            }} className={'animate__fadeInUp animate__animated wow'}/>
             </Container>
         </WhiteContainer>
     );

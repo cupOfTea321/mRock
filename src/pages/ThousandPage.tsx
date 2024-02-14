@@ -22,7 +22,7 @@ const ThousandPage = () => {
                 margin: '0 auto',
                 paddingTop: '150px',
                 // paddingBottom: '100px',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: {md: 'row', sm: 'column', xs: 'column'},
@@ -51,13 +51,13 @@ const ThousandPage = () => {
                 zIndex: 650,
                 right: 0,
                 top: 200
-            }}/>
+            }} className={'animate__fadeInRight animate__animated wow'}/>
             <Box component={'img'} src={back1} sx={{
                 position: 'absolute',
                 zIndex: 650,
                 left: -30,
                 top: 350
-            }}/>
+            }} className={'animate__fadeInLeft animate__animated wow'}/>
         </Box>
     );
 };

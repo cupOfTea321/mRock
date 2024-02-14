@@ -26,7 +26,7 @@ const MainPage = () => {
                 marginLeft: {sm: '-50px', xs: 0},
                 position: 'relative',
                 // opacity: 0.1,
-            }}/>
+            }}  className={'animate__fadeInUp animate__animated wow'}/>
             <MainGallery/>
             <MainThousand/>
             <MainEmoji/>

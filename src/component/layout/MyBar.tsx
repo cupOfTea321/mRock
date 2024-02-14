@@ -84,7 +84,7 @@ const MyBar = () => {
                         position: 'relative',
                         zIndex: 1200
                     }}
-                    className="animate__animated animate__fadeInUp wow"
+                    className="animate__animated animate__fadeInDown wow"
                 >
                     <Typography
                         sx={{

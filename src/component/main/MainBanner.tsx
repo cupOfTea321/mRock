@@ -26,7 +26,7 @@ const MainBanner = () => {
                 height: '100%',
                 zIndex: 250,
                 position: 'relative'
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <BannerText/>
                 <Box sx={{
                     display: 'flex',

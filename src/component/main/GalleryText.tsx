@@ -16,7 +16,7 @@ const GalleryText = () => {
             textAlign: 'center',
             width: {xl: '60%', lg: '80%', sm: '100%', xs: '60%'},
             paddingTop: {sm: '100px', xs: '60px'},
-        }}>
+        }} className={'animate__fadeInUp animate__animated wow'}>
             <Typography sx={{
                 marginTop: '-5px',
             }} variant={'h2'}>
@@ -27,7 +27,7 @@ const GalleryText = () => {
                 flexDirection: {sm: 'row', xs: 'column'},
                 justifyContent: 'center',
                 alignItems: 'center'
-            }}>
+            }} >
                 <Box component={'img'} src={backItem8} sx={{
                     // paddingTop: '-10px'
                     width: {md: '342px', sm: '240px', xs: '220px'},

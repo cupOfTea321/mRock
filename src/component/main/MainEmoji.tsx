@@ -19,12 +19,12 @@ const MainEmoji = () => {
                 // backgroundSize: 'auto 80%',
                 // width: '150%'
 
-            }}/>
+            }} />
             <Container sx={{
                 zIndex: 360,
                 position: 'relative',
                 textAlign: 'center',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'center',

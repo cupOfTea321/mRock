@@ -29,7 +29,7 @@ export default function PeopleCard({ link, main = false, person }) {
             position: 'relative',
             textAlign: 'center'
         }}
-        className="animate__animated animate__fadeInUp wow"
+        className="animate__animated animate__bounceIn wow"
       >
           <Box
             sx={{

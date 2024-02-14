@@ -25,7 +25,7 @@ const IdeaPage = () => {
                 textAlign: 'center',
                 width: {md: '65%', sm: '80%', xs: '100%'},
                 margin: '0 auto',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'center',

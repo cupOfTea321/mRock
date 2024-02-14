@@ -27,12 +27,12 @@ const CardsBlock = () => {
             position: 'relative',
             // display: 'flex',
             marginBottom: '80px'
-        }}>
+        }} >
             <Box sx={{
                 display: 'flex',
                 alignItems: 'center',
                 // justifyContent: 'center',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
                 <Input   title={"Имя"} placehold={''}/>
                 <Autocomplete
                     disablePortal
@@ -84,7 +84,7 @@ const CardsBlock = () => {
                     width: {sm: '190px', xs: '189px'},
                     height: {sm: '43px', xs: '42px'},
                     marginTop: {sm: 0, xs: '40px'}
-                }}
+                }} className={'animate__fadeInUp animate__animated wow'}
             >
                 Загрузить ещё
             </Box>

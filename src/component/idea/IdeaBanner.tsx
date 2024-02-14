@@ -17,7 +17,7 @@ const IdeaBanner = () => {
             margin: '0 auto',
             paddingTop: '150px',
             paddingBottom: '100px',
-        }}>
+        }} className={'animate__fadeInUp animate__animated wow'}>
 
             <Typography sx={{width: {sm: '100%', xs: '70%'}, margin: '0 auto'}} variant={'h2'}>
                 МЕГАРОК открывает самую большую сцену для 1000 начинающих и известных музыкантов. Вместе

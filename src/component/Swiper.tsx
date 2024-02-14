@@ -15,8 +15,8 @@ import 'swiper/css/navigation';
 import {Box, Container, Typography} from "@mui/material";
 import {blackText, h3, title2} from "../mui/palette";
 
-const MySwiper = () => {
-    const slides = [
+const MySwiper = ({slides}) => {
+     slides = [
         {
             img: slider2,
             name: 'Сергей Денисенко',
@@ -73,7 +73,7 @@ const MySwiper = () => {
                     clickable: true,
                 }}
                 modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container animate__animated  animate__bounceIn "
+                className="swiper_container animate__animated animate__bounceIn wow"
             >
                 {slides.map((item, index) => {
                     let imageStyle = {}

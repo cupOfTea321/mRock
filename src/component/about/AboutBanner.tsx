@@ -31,7 +31,7 @@ const AboutBanner = () => {
                 margin: '0 auto',
                 paddingTop: '150px',
                 // paddingBottom: '100px',
-            }}>
+            }} className={'animate__fadeInUp animate__animated wow'}>
 
                 <Typography sx={{width: {sm: '100%', xs: '70%'}, margin: '0 auto'}} variant={'h2'}>
                     Впервые в России! 1000 музыкантов
@@ -62,7 +62,7 @@ const AboutBanner = () => {
                 position: 'relative',
                 display: 'flex',
                 marginBottom: '80px'
-            }}>
+            }} className={'animate__bounceIn animate__animated wow'}>
                 {items.map((item, index) => {
                     let imgStyle = {
                         marginTop: '280px',
@@ -97,23 +97,25 @@ const AboutBanner = () => {
                 })}
             </Container>
             <Box component={'img'} src={back3} sx={{
+                display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 zIndex: 650,
                 right: 0,
                 top: 200
-            }}/>
+            }} className={'animate__fadeInRight animate__animated wow'}/>
             <Box component={'img'} src={back4} sx={{
                 position: 'absolute',
                 zIndex: 650,
                 right: 0,
                 bottom: 1500
-            }}/>
+            }} className={'animate__fadeInRight animate__animated wow'}/>
             <Box component={'img'} src={back2} sx={{
+                display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 zIndex: 650,
                 left: 0,
                 top: 250
-            }}/>
+            }} className={'animate__fadeInLeft animate__animated wow'}/>
         </Box>
     );
 };
