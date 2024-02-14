@@ -73,7 +73,7 @@ const Footer = ({path}) => {
                 background: "#353535",
             }}
         >
-            {path !== "/idea" && path !== "/about" && <BlackBackground/>}
+            {path !== "/idea" && path !== "/about" && path !== "/thousand" && <BlackBackground/>}
 
             <Container sx={{
                 position: 'relative',

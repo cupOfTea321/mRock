@@ -2,7 +2,7 @@
 /*font-family: 'Oswald', sans-serif;*/
 @font-face {
     font-family: 'Mega Sans S';
-    src: url('public/fonts/MegaSansS-Regular_4-09.otf');
+    src: url('../../public/fonts/MegaSansS-Regular_4-09.otf');
     /*url('fonts/название_шрифта.woff') format('woff');*/
     /* Дополнительно можно указать другие форматы шрифтов, например, ttf или otf */
 }
@@ -23,19 +23,15 @@
 }
 .MuiInputBase-root{
     border-radius: 50px !important;
-    background: #F0F0F0 !important;
+    /*background: #F0F0F0 !important;*/
     /*height: 68px;*/
     /*font-size: 20px !important;*/
 }
-.MuiAutocomplete-root .MuiInputBase-root  {
-    border-radius: 10px !important;
-    padding: 10px 0 !important;
-    /*background: black !important;*/
-    /*height: 68px;*/
-    font-size: 40px !important;
-}
+/* */
+
 .MuiPaper-root{
     border-radius: 15px !important;
+    margin-top: 5px;
     /*width: 150px;*/
 
 }
@@ -43,34 +39,31 @@
     text-align: center !important;
 }
 @media  (max-width: 600px) {
-    .MuiAutocomplete-root .MuiInputBase-root  {
-        border-radius: 10px !important;
-        padding:   10px !important;
-        /*background: black !important;*/
-        /*height: 68px;*/
-        font-size: 20px !important;
-    }
-    /*.MuiButtonBase-root {*/
+    /*.MuiAutocomplete-root .MuiInputBase-root  {*/
+    /*    border-radius: 10px !important;*/
+    /*    padding:   10px !important;*/
+    /*    !*background: black !important;*!*/
+    /*    !*height: 68px;*!*/
+    /*    font-size: 20px !important;*/
+    /*}*/
+    /*!*.MuiButtonBase-root {*!*/
     /*    font-size: 10px !important;*/
     /*    border-radius: 10px !important;*/
     /*    padding:   0 !important;*/
     /*}*/
 }
-.MuiTooltip-tooltip {
-    background-color: #F0F0F0 !important;
-    color: #8A8A8A !important;
-    padding: 20px 24px !important;
-    font-size: 16px !important;
-    text-align: center !important;
-    border-radius: 10px !important;
-    /* другие стили */
-}
+/*.MuiTooltip-tooltip {*/
+/*    background-color: #F0F0F0 !important;*/
+/*    color: #8A8A8A !important;*/
+/*    padding: 20px 24px !important;*/
+/*    font-size: 16px !important;*/
+/*    text-align: center !important;*/
+/*    border-radius: 10px !important;*/
+/*    !* другие стили *!*/
+/*}*/
 /*.MuiOutlinedInput-notchedOutline legend{*/
 /*    color: red !important;*/
 /*}*/
-.MuiAutocomplete-endAdornment button{
-    color: #F0F0F0;
-}
 .MuiInputBase-input  {
 
 }
@@ -80,13 +73,13 @@
 /*.MuiPopupWindow-root{*/
 /*    color: red !important;*/
 /*}*/
-.MuiAutocomplete{
-    color: #8A8A8A !important;
-}
-.MuiAutocomplete-listbox {
-    background: #F0F0F0;
-    color: #8A8A8A;
-}
+/*.MuiAutocomplete{*/
+/*    color: #8A8A8A !important;*/
+/*}*/
+/*.MuiAutocomplete-listbox {*/
+/*    background: #F0F0F0;*/
+/*    color: #8A8A8A;*/
+/*}*/
 #root{
     --main: white;
     --grey: rgba(138, 138, 138, 1);

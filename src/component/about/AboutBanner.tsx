@@ -21,9 +21,6 @@ const AboutBanner = () => {
     return (
         <Box sx={{
             zIndex: 150,
-            // position: 'relative',
-            // marginBottom: '300px',
-
         }}>
             <BlackBackground/>
             <Box sx={{

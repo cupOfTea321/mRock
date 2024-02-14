@@ -1,0 +1,37 @@
+.MuiAutocomplete-endAdornment button {
+    color: var(--main);
+}
+.MuiAutocomplete-listbox {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.MuiInputBase-root {
+    color: rgba(201, 201, 201, 1) !important;
+    background: transparent !important;
+}
+.MuiInputBase-root:hover {
+    border-radius: 100px
+}
+.Mui-Focused{
+    border-color: rgba(134, 84, 204, 1);
+    color: rgba(134, 84, 204, 1);
+
+}
+.myTextField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: red !important;
+}
+.MuiInputBase-colorPrimary{
+    color: red;
+}
+/*.css-6aj0jg-MuiContainer-root {*/
+/*    padding-left: 0 !important;*/
+/*    padding-right: 0 !important;*/
+/*}*/
+
+/*.MuiAutocomplete-root .MuiInputBase-root  {*/
+/*    border-radius: 10px !important;*/
+/*    padding: 10px 0 !important;*/
+/*    !*background: black !important;*!*/
+/*    !*height: 68px;*!*/
+/*    font-size: 40px !important;*/
+/*}*/
