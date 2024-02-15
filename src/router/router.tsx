@@ -1,6 +1,7 @@
 import {createRef} from "react";
 import {Navigate} from "react-router-dom";
-import {AboutPage, AuthPage, IdeaPage, MainPage, MusicianPage, RegPage, ThousandPage} from "../pages";
+import {AboutPage, AuthPage, ChangePage, IdeaPage, MainPage, MusicianPage, RegPage, ThousandPage} from "../pages";
+
 
 export const routes = [
   { path: "", element: <MainPage />, nodeRef: createRef() },
@@ -10,5 +11,6 @@ export const routes = [
   { path: "auth", element: <AuthPage />, nodeRef: createRef() },
   { path: "reg", element: <RegPage />, nodeRef: createRef() },
   { path: "musician", element: <MusicianPage />, nodeRef: createRef() },
+  { path: "musician/change", element: <ChangePage />, nodeRef: createRef() },
   { path: "/*", element: <Navigate to="" replace />, nodeRef: createRef() },
 ];

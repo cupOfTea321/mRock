@@ -16,7 +16,7 @@ const MainGallery = () => {
     return (
         <Box sx={{
 
-            marginTop: '-60px',
+            marginTop: '60px',
             zIndex: 350,
             position: 'relative',
             paddingBottom: '100px',

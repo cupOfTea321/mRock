@@ -1,21 +1,13 @@
 import React, {useEffect} from 'react';
-import FullBack from "../component/lk/FullBack";
 import BlackBackground from "../component/BlackBackground";
-import {Box, Container, Typography} from "@mui/material";
+import MusRight from "../component/lk/MusRight";
 import Logo from "../component/layout/Logo";
 import AuthButton from "../component/ui/AuthButton";
-import rightBack from "../assets/lk/musBack.png";
-import likeBack from "../assets/lk/likeBack.png";
 import item2 from "../assets/lk/item2.svg";
-import {backText} from "../mui/palette";
-import MusRight from "../component/lk/MusRight";
+import {Box, Container, Typography} from "@mui/material";
+
 import {NavLink, useNavigate} from "react-router-dom";
-const data = [
-    'Имя фамилия',
-    'Барабаны',
-    'Ссылка вк',
-]
-const MusicianPage = () => {
+const ChangePage = () => {
     const navigate = useNavigate()
     useEffect(() => {
         document.body.classList.add("full-height-body");
@@ -25,7 +17,7 @@ const MusicianPage = () => {
         };
     }, []);
     const handleClick = () => {
-        navigate('change')
+        navigate('/musician')
     }
     return (
         <>
@@ -62,26 +54,14 @@ const MusicianPage = () => {
                             marginBottom: '50px'
                         }}
                     />
-                    {data.map(item => (
-                        <Box key={item} sx={{
-                            background: '#8654CC',
-                            padding: '16px 32px 16px 32px',
-                            borderRadius: '100px',
-
-                            marginBottom: '16px'
-                        }}>
-
-                            {item}
-                        </Box>
-                    ))}
                     <Typography
                         onClick={handleClick}
                         style={{
-                        textAlign: 'center',
-                        textDecoration: 'underline',
-                        marginTop: '38px',
-                        cursor: 'pointer'
-                    }}>
+                            textAlign: 'center',
+                            textDecoration: 'underline',
+                            marginTop: '38px',
+                            cursor: 'pointer'
+                        }}>
                         Редактировать анкету
                     </Typography>
                 </Box>
@@ -90,4 +70,4 @@ const MusicianPage = () => {
     );
 };
 
-export default MusicianPage;
+export default ChangePage;

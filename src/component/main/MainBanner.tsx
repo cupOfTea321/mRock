@@ -1,5 +1,6 @@
 import React from 'react';
 import back from "../../assets/mainBack2.png";
+import back2 from "../../assets/main/mainBan.png";
 import BannerText from "./BannerText";
 import backItem1 from "../../assets/back/backItem1.png";
 import mobileBanner from "../../assets/mobileBanner.png";
@@ -15,7 +16,9 @@ const MainBanner = () => {
             backgroundImage: `url(${back})`,
             width: '100vw',
             backgroundSize: 'cover',
-            position: 'relative'
+            // backgroundRepeat: 'no-repeat',
+            position: 'relative',
+            zIndex: 320,
         }}>
             <Box sx={{
                 display: 'flex',

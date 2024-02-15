@@ -137,7 +137,7 @@ const AuthForm: React.FC = ({reg = false}) => {
                     sm: `url(${regBack1})`,
                     xs: `url(${authBackM})`,
                 },
-            }}/>
+            }} to={'/musician'}/>
             {!reg && (<>
                 <Typography sx={{
                     h3,

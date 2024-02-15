@@ -5,17 +5,22 @@ import {Box} from "@mui/material";
 
 const Layout = ({location}) => {
     const path = location.pathname
+    const visible = (
+        path !== '/auth' &&
+        path !== '/reg'  &&
+        path !== '/musician' &&
+        path !== '/musician/change'
+    )
+    console.log(visible)
     return (
         <>
             {
-                path !== '/auth' &&
-                path !== '/reg' && <MyBar/>
+                visible && <MyBar/>
             }
 
             <Outlet/>
             {
-                path !== '/auth' &&
-                path !== '/reg' && <Footer path={path}/>
+                visible && <Footer path={path}/>
             }
 
         </>

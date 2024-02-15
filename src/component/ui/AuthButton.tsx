@@ -6,7 +6,8 @@ import {Box, Typography} from "@mui/material";
 
 const AuthButton = ({
     text = 'Авторизация',
-    sx
+    sx,
+    to = 'auth'
                     }) => {
     return (
         <Box sx={{
@@ -24,7 +25,7 @@ const AuthButton = ({
             height: {sm: '41px', xs: '36px'},
             ...sx
         }}>
-            <NavLink to={'auth'}
+            <NavLink to={to}
                      style={{
 
                          // marginRight: '16px'
