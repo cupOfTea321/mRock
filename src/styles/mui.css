@@ -23,6 +23,25 @@
 .MuiInputBase-colorPrimary{
     color: red;
 }
+.MuiSvgIcon-root{
+    /*color: rgba(134, 84, 204, 1);*/
+    background: rgba(134, 84, 204, 1);
+    color: white;
+    border-radius: 50%;
+}
+.MuiCheckbox-root {
+    border-radius: 50% !important;
+    border: 1px solid rgba(134, 84, 204, 1);
+}
+.MuiIconButton-root{
+    border-radius: 50% !important;
+
+}
+.MuiCheckbox-root svg{
+    background: white;
+    color: rgba(134, 84, 204, 1);
+
+}
 /*.css-6aj0jg-MuiContainer-root {*/
 /*    padding-left: 0 !important;*/
 /*    padding-right: 0 !important;*/

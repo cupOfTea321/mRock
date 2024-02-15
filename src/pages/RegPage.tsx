@@ -1,15 +1,12 @@
 import React, {useEffect} from 'react';
-import Logo from "../component/layout/Logo";
-import {Box, Container, Typography} from "@mui/material";
-import authPhone from "../assets/lk/authPhone.png"
-import item1 from "../assets/lk/item1.png"
-import WhiteItem from "../component/ui/WhiteItem";
-import rightBack from "../assets/lk/rightBack.svg";
-import Input from "../component/ui/Input";
-import AuthForm from "../component/lk/AuthForm";
-import {colStyle} from "../mui/palette";
 import FullBack from "../component/lk/FullBack";
-const AuthPage = () => {
+import Logo from "../component/layout/Logo";
+import {colStyle} from "../mui/palette";
+import WhiteItem from "../component/ui/WhiteItem";
+import AuthForm from "../component/lk/AuthForm";
+import {Box, Container, Typography} from "@mui/material";
+import rightBack from "../assets/lk/regBack.svg";
+const RegPage = () => {
     useEffect(() => {
         document.body.classList.add("full-height-body");
 
@@ -17,7 +14,6 @@ const AuthPage = () => {
             document.body.classList.remove("full-height-body");
         };
     }, []);
-
     return (
         <>
             <FullBack/>
@@ -53,19 +49,17 @@ const AuthPage = () => {
                         justifyContent: 'center'
                     }}>
                         <Typography variant={'h2'}>
-                            Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
+                            Станьте участником самого масштабного рок-бэнда страны!
                         </Typography>
                         <WhiteItem sx={{
                             marginTop: '24px'
                         }}/>
                     </Box>
-                    <AuthForm/>
+                    <AuthForm reg={true}/>
                 </Box>
             </Container>
-
         </>
-
     );
 };
 
-export default AuthPage;
+export default RegPage;

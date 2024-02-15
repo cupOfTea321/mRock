@@ -8,13 +8,9 @@ import person4 from '../../assets/thousand/img4.png'
 import moreBtn from '../../assets/thousand/moreBack.svg'
 import PeopleCard from "./PeopleCard";
 import {backText} from "../../mui/palette";
+import MyAuto from "../ui/MyAuto";
 const CardsBlock = () => {
-    const top100Films = [
-        { label: "The Shawshank Redemption", year: 1994 },
-        { label: "The Godfather", year: 1972 },
-        { label: "The Godfather: Part II", year: 1974 },
-        { label: "The Dark Knight", year: 2008 },
-    ];
+
     const people = [
         {image: person1},
         {image: person2},
@@ -34,25 +30,7 @@ const CardsBlock = () => {
                 // justifyContent: 'center',
             }} className={'animate__fadeInUp animate__animated wow'}>
                 <Input   title={"Имя"} placehold={''}/>
-                <Autocomplete
-                    disablePortal
-                    id="combo-box-demo"
-                    options={top100Films}
-                    renderInput={(params) => (
-                        <TextField {...params} sx={{
-                            ...input,
-                        }} label={
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                }}
-                            >
-                                <Typography sx={{ fontSize: "16px" }}>Инструмент</Typography>
-                            </Box>
-                        } />
-                    )}
-                />
-                <Input   title={"Группа"} placehold={''}/>
+                <MyAuto/>
             </Box>
             <Grid container   sx={{
                 marginTop: "72px",
