@@ -7,16 +7,16 @@ import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
 import ScrollToTop from "./component/ScrollToTop";
 function App() {
-    useEffect(() => {
-        const wow = new WOW({
-            // Настройки по умолчанию
-            offset: 100,
-            // mobile: false,
-            live: true,
-        });
-
-        wow.init();
-    }, []);
+    // useEffect(() => {
+    //     const wow = new WOW({
+    //         // Настройки по умолчанию
+    //         offset: 100,
+    //         // mobile: false,
+    //         live: true,
+    //     });
+    //
+    //     wow.init();
+    // }, []);
     const location = useLocation();
     // const { isLoading } = useGetProjectsQuery(1);
     const isLoading = false
