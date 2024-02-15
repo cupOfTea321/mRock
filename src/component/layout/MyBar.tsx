@@ -29,7 +29,7 @@ const MyBar = () => {
         color: "#FEFDFD",
         fontSize: "16px",
         "&:hover": {
-            color: "#3278FF",
+            color: "rgba(134, 84, 204, 1)",
         },
     };
     const [background, setBackground] = useState('transparent');
