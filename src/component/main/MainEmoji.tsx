@@ -4,7 +4,7 @@ import BlackBackground from "../BlackBackground";
 import item2 from "../../assets/main/item2.png";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
-import peopleBack from "../../assets/back/peopleBack.png";
+import peopleBack from "../../assets/peopleBack.png";
 const MainEmoji = () => {
     return (
         <Box

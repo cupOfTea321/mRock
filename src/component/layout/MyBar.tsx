@@ -4,11 +4,13 @@ import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import logo from "../../assets/logo.png"
 import mobileLogo from "../../assets/Лого.png"
-import menuBack from "../../assets/menuBack.svg"
-import authBack from "../../assets/back/authBack.png"
-import authBackM from "../../assets/pinkBackM.svg";
+import menuBack from "../../assets/main/menuBack.png"
+import authBack from "../../assets/authBack.png"
+import authBackM from "../../assets/main/authBackM.png";
 import { CSSTransition } from 'react-transition-group'
 import BlackBackground from "../BlackBackground";
+import Logo from "./Logo";
+import AuthButton from "../ui/AuthButton";
 const MyBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [open, setOpen] = React.useState(false);
@@ -86,26 +88,7 @@ const MyBar = () => {
                     }}
                     className="animate__animated animate__fadeInDown wow"
                 >
-                    <Typography
-                        sx={{
-                            textAlign: "left",
-                            width: "40%",
-                            fontSize: "32px",
-                        }}
-                    >
-                        <NavLink to={"/"} style={{color: "#FEFDFD"}}>
-                            <Box
-                                component={"img"}
-                                src={logo}
-                                sx={{
-                                    width: {md: "96.6px", sm: '65.76px', xs: '65.76px'},
-                                    height: {md: "104.34px", sm: '70.94px', xs: '70.94px'},
-                                    // display: {sm: "flex", xs: "none"},
-                                    display: 'flex'
-                                }}
-                            />
-                        </NavLink>
-                    </Typography>
+                    <Logo/>
 
                     <Box
                         sx={{
@@ -125,33 +108,8 @@ const MyBar = () => {
                             </NavLink>
                         ))}
                     </Box>
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundImage: {
-                            sm: `url(${authBack})`,
-                            xs: `url(${authBackM})`,
-                        },
-                        // backgroundSize: 'contain',
-                        // backgroundRepeat: 'no-repeat',
-                        // transform: 'rotate(26deg)',
-                        width: {sm: '161px', xs: '115px'},
-                        height: {sm: '41px', xs: '36px'},
 
-                    }}>
-                        <NavLink to={'auth'}
-                                 style={{
-
-                                     // marginRight: '16px'
-                                 }}>
-                            <Typography sx={{
-                                color: "#FEFDFD",
-                                fontSize: {sm: "16px", xs: '12px'},
-
-                            }}>Авторизация</Typography>
-                        </NavLink>
-                    </Box>
+                    <AuthButton/>
                     {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
                     <IconButton
                         aria-label="more"

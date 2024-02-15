@@ -1,5 +1,5 @@
 import React from 'react';
-import back from "../../assets/back/mainBack2.png";
+import back from "../../assets/mainBack2.png";
 import BannerText from "./BannerText";
 import backItem1 from "../../assets/back/backItem1.png";
 import mobileBanner from "../../assets/mobileBanner.png";

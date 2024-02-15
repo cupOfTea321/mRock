@@ -25,3 +25,10 @@ export const title2 = {
 export const blackText = {
   color: '#131313'
 }
+export const colStyle = {
+  width: '40%',
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+}

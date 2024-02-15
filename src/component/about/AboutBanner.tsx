@@ -1,14 +1,14 @@
 import React from 'react';
-import backItem1 from "../../assets/about/item3.svg";
+import backItem1 from "../../assets/about/aboutItem3.svg";
 import {Box, Container, Typography} from "@mui/material";
 import item1 from "../../assets/about/about1.png";
 import item2 from "../../assets/about/about2.png";
 import item3 from "../../assets/about/about3.png";
 import item4 from "../../assets/about/about4.png";
-import back1 from "../../assets/about/back1.svg";
-import back2 from "../../assets/about/back2.svg";
-import back3 from "../../assets/about/back3.svg";
-import back4 from "../../assets/about/back4.svg";
+import back1 from "../../assets/about/aboutBack1.svg";
+import back2 from "../../assets/about/aboutBack2.svg";
+import back3 from "../../assets/about/aboutBack3.svg";
+import back4 from "../../assets/about/aboutBack4.svg";
 import BlackBackground from "../BlackBackground";
 
 const AboutBanner = () => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import BlackBackground from "../component/BlackBackground";
 import backItem1 from "../assets/thousand/item1.svg";
-import back3 from "../assets/about/back3.svg";
+import back3 from "../assets/about/aboutBack3.svg";
 import back1 from "../assets/thousand/back1.svg";
-import back4 from "../assets/about/back4.svg";
-import back2 from "../assets/about/back2.svg";
+import back4 from "../assets/about/aboutBack4.svg";
+import back2 from "../assets/about/aboutBack2.svg";
 import {Box, Container, Typography} from "@mui/material";
 import CardsBlock from "../component/thousand/CardsBlock";
 

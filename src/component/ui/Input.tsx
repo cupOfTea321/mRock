@@ -1,19 +1,16 @@
 import { Box, TextField, Typography } from "@mui/material";
 import React from "react";
 export const input = {
-  // width: "100%",
   width: '220px',
   height: '56px',
   marginBottom: "20px",
   background: "transparent",
   marginRight: '13px',
-
   marginTop: '24px',
-  // border: "none",
   "& .MuiOutlinedInput-notchedOutline": {
     borderRadius: "100px",
     borderColor: "rgba(134, 84, 204, 1) !important",
-    color: 'white !important'
+    color: 'white !important',
   },
   "&:hover":{
     color: 'red !important'
@@ -26,7 +23,7 @@ export const input = {
     color: "#9395CC",
     fontSize: "30px",
   },
-  fontSize: "16px"
+  fontSize: "16px",
 };
 const Input = ({
   title,
@@ -34,6 +31,7 @@ const Input = ({
   handleChange,
   value,
   name,
+    sx
 }) => {
   return (
     <TextField
@@ -49,7 +47,10 @@ const Input = ({
       value={value}
       onChange={handleChange}
 
-      sx={input}
+      sx={{
+        ...input,
+        ...sx,
+    }}
       placeholder={`${placehold}`}
       name={name}
       InputProps={{

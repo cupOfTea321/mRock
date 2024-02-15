@@ -1,6 +1,6 @@
 import React from 'react';
-import whiteBack from "../../assets/whiteItem.svg";
-import whiteBackM from "../../assets/whiteItemM.svg";
+import whiteBack from "../../assets/items/ticketBack.png";
+import whiteBackM from "../../assets/main/whiteItem.png";
 import {Box, Typography} from "@mui/material";
 import {backText, h3} from "../../mui/palette";
 

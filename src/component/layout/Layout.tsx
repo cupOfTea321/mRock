@@ -4,19 +4,18 @@ import MyBar from "./MyBar.js";
 import {Box} from "@mui/material";
 
 const Layout = ({location}) => {
+    const path = location.pathname
   return (
     <>
-      <MyBar />
-      {/*<Container maxWidth={'xl'}>*/}
-      {/*  <Box sx={{*/}
-      {/*      marginBottom: '114px',*/}
-      {/*  }}>*/}
+        {
+            path !== '/auth' && <MyBar />
+        }
 
-      {/*  </Box>*/}
       <Outlet />
-      {/*</Container>*/}
+        {
+            path !== '/auth' && <Footer path={path}/>
+        }
 
-      <Footer path={location.pathname}/>
     </>
   );
 };

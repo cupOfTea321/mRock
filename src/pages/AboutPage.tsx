@@ -1,7 +1,7 @@
 import React from 'react';
 import BlackBackground from "../component/BlackBackground";
 import {Box, Container, Typography} from "@mui/material";
-import backItem1 from "../assets/about/item3.svg";
+import backItem1 from "../assets/about/aboutItem3.svg";
 import item1 from "../assets/about/about1.png";
 import item2 from "../assets/about/about2.png";
 import item3 from "../assets/about/about3.png";

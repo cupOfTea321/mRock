@@ -1,6 +1,6 @@
 import React from 'react';
 import whiteBack from "../assets/main/whiteBack.svg";
-import whiteBackM from "../assets/WhiteContainerM.png";
+import whiteBackM from "../assets/main/WhiteContainerM.png";
 import whiteBackM2 from "../assets/backM.png";
 import {Box} from "@mui/material";
 
