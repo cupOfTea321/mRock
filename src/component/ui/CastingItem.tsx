@@ -1,5 +1,5 @@
 import React from 'react';
-import authBack from "../../assets/items/authBack.png";
+import authBack from "../../assets/items/castingBack.png";
 import authBackM from "../../assets/items/castingBackM.png";
 import {Box, Typography} from "@mui/material";
 import {backText} from "../../mui/palette";

@@ -2,7 +2,7 @@ import React from 'react';
 import back from "../../assets/mainBack2.png";
 import back2 from "../../assets/main/mainBan.png";
 import BannerText from "./BannerText";
-import backItem1 from "../../assets/back/backItem1.png";
+import backItem1 from "../../assets/back/backItem1.svg";
 import mobileBanner from "../../assets/mobileBanner.png";
 import {Box} from "@mui/material";
 import WhiteItem from "../ui/WhiteItem";
@@ -53,15 +53,7 @@ const MainBanner = () => {
             {/*    // right: 0,*/}
             {/*}}/>*/}
 
-            <Box component={'img'} src={backItem1} sx={{
-                position: 'absolute',
-                bottom: -31,
-                right: 50,
-                zIndex: 500,
-                display: {sm: 'block', xs: 'none'}
-                // top: 0,
-                // right: 0,
-            }}/>
+
             <Box component={'img'} src={mobileBanner} sx={{
                 position: 'absolute',
                 bottom: 130,

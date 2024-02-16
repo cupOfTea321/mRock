@@ -10,8 +10,8 @@ import 'swiper/css/navigation';
     import slider2 from '../assets/slides/slide2.png';
     import slider3 from '../assets/slides/slide3.png';
     import slider4 from '../assets/slides/slide4.png';
-    import arrowBack from '../assets/items/arrowBack.svg';
-    import arrowBackRight from '../assets/items/rightArrow.svg';
+    import arrowBack from '../assets/back/leftArrow.png';
+    import arrowBackRight from '../assets/back/rightArrow.png';
 import {Box, Container, Typography} from "@mui/material";
 import {blackText, h3, title2} from "../mui/palette";
 
@@ -139,11 +139,15 @@ const MySwiper = ({slides}) => {
                 <Box className="slider-controler" sx={{
                     // marginTop: {sm: '470px', xs: '-12%'},
                     position: 'relative',
-                    marginBottom: '200px'
+                    margin: '0 auto',
+                    marginBottom: '200px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    width: '150px'
                 }}>
                     <Box className="swiper-button-prev slider-arrow" sx={{
                         ...arrowStyle,
-                        left: '36%',
+                        // left: '36%',
                         background: `url(${arrowBack})`,
                         // padding: {sm: '25px 25px 26px 15px', xs: '25px 25px 26px 20px'}
                     }}>
@@ -151,7 +155,7 @@ const MySwiper = ({slides}) => {
                     <Box className="swiper-button-next slider-arrow" sx={{
                         ...arrowStyle,
                         background: `url(${arrowBackRight})`,
-                        right: {lg: '29%', md: '25%', sm: '24%', xs: '23%'},
+                        // right: {lg: '29%', md: '25%', sm: '24%', xs: '23%'},
                         // padding: {sm: '25px 15px 26px 25px', xs: '25px 21px 26px 28px'}
                     }}>
                     </Box>

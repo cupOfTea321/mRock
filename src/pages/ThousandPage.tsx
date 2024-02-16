@@ -1,14 +1,21 @@
 import React from 'react';
 import BlackBackground from "../utils/BlackBackground";
-import backItem1 from "../assets/items/item1.svg";
+import backItem1 from "../assets/items/item1.png";
 import back3 from "../assets/about/aboutBack3.svg";
 import back1 from "../assets/thousand/back1.svg";
 import back4 from "../assets/about/aboutBack4.svg";
 import back2 from "../assets/about/aboutBack2.svg";
 import {Box, Container, Typography} from "@mui/material";
 import CardsBlock from "../component/thousand/CardsBlock";
+import item1 from "../assets/items/item1.png";
+import ItemText from "../component/ui/ItemText";
+import Loader from "../utils/Loader";
+import {useGetMusiciansQuery} from "../redux/services";
 
 const ThousandPage = () => {
+    const {data, isLoading} = useGetMusiciansQuery()
+    if (isLoading) return <Loader title={`Загрузка событий...`} />;
+    console.log(data)
     return (
         <Box sx={{
             zIndex: 150,
@@ -35,10 +42,11 @@ const ThousandPage = () => {
                     <Typography variant={'h2'}>
                         Самый масштабный
                     </Typography>
-                    <Box component={'img'} src={backItem1} sx={{
+                    <ItemText variant={'h2'} sx={{
+                        background: `url(${backItem1})`,
                         width: {sm: '238px', xs: '221px'},
-                        height: {sm: '55px', xs: '31px'}
-                    }}/>
+                        height: {sm: '55px', xs: '31px'},
+                    }} title={'рок-бэнд'}/>
                     <Typography variant={'h2'}>
                         страны
                     </Typography>

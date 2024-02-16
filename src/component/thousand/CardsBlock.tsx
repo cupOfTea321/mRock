@@ -5,10 +5,11 @@ import person1 from '../../assets/thousand/img1.png'
 import person2 from '../../assets/thousand/img2.png'
 import person3 from '../../assets/thousand/img3.png'
 import person4 from '../../assets/thousand/img4.png'
-import moreBtn from '../../assets/items/moreBack.svg'
+import moreBtn from '../../assets/items/moreBack.png'
 import PeopleCard from "./PeopleCard";
 import {backText} from "../../mui/palette";
 import MyAuto from "../ui/MyAuto";
+import ItemText from "../ui/ItemText";
 const CardsBlock = () => {
 
     const people = [
@@ -53,19 +54,13 @@ const CardsBlock = () => {
                     </Grid>
                 ))}
             </Grid>
-            <Box
-                sx={{
-                    ...backText,
-                    margin: '0 auto',
-                    background: `url(${moreBtn})`,
-
-                    width: {sm: '190px', xs: '189px'},
-                    height: {sm: '43px', xs: '42px'},
-                    marginTop: {sm: 0, xs: '40px'}
-                }} className={'animate__fadeInUp animate__animated wow'}
-            >
-                Загрузить ещё
-            </Box>
+            <ItemText img={moreBtn} title={'Загрузить ещё'} typo={{color: 'white'}}
+             sx={{
+                 margin: '0 auto',
+                 width: {sm: '190px', xs: '189px'},
+                 height: {sm: '43px', xs: '42px'},
+                 marginTop: {sm: 0, xs: '40px'}
+             }}/>
         </Container>
     );
 };

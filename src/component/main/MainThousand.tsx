@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Container, Typography} from "@mui/material";
 import backItem7 from "../../assets/back/backItem7.svg";
-import item1 from "../../assets/items/item6.png";
+import item1 from "../../assets/items/item1.png";
 import thousand from "../../assets/items/thousand.png";
 import whiteBack from "../../assets/main/whiteBack.svg"
 import slider1 from "../../assets/slides/img1.png";
@@ -10,6 +10,7 @@ import slider3 from "../../assets/slides/img3.png";
 import slider4 from "../../assets/slides/img4.png";
 import {blackText, h3, title2} from "../../mui/palette";
 import WhiteContainer from "../../utils/WhiteContainer";
+import ItemText from "../ui/ItemText";
 
 const MainThousand = () => {
 
@@ -60,10 +61,15 @@ const MainThousand = () => {
                 <Typography variant={'h2'} sx={blackText}>
                     Самый масштабный
                 </Typography>
-                <Box component={'img'} src={item1} sx={{
+                {/*<Box component={'img'} src={item1} sx={{*/}
+                {/*    width: {md: '238px', sm: '180px', xs: '144px'},*/}
+                {/*    height: {md: '55px', sm: '40px', xs: '28px'},*/}
+                {/*}}/>*/}
+                <ItemText variant={'h2'} sx={{
+                    background: `url(${item1})`,
                     width: {md: '238px', sm: '180px', xs: '144px'},
                     height: {md: '55px', sm: '40px', xs: '28px'},
-                }}/>
+                }} title={'рок-бэнд'}/>
                 <Typography variant={'h2'} sx={blackText}>
                     страны
                 </Typography>
@@ -129,11 +135,15 @@ const MainThousand = () => {
                         </Box>)
                 })}
             </Container>
-            <Box component={'img'} src={thousand} sx={{
+            <ItemText typo={{color: 'white', ...h3}} img={thousand} sx={{
                 margin: '0 auto',
                 display: 'flex',
-                marginTop: '25px'
-            }} className={'animate__fadeInUp animate__animated wow'}/>
+                marginTop: '25px',
+                width: {md: '240px', sm: '180px', xs: '144px'},
+                height: {md: '50px', sm: '40px', xs: '28px'},
+                cursor: 'pointer'
+
+            }} title={'Тысяча'} className={'animate__fadeInUp animate__animated wow'}/>
             <Box component={'img'} src={backItem7} sx={{
                 position: 'absolute',
                 display: {sm: 'block', xs: 'none'},

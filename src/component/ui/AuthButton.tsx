@@ -14,6 +14,7 @@ const AuthButton = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+
             backgroundImage: {
                 sm: `url(${authBack})`,
                 xs: `url(${authBackM})`,
@@ -21,7 +22,7 @@ const AuthButton = ({
             // backgroundSize: 'contain',
             // backgroundRepeat: 'no-repeat',
             // transform: 'rotate(26deg)',
-            width: {sm: '161px', xs: '115px'},
+            width: {sm: '164px', xs: '115px'},
             height: {sm: '41px', xs: '36px'},
             ...sx
         }}>

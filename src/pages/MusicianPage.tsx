@@ -51,7 +51,10 @@ const MusicianPage = () => {
                     width: '403px',
 
                 }}>
-                    <ItemText variant={'h2'}/>
+                    <ItemText variant={'h2'} sx={{
+                        marginTop: '24px',
+                        marginBottom: '50px',
+                    }}/>
                     {data.map(item => (
                         <Box key={item} sx={{
                             background: '#8654CC',

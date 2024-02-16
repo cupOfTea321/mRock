@@ -16,8 +16,7 @@ const ItemText = ({
             onClick={onClick}
             sx={{
                 ...backText,
-                marginTop: '24px',
-                marginBottom: '50px',
+
                 background: `url(${img})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',

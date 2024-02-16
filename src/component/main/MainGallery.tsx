@@ -5,23 +5,50 @@ import centreGallery from "../../assets/main/centreGal.svg";
 import centreGalleryM from "../../assets/main/CentreGalM.svg";
 import rightGallery from "../../assets/main/RightGal.svg";
 import rightGalleryM from "../../assets/main/rightGalM.svg";
-import backItem2 from "../../assets/back/backItem2.png";
+import back from "../../assets/фон.png";
+import backItem2 from "../../assets/back/backItem2.svg";
 import backLines from "../../assets/back/backLines.png";
 import {Box} from "@mui/material";
 import GalleryText from "./GalleryText";
 import BlackBackground from "../../utils/BlackBackground";
+import backItem1 from "../../assets/back/backItem1.svg";
 
 const MainGallery = () => {
 
     return (
         <Box sx={{
 
-            marginTop: '60px',
+            marginTop: '-140px',
             zIndex: 350,
             position: 'relative',
-            paddingBottom: '100px',
+
+            paddingBottom: '150px',
         }}>
-            <BlackBackground/>
+            {/*<BlackBackground/>*/}
+            {/*<Box sx={{*/}
+            {/*    position: 'absolute',*/}
+            {/*    zIndex: 340,*/}
+            {/*    top: 0,*/}
+            {/*    left: 0,*/}
+            {/*    width: '100vw',*/}
+            {/*    height: '100%',*/}
+            {/*    backgroundColor: 'black',*/}
+            {/*    backgroundRepeat: 'no-repeat',*/}
+            {/*}} >*/}
+            {/*</Box>*/}
+            <Box sx={{
+                position: 'absolute',
+                zIndex: 360,
+                width: '100vw',
+                height: '100%',
+                // opacity: 0.3    ,
+                // filter: 'blur(20px)',
+                background: `url(${back})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+            }}>
+
+            </Box>
             <GalleryText/>
             {/* ПК ГАЛЕРЕЯ*/}
             <Box sx={{
@@ -32,6 +59,7 @@ const MainGallery = () => {
                 alignItems: 'center',
                 flexWrap: 'no-wrap',
                 position: 'relative',
+
                 zIndex: 400,
             }} >
                 <Box component={'img'} src={leftGallery} sx={{
@@ -84,12 +112,18 @@ const MainGallery = () => {
             </Box>
             <Box component={'img'} src={backItem2} sx={{
                 position: 'absolute',
-                top: 100,
+                top: 200,
                 left: 0,
                 zIndex: 500,
                 display: {md: 'block', sm: 'none', xs: 'none'}
             }}/>
-
+            <Box component={'img'} src={backItem1} sx={{
+                position: 'absolute',
+                top: 50,
+                right: 50,
+                zIndex: 700,
+                display: {sm: 'block', xs: 'none'}
+            }}/>
         </Box>
     );
 };

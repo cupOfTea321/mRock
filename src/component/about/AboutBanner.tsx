@@ -19,10 +19,7 @@ const AboutBanner = () => {
         item4,
     ]
     return (
-        <Box sx={{
-            zIndex: 150,
-        }}>
-            <BlackBackground/>
+        <>
             <Box sx={{
                 position: 'relative',
                 zIndex: 400,
@@ -58,7 +55,7 @@ const AboutBanner = () => {
 
             </Box>
             <Container sx={{
-                zIndex: 600,
+                zIndex: 400,
                 position: 'relative',
                 display: 'flex',
                 marginBottom: '80px'
@@ -116,7 +113,7 @@ const AboutBanner = () => {
                 left: 0,
                 top: 250
             }} className={'animate__fadeInLeft animate__animated wow'}/>
-        </Box>
+        </>
     );
 };
 

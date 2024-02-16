@@ -24,7 +24,7 @@ const MyBar = () => {
     const pages = [
         {name: "Главная", to: "/"},
         {name: "Идея", to: "/idea"},
-        {name: "О мероприятие", to: "/about"},
+        {name: "О мероприятии", to: "/about"},
         {name: "Тысяча", to: "/thousand"},
     ];
     const navCSS = {
@@ -66,6 +66,7 @@ const MyBar = () => {
                     left: 0,
                     zIndex: 800,
                     height: {sm: '124px', xs: '104px'},
+
                     display: 'flex',
                     animation: 'colorFade 0.5s'
                 }} className={'appBar'}
@@ -84,7 +85,7 @@ const MyBar = () => {
                         marginTop: {sm: "20px", xs: "10px"},
                         marginBottom: {sm: "20px", xs: "10px"},
                         position: 'relative',
-                        zIndex: 1200
+                        zIndex: 1200,
                     }}
                     className="animate__animated animate__fadeInDown wow"
                 >
@@ -92,10 +93,14 @@ const MyBar = () => {
 
                     <Box
                         sx={{
-                            width: "60%",
+                            // width: "50%",
                             // justifyContent: "space-between",
+                            // margin: '0 auto',
+                            // textAlign: 'left',
                             fontSize: "16px",
+                            // paddingRight: '20%',
                             display: {md: "flex", sm: "none", xs: "none"},
+                            justifyContent: 'flex-start'
                         }}
                     >
                         {pages.map((page, index) => (
@@ -108,8 +113,15 @@ const MyBar = () => {
                             </NavLink>
                         ))}
                     </Box>
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        // width: '20%'
+                    }}>
+                        <AuthButton/>
+                    </Box>
 
-                    <AuthButton/>
                     {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
                     <IconButton
                         aria-label="more"
@@ -133,7 +145,7 @@ const MyBar = () => {
                         <MenuIcon
                             sx={{
                                 color: "black",
-
+                                background: 'transparent'
 
                             }}
 

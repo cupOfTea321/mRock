@@ -18,6 +18,7 @@ const BlackBackground = ({
                 width: '100vw',
                 height: '100%',
                 backgroundColor: 'black',
+                backgroundRepeat: 'no-repeat',
                 ...sx
             }} >
             </Box>
@@ -35,6 +36,7 @@ const BlackBackground = ({
             }}>
 
             </Box>
+
         </>
     );
 };

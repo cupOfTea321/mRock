@@ -12,9 +12,13 @@ import AboutBanner from "../component/about/AboutBanner";
 const AboutPage = () => {
 
     return (
-        <>
+        <><Box sx={{
+            zIndex: 150,
+        }}>
+            <BlackBackground/>
             {/*<BlackBackground/>*/}
             <AboutBanner/>
+        </Box>
             <Box sx={{
                 position: 'relative',
                 zIndex: 500,

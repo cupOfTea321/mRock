@@ -57,7 +57,10 @@ const ChangePage = () => {
                     alignItems: 'center',
                 }}>
 
-                    <ItemText title={'Редактирование'} variant={'h2'}/>
+                    <ItemText title={'Редактирование'} variant={'h2'} sx={{
+                        marginTop: '24px',
+                        marginBottom: '50px',
+                    }}/>
                     <Grid container>
                         <Input sx={inputStyle} title={'Ваше имя'} placehold={'Введите имя'}/>
                         <MyAuto sx={inputStyle}/>

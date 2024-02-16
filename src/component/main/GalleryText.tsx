@@ -1,7 +1,8 @@
 import React from 'react';
-import backItem8 from "../../assets/back/backItem8.svg";
-import {h3} from "../../mui/palette";
+import item9 from "../../assets/items/item9.png";
+import {backText, h3} from "../../mui/palette";
 import {Box, Typography} from "@mui/material";
+import ItemText from "../ui/ItemText";
 
 const GalleryText = () => {
     // const secondText = {
@@ -15,7 +16,7 @@ const GalleryText = () => {
             margin: '0 auto',
             textAlign: 'center',
             width: {xl: '60%', lg: '80%', sm: '100%', xs: '60%'},
-            paddingTop: {sm: '100px', xs: '60px'},
+            paddingTop: {sm: '240px', xs: '150px'},
         }} className={'animate__fadeInUp animate__animated wow'}>
             <Typography sx={{
                 marginTop: '-5px',
@@ -28,11 +29,21 @@ const GalleryText = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }} >
-                <Box component={'img'} src={backItem8} sx={{
-                    // paddingTop: '-10px'
+                <ItemText sx={{
+                    background: `url(${item9})`,
                     width: {md: '342px', sm: '240px', xs: '220px'},
                     height: {md: '50px', sm: '40px', xs: '32px'},
-                }}/>
+
+                }} variant={'h2'} title={'на одной сцене'}/>
+                {/*<Box  sx={{*/}
+                {/*    // paddingTop: '-10px'*/}
+                {/*    ...backText,*/}
+                {/*    background: `url(${item9})`,*/}
+                {/*    width: {md: '342px', sm: '240px', xs: '220px'},*/}
+                {/*    height: {md: '50px', sm: '40px', xs: '32px'},*/}
+                {/*}}>*/}
+                {/*    на одной сцене*/}
+                {/*</Box>*/}
                 <Typography variant={'h2'}>
                     вместе исполнят мировые
                 </Typography>

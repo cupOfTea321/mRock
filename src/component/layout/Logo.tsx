@@ -8,7 +8,7 @@ const Logo = ({sx}) => {
         <Box
             sx={{
                 textAlign: "left",
-                width: "40%",
+                // width: "40%",
                 fontSize: "32px",
                 ...sx
             }}
