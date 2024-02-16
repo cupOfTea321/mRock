@@ -1,12 +1,16 @@
 import React, {useEffect} from 'react';
-import BlackBackground from "../component/BlackBackground";
+import BlackBackground from "../utils/BlackBackground";
 import MusRight from "../component/lk/MusRight";
 import Logo from "../component/layout/Logo";
 import AuthButton from "../component/ui/AuthButton";
-import item2 from "../assets/lk/item2.svg";
-import {Box, Container, Typography} from "@mui/material";
+import itemSave from "../assets/items/saveBack.png";
+import {Box, Container, Grid, Typography} from "@mui/material";
 
 import {NavLink, useNavigate} from "react-router-dom";
+import {backText, h3} from "../mui/palette";
+import ItemText from "../component/ui/ItemText";
+import Input from "../component/ui/Input";
+import MyAuto from "../component/ui/MyAuto";
 const ChangePage = () => {
     const navigate = useNavigate()
     useEffect(() => {
@@ -18,6 +22,10 @@ const ChangePage = () => {
     }, []);
     const handleClick = () => {
         navigate('/musician')
+    }
+    const inputStyle = {
+        width: '228px',
+        marginRight: '24px',
     }
     return (
         <>
@@ -42,28 +50,35 @@ const ChangePage = () => {
 
                 <Box sx={{
                     marginLeft: '50px',
-                    width: '403px',
-
+                    width: '520px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}>
-                    <Box
-                        component={'img'}
-                        src={item2}
-                        sx={{
 
-                            marginTop: '24px',
-                            marginBottom: '50px'
+                    <ItemText title={'Редактирование'} variant={'h2'}/>
+                    <Grid container>
+                        <Input sx={inputStyle} title={'Ваше имя'} placehold={'Введите имя'}/>
+                        <MyAuto sx={inputStyle}/>
+                        <Input sx={inputStyle} title={'Ссылка на Вконтакте'} placehold={'Введите ссылку'}/>
+                        <Input sx={inputStyle} title={'Фотография'} placehold={'Файл'}/>
+                    </Grid>
+
+                    <ItemText
+                        onClick={handleClick}
+                        img={itemSave}
+                        title={'Сохранить'}
+                        sx={{
+                            width: {sm: '170px', xs: ''},
+                            height: {sm: '50px', xs: ''},
+                            cursor: 'pointer',
+                        }}
+                        typo={{
+                            ...h3,
+                            color: 'white'
                         }}
                     />
-                    <Typography
-                        onClick={handleClick}
-                        style={{
-                            textAlign: 'center',
-                            textDecoration: 'underline',
-                            marginTop: '38px',
-                            cursor: 'pointer'
-                        }}>
-                        Редактировать анкету
-                    </Typography>
                 </Box>
             </Container>
         </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import backItem1 from "../../assets/idea/item1.svg";
+import backItem1 from "../../assets/items/item8.svg";
 import {h3} from "../../mui/palette";
 import ideaImg from "../../assets/idea/ideaImg.png";
 import ideaImgM from "../../assets/idea/ideaImgM.png";

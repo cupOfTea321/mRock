@@ -4,9 +4,9 @@ import item9 from "../../assets/back/backItem9.svg";
 import back3 from "../../assets/back3.svg";
 import back4 from "../../assets/back4.svg";
 import back5 from "../../assets/back5.svg";
-import itemLeft from "../../assets/item4.svg";
+import itemLeft from "../../assets/items/item4.svg";
 import rock from "../../assets/rock.svg";
-import WhiteContainer from "../WhiteContainer";
+import WhiteContainer from "../../utils/WhiteContainer";
 import {Box, Container, Typography} from "@mui/material";
 import backItem1 from "../../assets/back/backItem1.png";
 

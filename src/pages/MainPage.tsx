@@ -6,7 +6,7 @@ import item9 from "../assets/back/backItem9.svg"
 import MainGallery from "../component/main/MainGallery";
 import MainThousand from "../component/main/MainThousand";
 import MainEmoji from "../component/main/MainEmoji";
-import WhiteContainer from "../component/WhiteContainer";
+import WhiteContainer from "../utils/WhiteContainer";
 import {backText, blackText} from "../mui/palette";
 import Partners from "../component/main/Partners";
 

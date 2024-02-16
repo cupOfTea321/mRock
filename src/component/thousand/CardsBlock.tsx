@@ -5,7 +5,7 @@ import person1 from '../../assets/thousand/img1.png'
 import person2 from '../../assets/thousand/img2.png'
 import person3 from '../../assets/thousand/img3.png'
 import person4 from '../../assets/thousand/img4.png'
-import moreBtn from '../../assets/thousand/moreBack.svg'
+import moreBtn from '../../assets/items/moreBack.svg'
 import PeopleCard from "./PeopleCard";
 import {backText} from "../../mui/palette";
 import MyAuto from "../ui/MyAuto";

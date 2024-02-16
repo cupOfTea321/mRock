@@ -1,5 +1,5 @@
 import React from 'react';
-import backItem1 from "../../assets/about/aboutItem3.svg";
+import backItem1 from "../../assets/items/aboutItem3.svg";
 import {Box, Container, Typography} from "@mui/material";
 import item1 from "../../assets/about/about1.png";
 import item2 from "../../assets/about/about2.png";
@@ -9,7 +9,7 @@ import back1 from "../../assets/about/aboutBack1.svg";
 import back2 from "../../assets/about/aboutBack2.svg";
 import back3 from "../../assets/about/aboutBack3.svg";
 import back4 from "../../assets/about/aboutBack4.svg";
-import BlackBackground from "../BlackBackground";
+import BlackBackground from "../../utils/BlackBackground";
 
 const AboutBanner = () => {
     const items = [

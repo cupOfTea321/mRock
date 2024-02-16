@@ -8,8 +8,8 @@ import {TextMaskCustom} from "./TextMaskCustom";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import AuthButton from "../ui/AuthButton";
 import {NavLink} from "react-router-dom";
-import authBack from "../../assets/authBack.png";
-import authBackM from "../../assets/main/authBackM.png";
+import authBack from "../../assets/items/authBack.png";
+import authBackM from "../../assets/items/authBackM.png";
 import MyAuto from "../ui/MyAuto";
 
 const AuthForm: React.FC = ({reg = false}) => {

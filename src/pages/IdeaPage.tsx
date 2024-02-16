@@ -1,9 +1,9 @@
 import React from 'react';
 import {Box, Typography} from "@mui/material";
-import BlackBackground from "../component/BlackBackground";
-import ideaItem2 from "../assets/idea/item2.svg";
+import BlackBackground from "../utils/BlackBackground";
+import ideaItem2 from "../assets/items/item7.svg";
 import IdeaBanner from "../component/idea/IdeaBanner";
-import Swiper from "../component/Swiper";
+import Swiper from "../utils/Swiper";
 import Partners from "../component/main/Partners";
 
 const IdeaPage = () => {

@@ -4,11 +4,11 @@ import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import logo from "../../assets/logo.png"
 import mobileLogo from "../../assets/Лого.png"
-import menuBack from "../../assets/main/menuBack.png"
-import authBack from "../../assets/authBack.png"
-import authBackM from "../../assets/main/authBackM.png";
+import menuBack from "../../assets/items/menuBack.png"
+import authBack from "../../assets/items/authBack.png"
+import authBackM from "../../assets/items/authBackM.png";
 import { CSSTransition } from 'react-transition-group'
-import BlackBackground from "../BlackBackground";
+import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
 import AuthButton from "../ui/AuthButton";
 const MyBar = () => {

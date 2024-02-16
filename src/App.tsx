@@ -5,7 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import {theme} from "./mui";
 import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
-import ScrollToTop from "./component/ScrollToTop";
+import ScrollToTop from "./utils/ScrollToTop";
 function App() {
     useEffect(() => {
         const wow = new WOW({

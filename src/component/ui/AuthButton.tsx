@@ -1,6 +1,6 @@
 import React from 'react';
-import authBack from "../../assets/authBack.png";
-import authBackM from "../../assets/main/authBackM.png";
+import authBack from "../../assets/items/authBack.png";
+import authBackM from "../../assets/items/authBackM.png";
 import {NavLink} from "react-router-dom";
 import {Box, Typography} from "@mui/material";
 

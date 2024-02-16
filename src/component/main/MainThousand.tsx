@@ -1,15 +1,15 @@
 import React from 'react';
 import {Box, Container, Typography} from "@mui/material";
 import backItem7 from "../../assets/back/backItem7.svg";
-import item1 from "../../assets/main/item1.png";
-import thousand from "../../assets/main/thousand.png";
+import item1 from "../../assets/items/item6.png";
+import thousand from "../../assets/items/thousand.png";
 import whiteBack from "../../assets/main/whiteBack.svg"
 import slider1 from "../../assets/slides/img1.png";
 import slider2 from "../../assets/slides/img2.png";
 import slider3 from "../../assets/slides/img3.png";
 import slider4 from "../../assets/slides/img4.png";
 import {blackText, h3, title2} from "../../mui/palette";
-import WhiteContainer from "../WhiteContainer";
+import WhiteContainer from "../../utils/WhiteContainer";
 
 const MainThousand = () => {
 

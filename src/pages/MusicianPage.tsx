@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
-import FullBack from "../component/lk/FullBack";
-import BlackBackground from "../component/BlackBackground";
+import BlackBackground from "../utils/BlackBackground";
 import {Box, Container, Typography} from "@mui/material";
 import Logo from "../component/layout/Logo";
 import AuthButton from "../component/ui/AuthButton";
-import rightBack from "../assets/lk/musBack.png";
-import likeBack from "../assets/lk/likeBack.png";
-import item2 from "../assets/lk/item2.svg";
-import {backText} from "../mui/palette";
+import item2 from "../assets/lk/item2.png";
 import MusRight from "../component/lk/MusRight";
-import {NavLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import ItemText from "../component/ui/ItemText";
+
 const data = [
     'Имя фамилия',
     'Барабаны',
@@ -53,15 +51,7 @@ const MusicianPage = () => {
                     width: '403px',
 
                 }}>
-                    <Box
-                        component={'img'}
-                        src={item2}
-                        sx={{
-
-                            marginTop: '24px',
-                            marginBottom: '50px'
-                        }}
-                    />
+                    <ItemText variant={'h2'}/>
                     {data.map(item => (
                         <Box key={item} sx={{
                             background: '#8654CC',

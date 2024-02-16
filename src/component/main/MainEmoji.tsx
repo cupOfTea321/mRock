@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Container, Typography} from "@mui/material";
-import BlackBackground from "../BlackBackground";
-import item2 from "../../assets/main/item2.png";
+import BlackBackground from "../../utils/BlackBackground";
+import item2 from "../../assets/items/item2.png";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import peopleBack from "../../assets/peopleBack.png";

@@ -10,8 +10,8 @@ import 'swiper/css/navigation';
     import slider2 from '../assets/slides/slide2.png';
     import slider3 from '../assets/slides/slide3.png';
     import slider4 from '../assets/slides/slide4.png';
-    import arrowBack from '../assets/slides/arrowBack.svg';
-    import arrowBackRight from '../assets/slides/rightArrow.svg';
+    import arrowBack from '../assets/items/arrowBack.svg';
+    import arrowBackRight from '../assets/items/rightArrow.svg';
 import {Box, Container, Typography} from "@mui/material";
 import {blackText, h3, title2} from "../mui/palette";
 

@@ -9,7 +9,7 @@ import backItem2 from "../../assets/back/backItem2.png";
 import backLines from "../../assets/back/backLines.png";
 import {Box} from "@mui/material";
 import GalleryText from "./GalleryText";
-import BlackBackground from "../BlackBackground";
+import BlackBackground from "../../utils/BlackBackground";
 
 const MainGallery = () => {
 

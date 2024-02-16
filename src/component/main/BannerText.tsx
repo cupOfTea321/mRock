@@ -1,6 +1,6 @@
 import React from 'react';
 import greenZiro from "../../assets/main/greenZiro.png";
-import pinkZiro from "../../assets/main/pinkZiro.png";
+import pinkZiro from "../../assets/items/pinkZiro.png";
 import {Box, Typography} from "@mui/material";
 import {h3} from "../../mui/palette";
 

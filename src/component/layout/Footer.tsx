@@ -1,6 +1,6 @@
 import {Box, Container, Link, Typography} from "@mui/material";
-import BlackBackground from "../BlackBackground";
-import item5 from "../../assets/item5.svg";
+import BlackBackground from "../../utils/BlackBackground";
+import item5 from "../../assets/items/item5.svg";
 import footerItem from "../../assets/footerItem.png";
 import footerItemM from "../../assets/footerM.png";
 import footerRock from "../../assets/footerRock.svg";
