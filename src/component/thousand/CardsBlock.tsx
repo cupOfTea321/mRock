@@ -10,8 +10,7 @@ import PeopleCard from "./PeopleCard";
 import {backText} from "../../mui/palette";
 import MyAuto from "../ui/MyAuto";
 import ItemText from "../ui/ItemText";
-const CardsBlock = () => {
-
+const CardsBlock = ({data}) => {
     const people = [
         {image: person1},
         {image: person2},
@@ -37,9 +36,9 @@ const CardsBlock = () => {
                 marginTop: "72px",
 
             }}>
-                {people?.map((item, index) => (
+                {data?.map((item, index) => (
                     <Grid
-                        key={index}
+                        key={data.name}
                         item
                         lg={3}
                         md={3}

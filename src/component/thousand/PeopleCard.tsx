@@ -6,6 +6,8 @@ import {h3} from "../../mui/palette";
 import {useState} from "react";
 
 export default function PeopleCard({ link, main = false, person }) {
+    const {name, avatar, role, social_link} = person
+    console.log(person)
   const like = true
     const vk = true
     const iconStyle = {
@@ -48,7 +50,7 @@ export default function PeopleCard({ link, main = false, person }) {
                 sm: "300px",
                 xs: "205px",
               },
-              background: `url(${person.image})`,
+              background: `url(${avatar})`,
               backgroundSize: "cover",
 
               display: "flex",
@@ -98,10 +100,10 @@ export default function PeopleCard({ link, main = false, person }) {
               marginTop: {sm: '8px', xs: '4px'},
               // marginBottom: {sm: '8px', xs: '8px'},
           }}>
-              Имя Фамилия
+              {name}
           </Typography>
           <Typography sx={{...h3, marginBottom: '4px'}}>
-              инструмент
+              {role}
           </Typography>
       </Box>
   );

@@ -1,16 +1,13 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {NavLink} from "react-router-dom";
-import logo from "../../assets/logo.png"
-import mobileLogo from "../../assets/Лого.png"
-import menuBack from "../../assets/items/menuBack.png"
-import authBack from "../../assets/items/authBack.png"
-import authBackM from "../../assets/items/authBackM.png";
-import { CSSTransition } from 'react-transition-group'
+import menuBack from "../../assets/menu.webp"
+import {CSSTransition} from 'react-transition-group'
 import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
-import AuthButton from "../ui/AuthButton";
+import AuthButton from "../../../public/AuthButton";
+
 const MyBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [open, setOpen] = React.useState(false);
@@ -56,6 +53,20 @@ const MyBar = () => {
         };
     }, []);
     const [show, setShow] = useState(false);
+    const widgetContainerRef = useRef(null);
+
+    // useEffect(() => {
+    //     if (widgetContainerRef.current) {
+    //         // Создаем новый экземпляр виджета Яндекс.Афиши
+    //         const widget = new YandexTicketDealer.Widget({
+    //             container: widgetContainerRef.current
+    //         });
+    //
+    //         // Инициализируем и отображаем виджет
+    //         widget.init();
+    //     }
+    // }, []);
+
     return (
 
             <Box
@@ -90,7 +101,6 @@ const MyBar = () => {
                     className="animate__animated animate__fadeInDown wow"
                 >
                     <Logo/>
-
                     <Box
                         sx={{
                             // width: "50%",
@@ -113,6 +123,9 @@ const MyBar = () => {
                             </NavLink>
                         ))}
                     </Box>
+                    {/*<div ref={widgetContainerRef}></div>*/}
+                    {/*<div id="ya-widget-frame"></div>*/}
+                    {/*<y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>*/}
                     <Box sx={{
                         display: 'flex',
                         alignItems: 'center',

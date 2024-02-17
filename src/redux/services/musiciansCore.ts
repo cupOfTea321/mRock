@@ -3,33 +3,23 @@ import {rockCoreApi} from "./index";
 
 export const musiciansApi = rockCoreApi.injectEndpoints({
     endpoints: builder => ({
-        getMusicians: builder.query<void, string>({
+        getMusicians: builder.query({
             query: () => `musicians`,
         }),
-        changeMailing: builder.mutation({
-            query: (id, body ) => ({
-                url: `mailings/${id}`,
-                method: 'PUT',
-                body
-            }),
+        getRandom: builder.query({
+            query: () => `musicians/random`,
         }),
-        removeMailing: builder.mutation({
-            query: (id ) => ({
-                url: `mailings/${id}`,
-                method: 'DELETE',
-            }),
+        setLike: builder.mutation({
+            query: (id) => `musicians/${id}/like`,
         }),
-        getMailings: builder.query({query: () => `mailings`}),
-        setMailing: builder.mutation({
-            query: (body ) => ({
-                url: `mailings`,
-                method: 'POST',
-                body
-            }),
+        setDislike: builder.mutation({
+            query: (id) => `musicians/${id}/dislike`,
         }),
     }),
 })
 
 export const {
     useGetMusiciansQuery,
+    useGetRandomQuery,
+
 } = musiciansApi

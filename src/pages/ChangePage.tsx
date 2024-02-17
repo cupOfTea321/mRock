@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import BlackBackground from "../utils/BlackBackground";
 import MusRight from "../component/lk/MusRight";
 import Logo from "../component/layout/Logo";
-import AuthButton from "../component/ui/AuthButton";
+import AuthButton from "../../public/AuthButton";
 import itemSave from "../assets/items/saveBack.png";
 import {Box, Container, Grid, Typography} from "@mui/material";
 

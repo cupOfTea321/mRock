@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.webp";
 import {Box} from "@mui/material";
 import {NavLink} from "react-router-dom";
 

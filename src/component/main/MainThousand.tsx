@@ -11,31 +11,12 @@ import slider4 from "../../assets/slides/img4.png";
 import {blackText, h3, title2} from "../../mui/palette";
 import WhiteContainer from "../../utils/WhiteContainer";
 import ItemText from "../ui/ItemText";
+import {useGetMusiciansQuery, useGetRandomQuery} from "../../redux/services/musiciansCore";
+import Loader from "../../utils/Loader";
+import RandomBlock from "../ui/RandomBlock";
 
 const MainThousand = () => {
 
-    const slides = [
-        {
-            img: slider1,
-            name: 'Имя Фамилия',
-            tool: 'инструмент'
-        },
-        {
-            img: slider2,
-            name: 'Имя Фамилия',
-            tool: 'инструмент'
-        },
-        {
-            img: slider3,
-            name: 'Имя Фамилия',
-            tool: 'инструмент'
-        },
-        {
-            img: slider4,
-            name: 'Имя Фамилия',
-            tool: 'инструмент'
-        },
-    ]
 
     return (
         <WhiteContainer sx={{
@@ -74,67 +55,7 @@ const MainThousand = () => {
                     страны
                 </Typography>
             </Box>
-            <Container sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                // paddingTop: {sm: 0, xs: '250px'}
-            }} className={'animate__fadeInUp animate__animated wow'}>
-                {slides.map((item, index) => {
-                    let imageStyle = {}
-                    let textStyle = {}
-                    switch (index) {
-                        case 1:
-                            imageStyle = {
-                                marginTop: '61px'
-                            }
-                            break
-                        case 2:
-                            imageStyle = {
-                                marginTop: '34px'
-                            }
-                            textStyle = {
-                                transform: 'rotate(3.21deg)'
-                            }
-                            break
-                        case 3:
-                            imageStyle = {
-                                marginTop: '63px'
-                            }
-                            textStyle = {
-                                transform: 'rotate(-5.32deg)'
-                            }
-                            break
-                        default:
-                            imageStyle = {
-                                marginTop: '24px'
-                            }
-                            textStyle = {
-                                transform: 'rotate(-2.36deg)'
-                            }
-                    }
-                    return (
-                        <Box key={item} sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'column'
-                        }}>
-                            <Box component={'img'} src={item.img} sx={imageStyle}/>
-                            <Typography sx={{
-                                ...blackText,
-                                ...title2,
-                                ...textStyle,
-                                marginTop: '10px'
-                            }}>{item.name}</Typography>
-                            <Typography sx={{
-                                ...blackText,
-                                ...h3,
-                                ...textStyle,
-                                marginTop: '10px'
-                            }}>{item.tool}</Typography>
-                        </Box>)
-                })}
-            </Container>
+            <RandomBlock/>
             <ItemText typo={{color: 'white', ...h3}} img={thousand} sx={{
                 margin: '0 auto',
                 display: 'flex',

@@ -10,7 +10,7 @@ import CardsBlock from "../component/thousand/CardsBlock";
 import item1 from "../assets/items/item1.png";
 import ItemText from "../component/ui/ItemText";
 import Loader from "../utils/Loader";
-import {useGetMusiciansQuery} from "../redux/services";
+import {useGetMusiciansQuery} from "../redux/services/musiciansCore";
 
 const ThousandPage = () => {
     const {data, isLoading} = useGetMusiciansQuery()
@@ -53,7 +53,7 @@ const ThousandPage = () => {
                 </Box>
 
             </Box>
-            <CardsBlock/>
+            <CardsBlock data={data}/>
             <Box component={'img'} src={back3} sx={{
                 position: 'absolute',
                 zIndex: 650,

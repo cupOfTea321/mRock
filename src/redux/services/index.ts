@@ -21,13 +21,10 @@ export const rockCoreApi = createApi({
   changeOrigin: true,
   refetchOnMountOrArgChange: true,
   endpoints: (builder) => ({
-    getMusicians: builder.query<void, string>({
-      query: () => `musicians`,
-    }),
 
   }),
 });
 // экспортируем заданные поинты как хуки
 export const {
-  useGetMusiciansQuery,
+  // useGetMusiciansQuery,
 } = rockCoreApi;

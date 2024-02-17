@@ -51,9 +51,6 @@ const RegPage = () => {
                         <Typography variant={'h2'}>
                             Станьте участником самого масштабного рок-бэнда страны!
                         </Typography>
-                        <WhiteItem sx={{
-                            marginTop: '24px'
-                        }}/>
                     </Box>
                     <AuthForm reg={true}/>
                 </Box>

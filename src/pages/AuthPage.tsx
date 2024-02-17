@@ -55,9 +55,6 @@ const AuthPage = () => {
                         <Typography variant={'h2'}>
                             Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
                         </Typography>
-                        <WhiteItem sx={{
-                            marginTop: '24px'
-                        }}/>
                     </Box>
                     <AuthForm/>
                 </Box>

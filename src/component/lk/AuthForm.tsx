@@ -6,7 +6,7 @@ import {Box, Checkbox, IconButton, InputAdornment, TextField, Typography} from "
 import {backText, colStyle, h3} from "../../mui/palette";
 import {TextMaskCustom} from "./TextMaskCustom";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
-import AuthButton from "../ui/AuthButton";
+import AuthButton from "../../../public/AuthButton";
 import {NavLink} from "react-router-dom";
 import authBack from "../../assets/items/authBack.png";
 import authBackM from "../../assets/items/authBackM.png";
