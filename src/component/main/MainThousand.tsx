@@ -4,9 +4,9 @@ import backItem7 from "../../assets/back/backItem7.svg";
 import item1 from "../../assets/items/item1.png";
 import thousand from "../../assets/items/thousand.png";
 import whiteBack from "../../assets/main/whiteBack.svg"
-import slider1 from "../../assets/slides/img1.png";
-import slider2 from "../../assets/slides/img2.png";
-import slider3 from "../../assets/slides/img3.png";
+import slider1 from "../../assets/slides/hard1.jpg";
+import slider2 from "../../assets/slides/hard2.jpg";
+import slider3 from "../../assets/slides/hard3.jpg";
 import slider4 from "../../assets/slides/img4.png";
 import {blackText, h3, title2} from "../../mui/palette";
 import WhiteContainer from "../../utils/WhiteContainer";
@@ -14,10 +14,37 @@ import ItemText from "../ui/ItemText";
 import {useGetMusiciansQuery, useGetRandomQuery} from "../../redux/services/musiciansCore";
 import Loader from "../../utils/Loader";
 import RandomBlock from "../ui/RandomBlock";
+import Swiper from "../../utils/Swiper";
 
 const MainThousand = () => {
 
+    // const {data, isLoading} = useGetRandomQuery()
+    // if (isLoading) return <Loader title={`Загрузка...`} />;
+    const data = [
+        {
+            avatar: slider1,
+            name: 'Артем Камалетдинов',
+            role: 'Гитара'
+        },
+        {
+            avatar: slider2,
+            name: 'Леонид Никонов',
+            role: 'Барабаны'
+        },
+        {
+            avatar: slider3,
+            name: 'Никита Муравьев',
+            role: 'Бас'
+        },
+        // {
+        //     avatar: slider4,
+        //     name: 'Маргарита Илющенко',
+        //     role: 'режиссер'
+        // },
 
+
+
+    ]
     return (
         <WhiteContainer sx={{
             paddingBottom: {sm: '120px', xs: '80px'},
@@ -55,7 +82,12 @@ const MainThousand = () => {
                     страны
                 </Typography>
             </Box>
-            <RandomBlock/>
+            <RandomBlock sx={{
+                display: {lg: 'flex', md: 'none', sm: 'none', xs: 'none'}
+            }} data={data}/>
+            <Swiper  random={true}  sx={{
+                display: {lg: 'none', md: 'flex', sm: 'flex', xs: 'flex'}
+            }} slides={data}/>
             <ItemText typo={{color: 'white', ...h3}} img={thousand} sx={{
                 margin: '0 auto',
                 display: 'flex',

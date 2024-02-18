@@ -14,32 +14,37 @@ import 'swiper/css/navigation';
     import arrowBackRight from '../assets/back/rightArrow.png';
 import {Box, Container, Typography} from "@mui/material";
 import {blackText, h3, title2} from "../mui/palette";
+import {rolesTarget} from "../handlers/rolesTarget";
+import {musiciansSwitch, sliderSwitch} from "../handlers/sliderSwitch";
 
-const MySwiper = ({slides}) => {
-     slides = [
-        {
-            img: slider2,
-            name: 'Сергей Денисенко',
-            about: 'директор'
-        },
-        {
-            img: slider3,
-            name: 'Алексей Куликов',
-            about: 'кастинг-директор'
-        },
-        {
-            img: slider4,
-            name: 'Маргарита Илющенко',
-            about: 'режиссер'
-        },
-
-
-        {
-            img: slider1,
-            name: 'Светлана Шабаева-Маркина',
-            about: 'продюсер'
-        },
-    ]
+const MySwiper = ({
+    random = false,
+                      slides = [
+                          // {
+                          //     avatar: slider2,
+                          //     name: 'Сергей Денисенко',
+                          //     role: 'директор'
+                          // },
+                          // {
+                          //     avatar: slider3,
+                          //     name: 'Алексей Куликов',
+                          //     role: 'кастинг-директор'
+                          // },
+                          // {
+                          //     avatar: slider4,
+                          //     name: 'Маргарита Илющенко',
+                          //     role: 'режиссер'
+                          // },
+                          //
+                          //
+                          // {
+                          //     avatar: slider1,
+                          //     name: 'Светлана Шабаева-Маркина',
+                          //     role: 'продюсер'
+                          // },
+                      ],
+                      sx
+}) => {
     const arrowStyle = {
         transform: 'translateX(-58%) !important',
 
@@ -48,7 +53,7 @@ const MySwiper = ({slides}) => {
         height: {sm: '53px', xs: '50px'},
     }
     return (
-        <Container>
+        <Container sx={sx}>
             <Swiper
                 effect={'coverflow'}
                 grabCursor={true}
@@ -76,40 +81,11 @@ const MySwiper = ({slides}) => {
                 className="swiper_container animate__animated animate__bounceIn wow"
             >
                 {slides.map((item, index) => {
-                    let imageStyle = {}
-                    let textStyle = {}
-                    switch (index) {
-                        case 1:
-                            imageStyle = {
-                                marginTop: '61px',
-                            }
-                            textStyle = {
-                                transform: 'rotate(3.21deg)'
-                            }
-                            break
-                        case 2:
-                            imageStyle = {
-                                marginTop: '34px'
-                            }
-                            textStyle = {
-                                transform: 'rotate(-5.32deg)'
-                            }
-                            break
-                        case 3:
-                            imageStyle = {
-                                marginTop: '63px'
-                            }
-                            textStyle = {
-                                transform: 'rotate(-2.36deg)'
-                            }
-                            break
-                        default:
-                            imageStyle = {
-                                marginTop: '24px'
-                            }
-
-
-                    }
+                    let role = rolesTarget(item.role)
+                    let styles
+                    random ? styles = musiciansSwitch(index)  : styles = sliderSwitch(index)
+                    let imageStyle = styles[0]
+                    let textStyle = styles[1]
                     return (
                         <SwiperSlide key={item} style={{
                             display: 'flex',
@@ -118,7 +94,7 @@ const MySwiper = ({slides}) => {
                             flexDirection: 'column',
 
                         }}>
-                            <Box component={'img'} src={item.img} sx={{
+                            <Box component={'img'} src={item.avatar} sx={{
                                 ...imageStyle,
                             }}/>
                             <Typography sx={{
@@ -132,14 +108,15 @@ const MySwiper = ({slides}) => {
                                 ...h3,
                                 ...textStyle,
                                 marginTop: '10px'
-                            }}>{item.about}</Typography>
+                            }}>{item.role}</Typography>
                         </SwiperSlide>)
                 })}
 
-                <Box className="slider-controler" sx={{
+                {!random &&  <Box className="slider-controler" sx={{
                     // marginTop: {sm: '470px', xs: '-12%'},
                     position: 'relative',
                     margin: '0 auto',
+                    zIndex: 1000,
                     marginBottom: '200px',
                     display: 'flex',
                     justifyContent: 'center',
@@ -160,6 +137,7 @@ const MySwiper = ({slides}) => {
                     }}>
                     </Box>
                 </Box>
+                }
             </Swiper>
         </Container>
     );
