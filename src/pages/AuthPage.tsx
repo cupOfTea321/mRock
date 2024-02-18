@@ -9,6 +9,9 @@ import Input from "../component/ui/Input";
 import AuthForm from "../component/lk/AuthForm";
 import {colStyle} from "../mui/palette";
 import FullBack from "../component/lk/FullBack";
+import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../redux/store";
+import {useUserAuthMutation} from "../redux/services";
 const AuthPage = () => {
     useEffect(() => {
         document.body.classList.add("full-height-body");
@@ -56,7 +59,7 @@ const AuthPage = () => {
                             Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
                         </Typography>
                     </Box>
-                    <AuthForm/>
+                    <AuthForm  />
                 </Box>
             </Container>
 

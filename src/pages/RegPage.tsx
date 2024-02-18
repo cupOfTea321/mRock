@@ -6,6 +6,7 @@ import WhiteItem from "../component/ui/WhiteItem";
 import AuthForm from "../component/lk/AuthForm";
 import {Box, Container, Typography} from "@mui/material";
 import rightBack from "../assets/lk/regBack.svg";
+import RegForm from "../component/lk/RegForm";
 const RegPage = () => {
     useEffect(() => {
         document.body.classList.add("full-height-body");
@@ -52,7 +53,7 @@ const RegPage = () => {
                             Станьте участником самого масштабного рок-бэнда страны!
                         </Typography>
                     </Box>
-                    <AuthForm reg={true}/>
+                    <RegForm  />
                 </Box>
             </Container>
         </>

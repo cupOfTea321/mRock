@@ -10,7 +10,10 @@ export const routes = [
   { path: "thousand", element: <ThousandPage />, nodeRef: createRef() },
   { path: "auth", element: <AuthPage />, nodeRef: createRef() },
   { path: "reg", element: <RegPage />, nodeRef: createRef() },
-  { path: "musician", element: <MusicianPage />, nodeRef: createRef() },
-  { path: "musician/change", element: <ChangePage />, nodeRef: createRef() },
   { path: "/*", element: <Navigate to="" replace />, nodeRef: createRef() },
 ];
+export const privateRoutes = [
+
+  { path: "musician", element: <MusicianPage />, nodeRef: createRef() },
+  { path: "musician/change", element: <ChangePage />, nodeRef: createRef() },
+]

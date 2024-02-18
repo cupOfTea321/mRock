@@ -31,7 +31,7 @@ const Input = ({
   handleChange,
   value,
   name,
-    sx
+    sx,
 }) => {
   return (
     <TextField

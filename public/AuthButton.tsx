@@ -1,16 +1,22 @@
 import React from 'react';
 import authBack from "./test2.webp";
 import authBackM from "./testM.webp";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {Box, Typography} from "@mui/material";
 
 const AuthButton = ({
     text = 'Авторизация',
     sx,
-    to = 'auth'
+    to = 'auth',
+                        type="button",
+    onClick
                     }) => {
+    const navigate = useNavigate();
+    const handleClick = (to) => {
+        // navigate(to)
+    }
     return (
-        <Box sx={{
+        <Box type={type} onClick={onClick} sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -26,18 +32,18 @@ const AuthButton = ({
             width: {sm: '164px', xs: '115px'},
             height: {sm: '41px', xs: '36px'},
             ...sx
-        }}>
-            <NavLink to={to}
-                     style={{
+        }} component={'button'}>
+            {/*<NavLink to={to}*/}
+            {/*         style={{*/}
 
-                         // marginRight: '16px'
-                     }}>
+            {/*             // marginRight: '16px'*/}
+            {/*         }}>*/}
                 <Typography sx={{
                     color: "#FEFDFD",
                     fontSize: {sm: "16px", xs: '12px'},
 
                 }}>{text}</Typography>
-            </NavLink>
+            {/*</NavLink>*/}
         </Box>
     );
 };

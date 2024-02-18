@@ -1,11 +1,12 @@
 import {useEffect} from "react";
 import {ThemeProvider} from "@mui/material";
-import { routes } from "./router/router.js";
-import { Route, Routes, useLocation } from "react-router-dom";
+import {privateRoutes, routes} from "./router/router.js";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import {theme} from "./mui";
 import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
 import ScrollToTop from "./utils/ScrollToTop";
+import {useSelector} from "react-redux";
 function App() {
     useEffect(() => {
         const wow = new WOW({
@@ -17,12 +18,15 @@ function App() {
 
         wow.init();
     }, []);
+    useEffect(() => {
+        // const token = useSelector()
+    }, [])
     const location = useLocation();
     // const { isLoading } = useGetProjectsQuery(1);
     const isLoading = false
     const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {};
-
+    const isAuthenticated = localStorage.getItem('access');
     return isLoading ? (
         <div>Загрузка</div>
     ) : (
@@ -40,6 +44,19 @@ function App() {
                                 path={route.path}
                                 exact
                                 element={route.element}
+                            />
+                        ))}
+                    </Route>
+                    <Route
+                        path={"/"}
+                        element={<Layout location={location} nodeRef={nodeRef} />}
+                    >
+                        {privateRoutes.map((route, index) => (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                exact
+                                element={isAuthenticated ? route.element : <Navigate to="/" replace />}
                             />
                         ))}
                     </Route>

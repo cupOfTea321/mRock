@@ -15,3 +15,19 @@ export const rolesTarget = (role) => {
     }
     return role
 }
+export const setRolesTarget = (role) => {
+    switch (role) {
+        case 'Вокалист':
+            role = 'VC'
+            break
+        case 'Гитарист':
+            role = 'GT'
+            break
+        case 'Басист':
+            role = 'BS'
+            break
+        default:
+            role = 'DR'
+    }
+    return role
+}

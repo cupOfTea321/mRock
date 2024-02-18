@@ -1,11 +1,14 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {rockCoreApi} from "./services";
+import {useDispatch, useSelector} from "react-redux";
+import {userSlice} from "./features/userSlice";
 
 export const createStore = (
     options
 ) =>
 configureStore({
   reducer: {
+    user: userSlice,
     [rockCoreApi.reducerPath]: rockCoreApi.reducer,
   },
   middleware: getDefaultMiddleware =>
@@ -14,12 +17,6 @@ configureStore({
 })
 
 export const store = createStore()
-
-// export const store = configureStore({
-//   reducer: {
-//     [generatorCoreApi.reducerPath]: generatorCoreApi.reducer,
-//     possibility: possibilityReducer,
-//   },
-//   middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware().concat(generatorCoreApi.middleware),
-// });
+// window.store = store
+export const useAppDispatch = () => useDispatch()
+export const useAppSelector = useSelector;

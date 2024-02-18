@@ -1,7 +1,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import menuBack from "../../assets/menu.webp"
 import {CSSTransition} from 'react-transition-group'
 import BlackBackground from "../../utils/BlackBackground";
@@ -32,7 +32,10 @@ const MyBar = () => {
         },
     };
     const [background, setBackground] = useState('transparent');
-
+    const navigate = useNavigate();
+    const handleClickAuth = (to) => {
+        navigate('auth')
+    }
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset;
@@ -132,7 +135,7 @@ const MyBar = () => {
                         justifyContent: 'flex-end',
                         // width: '20%'
                     }}>
-                        <AuthButton/>
+                        <AuthButton onClick={handleClickAuth}/>
                     </Box>
 
                     {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
