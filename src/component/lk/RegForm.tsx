@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import item1 from "../../assets/lk/item1.png";
 import regBack1 from "../../assets/lk/regBack1.png";
-import Input, {input} from "../ui/Input";
+import {Input, input} from "../ui/Input";
 import {Box, Checkbox, TextField, Typography} from "@mui/material";
 import {backText, colStyle} from "../../mui/palette";
 import {TextMaskCustom} from "./TextMaskCustom";
@@ -18,10 +18,6 @@ const RegForm: React.FC = ({
                            }) => {
 
     const handleChange = ({target: {name, value}}) => {
-        console.log(
-            'АААААААААААААА НАЗХУЙ БЛЯТЬ'
-        )
-        console.log(name,  value)
 
         setFormState((prev) => ({...prev, [name]: value}));
     };

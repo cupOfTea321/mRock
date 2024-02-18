@@ -9,7 +9,8 @@ const ItemText = ({
             title = 'Анкета музыканта',
             onClick,
             img = item2,
-            variant = ''
+            variant = '',
+                      type = 'button'
                   }) => {
     return (
         <Box
@@ -23,7 +24,7 @@ const ItemText = ({
                 width: {sm: '414px'},
                 height: {sm: '61px'},
                 ...sx
-            }}
+            }} component={'button'} type={type}
         >
             <Typography variant={variant} sx={{
                 color: 'black',

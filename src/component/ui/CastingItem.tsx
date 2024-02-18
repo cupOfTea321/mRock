@@ -3,8 +3,10 @@ import authBack from "../../assets/items/casting.webp";
 import authBackM from "../../assets/items/castingM.webp";
 import {Box, Typography} from "@mui/material";
 import {backText} from "../../mui/palette";
-
+import {useNavigate} from "react-router-dom";
 const CastingItem = ({sx}) => {
+    const navigate = useNavigate();
+    const handleClick = () => navigate('/reg')
     const castingBtn = {
         ...backText,
         cursor: 'pointer',
@@ -24,7 +26,7 @@ const CastingItem = ({sx}) => {
                 xs: `url(${authBackM})`,
             },
             ...sx
-        }}>
+        }} onClick={handleClick}>
             {/*<Typography>*/}
             Кастинг
             {/*</Typography>*/}

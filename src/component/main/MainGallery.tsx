@@ -12,9 +12,11 @@ import {Box} from "@mui/material";
 import GalleryText from "./GalleryText";
 import BlackBackground from "../../utils/BlackBackground";
 import backItem1 from "../../assets/back/backItem1.svg";
+import {useNavigate} from "react-router-dom";
 
 const MainGallery = () => {
-
+    const navigate = useNavigate();
+    const handleClick = (to) => navigate(to)
     return (
         <Box sx={{
 
@@ -62,12 +64,12 @@ const MainGallery = () => {
 
                 zIndex: 400,
             }} >
-                <Box component={'img'} src={leftGallery} sx={{
+                <Box onClick={() => handleClick('/reg')} component={'img'} src={leftGallery} sx={{
                     cursor: 'pointer',
                     width: {md: '385px', sm: '308px', xs: '308px'},
                     height: {md: '530px', sm: '424px', xs: '424px'},
                 }} className={'animate__fadeInLeft animate__animated wow'}/>
-                <Box component={'img'} src={centreGallery} sx={{
+                <Box onClick={() => handleClick('/about')} component={'img'} src={centreGallery} sx={{
                     marginRight: {md: '-8%', sm: '-10%', xs: 0},
                     marginLeft: {md: '-8%', sm: '-10%', xs: 0},
                     marginTop: '40px',

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import item1 from "../../assets/lk/item1.png";
 import regBack1 from "../../assets/lk/regBack1.png";
-import Input, {input} from "../ui/Input";
+import  {Input, input} from "../ui/Input";
 import {Box, Checkbox, IconButton, InputAdornment, TextField, Typography} from "@mui/material";
 import {backText, colStyle, h3} from "../../mui/palette";
 import {TextMaskCustom} from "./TextMaskCustom";

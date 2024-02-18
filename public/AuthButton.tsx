@@ -7,6 +7,7 @@ import {Box, Typography} from "@mui/material";
 const AuthButton = ({
     text = 'Авторизация',
     sx,
+    exit = false,
     to = 'auth',
                         type="button",
     onClick
@@ -15,8 +16,12 @@ const AuthButton = ({
     const handleClick = (to) => {
         // navigate(to)
     }
+    const handleExit = () => {
+        localStorage.removeItem('access');
+        navigate('')
+    }
     return (
-        <Box type={type} onClick={onClick} sx={{
+        <Box type={type} onClick={exit ? handleExit : onClick} sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

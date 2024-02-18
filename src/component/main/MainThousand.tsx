@@ -15,9 +15,10 @@ import {useGetMusiciansQuery, useGetRandomQuery} from "../../redux/services/musi
 import Loader from "../../utils/Loader";
 import RandomBlock from "../ui/RandomBlock";
 import Swiper from "../../utils/Swiper";
-
+import {useNavigate} from "react-router-dom";
 const MainThousand = () => {
-
+    const navigate = useNavigate();
+    const handleClick = () => navigate('thousand')
     // const {data, isLoading} = useGetRandomQuery()
     // if (isLoading) return <Loader title={`Загрузка...`} />;
     const data = [
@@ -96,7 +97,7 @@ const MainThousand = () => {
                 height: {md: '50px', sm: '40px', xs: '28px'},
                 cursor: 'pointer'
 
-            }} title={'Тысяча'} className={'animate__fadeInUp animate__animated wow'}/>
+            }} onClick={handleClick} title={'Тысяча'} className={'animate__fadeInUp animate__animated wow'}/>
             <Box component={'img'} src={backItem7} sx={{
                 position: 'absolute',
                 display: {sm: 'block', xs: 'none'},

@@ -5,7 +5,7 @@ import {backText} from "../../mui/palette";
 import like from "../../assets/lk/like.png";
 import {Box} from "@mui/material";
 
-const MusRight = () => {
+const MusRight = ({likes = 0}) => {
     const imgStyle = {
         position: 'absolute',
         backgroundSize: 'cover',
@@ -48,7 +48,7 @@ const MusRight = () => {
                         marginRight: '6px'
                     }}
                 />
-                132
+                {likes}
             </Box>
         </Box>
     );

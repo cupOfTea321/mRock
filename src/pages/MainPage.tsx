@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import MainBanner from "../component/main/MainBanner";
 import {Box, Typography} from "@mui/material";
 import candy from "../assets/back/backBorder2.png"
@@ -9,11 +9,14 @@ import MainEmoji from "../component/main/MainEmoji";
 import WhiteContainer from "../utils/WhiteContainer";
 import {backText, blackText} from "../mui/palette";
 import Partners from "../component/main/Partners";
+import {useGetProfileQuery} from "../redux/services";
 
 const MainPage = () => {
+    // const {data, isLoading} = useGetProfileQuery()
 
     return (
         <>
+
             <MainBanner/>
             {/*<Box  sx={{*/}
             {/*    width: '105%',*/}

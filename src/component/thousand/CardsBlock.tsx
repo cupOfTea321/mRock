@@ -1,6 +1,6 @@
 import React from 'react';
 import {Autocomplete, Box, Container, Grid, TextField, Typography} from "@mui/material";
-import Input, {input} from "../ui/Input";
+import  {Input, input} from "../ui/Input";
 import person1 from '../../assets/thousand/img1.png'
 import person2 from '../../assets/thousand/img2.png'
 import person3 from '../../assets/thousand/img3.png'

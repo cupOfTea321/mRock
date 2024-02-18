@@ -8,10 +8,30 @@
 .MuiInputBase-root {
     color: rgba(201, 201, 201, 1) !important;
     background: transparent !important;
+    border-radius: 100px !important;
+    border: 1px solid rgba(134, 84, 204, 1) !important;
 }
 .MuiInputBase-root:hover {
-    border-radius: 100px
+    border-radius: 100px;
+    border: 1px solid rgba(134, 84, 204, 1) !important;
+
 }
+.css-8n73m4-MuiInputBase-root-MuiInput-root:hover{
+    color: rgba(201, 201, 201, 1) !important;
+}
+.MuiInputBase-colorPrimary {
+    color: rgba(201, 201, 201, 1) !important;
+}
+.MuiOutlinedInput-root{
+
+    color: #C9C9C9 !important;
+}
+/*.MuiInput-input{*/
+/*    border-radius: 100px;*/
+/*    border-color: rgba(134, 84, 204, 1) !important;*/
+/*    color: white !important;*/
+/*}*/
+
 .Mui-Focused{
     border-color: rgba(134, 84, 204, 1);
     color: rgba(134, 84, 204, 1);

@@ -22,6 +22,7 @@ const MyAuto = (props) => {
         <Autocomplete
             onChange={onBlyatChange}
             disablePortal
+
             id="combo-box-demo"
             options={top100Films}
             renderInput={(params) => (
