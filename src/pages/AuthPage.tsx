@@ -32,9 +32,9 @@ const AuthPage = () => {
                     display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
                     // zIndex: 500,
                     right: 0,
-                    top: -50,
+                    top: -150,
                     width: '50%',
-                    height: '90%'
+                    height: '1000px'
                     // bottom: 250
                 }} className={'animate__bounceIn animate__animated wow'}
             />

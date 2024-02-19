@@ -1,9 +1,9 @@
 import React from 'react';
 import backItem1 from "../../assets/items/aboutItem3.svg";
 import {Box, Container, Typography} from "@mui/material";
-import item1 from "../../assets/about/about1.png";
+import item1 from "../../assets/about/w1.webp";
 import item2 from "../../assets/about/about2.png";
-import item3 from "../../assets/about/about3.png";
+import item3 from "../../assets/about/w3.webp";
 import item4 from "../../assets/about/about4.png";
 import back1 from "../../assets/about/aboutBack1.svg";
 import back2 from "../../assets/about/aboutBack2.svg";

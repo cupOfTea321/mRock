@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useLayoutEffect} from "react";
 import {ThemeProvider} from "@mui/material";
 import {privateRoutes, routes} from "./router/router.js";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
 import ScrollToTop from "./utils/ScrollToTop";
 import {useSelector} from "react-redux";
+import {afisha} from "./handlers/afisha";
 function App() {
     useEffect(() => {
         const wow = new WOW({
@@ -18,10 +19,12 @@ function App() {
 
         wow.init();
     }, []);
-    useEffect(() => {
-        // const token = useSelector()
-    }, [])
+
+
     const location = useLocation();
+    useLayoutEffect(() => {
+        afisha()
+    }, [location.pathname])
     // const { isLoading } = useGetProjectsQuery(1);
     const isLoading = false
     const { nodeRef } =

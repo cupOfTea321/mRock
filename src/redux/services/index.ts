@@ -4,7 +4,7 @@ const token = localStorage.getItem('access')
 export const rockCoreApi = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://85.193.87.7/api/",
+        baseUrl: "https://xn--80affwgpn.xn--p1ai/",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem('access')
             if (token) {

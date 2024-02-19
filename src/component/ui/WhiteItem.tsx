@@ -4,7 +4,7 @@ import whiteBackM from "../../assets/items/ticketsM.webp";
 import {Box, Typography} from "@mui/material";
 import {backText, h3} from "../../mui/palette";
 
-const WhiteItem = ({sx}) => {
+const WhiteItem =  ({sx}) => {
     return (
         <Box  sx={{
             ...backText,
@@ -18,6 +18,7 @@ const WhiteItem = ({sx}) => {
             },
             // backgroundSize: 'contain',
             color: 'black',
+            fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
             ...sx

@@ -11,8 +11,6 @@ import React from "react";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import {useNavigate} from "react-router-dom";
-import {NavLink} from "react-router-dom";
-import {useParams} from "react-router-dom";
 import {blackText} from "../../mui/palette";
 type FooterMenu = {
     page: string;
@@ -55,13 +53,16 @@ const Footer = ({path}) => {
         color: 'white',
         fontSize: '12px',
         marginRight: {sm: '16px', xs: '8px'},
-        lineHeight: '14.4px'
+        lineHeight: '14.4px',
+        cursor: 'pointer'
     }
     const navigate = useNavigate()
     const handleMenu = (to) => {
         navigate(to);
     }
-
+    const handleHistory = (to) => {
+        window.location.href =  'https://t.me/mega_rock_bot'
+    }
     return (
         <Box
             sx={{
@@ -106,8 +107,9 @@ const Footer = ({path}) => {
                             Свяжитесь с нами
                         </Typography>
                         <Box component={'img'} src={item5} sx={{
-                            marginTop: '14px'
-                        }}/>
+                            marginTop: '14px',
+                            cursor: 'pointer'
+                        }} onClick={handleHistory}/>
                     </Box>
                     <Box sx={{
                         backgroundImage: {
