@@ -59,7 +59,7 @@ const AuthPage = () => {
                             Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
                         </Typography>
                     </Box>
-                    <AuthForm  />
+                    <AuthForm />
                 </Box>
             </Container>
 
