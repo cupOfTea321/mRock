@@ -1,203 +1,215 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
-import React, {useEffect, useRef, useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom";
-import menuBack from "../../assets/menu.webp"
-import {CSSTransition} from 'react-transition-group'
+import {
+  Box,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import AuthButton from "../../../public/AuthButton";
+import menuBack from "../../assets/menu.webp";
 import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
-import AuthButton from "../../../public/AuthButton";
 
 const MyBar = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [open, setOpen] = React.useState(false);
-    const handleMobileClose = () => {
-        setOpen(!open);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const handleMobileClose = () => {
+    setOpen(!open);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const pages = [
+    { name: "Главная", to: "/" },
+    { name: "Идея", to: "/idea" },
+    { name: "О мероприятии", to: "/about" },
+    { name: "Тысяча", to: "/thousand" },
+  ];
+  const navCSS = {
+    color: "#FEFDFD",
+    fontSize: "16px",
+    "&:hover": {
+      color: "rgba(134, 84, 204, 1)",
+    },
+  };
+  const [background, setBackground] = useState("transparent");
+  const navigate = useNavigate();
+  const handleClickAuth = (to) => {
+    navigate("auth");
+  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+
+      if (scrollTop > 0) {
+        setShow(true);
+        setBackground("#282828"); // Установите цвет фона верхней панели при начале прокрутки
+      } else {
+        setShow(false);
+        setBackground("transparent"); // Установите прозрачный цвет фона верхней панели при попадании наверх страницы
+      }
     };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
-    const pages = [
-        {name: "Главная", to: "/"},
-        {name: "Идея", to: "/idea"},
-        {name: "О мероприятии", to: "/about"},
-        {name: "Тысяча", to: "/thousand"},
-    ];
-    const navCSS = {
-        color: "#FEFDFD",
-        fontSize: "16px",
-        "&:hover": {
-            color: "rgba(134, 84, 204, 1)",
-        },
-    };
-    const [background, setBackground] = useState('transparent');
-    const navigate = useNavigate();
-    const handleClickAuth = (to) => {
-        navigate('auth')
-    }
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.pageYOffset;
+  }, []);
+  const [show, setShow] = useState(false);
+  const widgetContainerRef = useRef(null);
 
-            if (scrollTop > 0) {
-                setShow(true)
-                setBackground('#282828'); // Установите цвет фона верхней панели при начале прокрутки
-            } else {
-                setShow(false)
-                setBackground('transparent'); // Установите прозрачный цвет фона верхней панели при попадании наверх страницы
-            }
-        };
+  // useEffect(() => {
+  //     if (widgetContainerRef.current) {
+  //         // Создаем новый экземпляр виджета Яндекс.Афиши
+  //         const widget = new YandexTicketDealer.Widget({
+  //             container: widgetContainerRef.current
+  //         });
+  //
+  //         // Инициализируем и отображаем виджет
+  //         widget.init();
+  //     }
+  // }, []);
 
-        window.addEventListener('scroll', handleScroll);
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        top: 0,
+        right: 0,
+        left: 0,
+        zIndex: 800,
+        height: { sm: "124px", xs: "104px" },
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-    const [show, setShow] = useState(false);
-    const widgetContainerRef = useRef(null);
-
-    // useEffect(() => {
-    //     if (widgetContainerRef.current) {
-    //         // Создаем новый экземпляр виджета Яндекс.Афиши
-    //         const widget = new YandexTicketDealer.Widget({
-    //             container: widgetContainerRef.current
-    //         });
-    //
-    //         // Инициализируем и отображаем виджет
-    //         widget.init();
-    //     }
-    // }, []);
-
-    return (
-
-            <Box
-                sx={{
-                    position: "fixed",
-                    top: 0,
-                    right: 0,
-                    left: 0,
-                    zIndex: 800,
-                    height: {sm: '124px', xs: '104px'},
-
-                    display: 'flex',
-                    animation: 'colorFade 0.5s'
-                }} className={'appBar'}
+        display: "flex",
+        animation: "colorFade 0.5s",
+      }}
+      className={"appBar"}
+    >
+      <CSSTransition in={show} timeout={500} classNames="fade">
+        <BlackBackground
+          sx={{
+            background,
+          }}
+        />
+      </CSSTransition>
+      <Container
+        maxWidth={"lg"}
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr" },
+          justifyItems: { md: "none", xs: "baseline" },
+          alignItems: "center",
+          marginTop: { sm: "20px", xs: "10px" },
+          marginBottom: { sm: "20px", xs: "10px" },
+          position: "relative",
+          zIndex: 1200,
+        }}
+        className="animate__animated animate__fadeInDown wow"
+      >
+        <Logo />
+        <Box
+          sx={{
+            // width: "50%",
+            // justifyContent: "space-between",
+            // margin: '0 auto',
+            // textAlign: 'left',
+            fontSize: "16px",
+            // paddingRight: '20%',
+            display: { md: "flex", sm: "none", xs: "none" },
+            justifyContent: "flex-start",
+          }}
+        >
+          {pages.map((page, index) => (
+            <NavLink
+              key={index}
+              to={page.to}
+              style={{
+                color: "#FEFDFD",
+                marginRight: "16px",
+              }}
             >
-                <CSSTransition in={show} timeout={500} classNames="fade">
-                    <BlackBackground sx={{
-                        background
-                    }}/>
-                </CSSTransition>
-                <Container
-                    maxWidth={"lg"}
-                    sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginTop: {sm: "20px", xs: "10px"},
-                        marginBottom: {sm: "20px", xs: "10px"},
-                        position: 'relative',
-                        zIndex: 1200,
-                    }}
-                    className="animate__animated animate__fadeInDown wow"
+              <Typography sx={navCSS}>{page.name}</Typography>
+            </NavLink>
+          ))}
+        </Box>
+        {/*<div ref={widgetContainerRef}></div>*/}
+        {/*<div id="ya-widget-frame"></div>*/}
+        {/*<y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>*/}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            // width: '20%'
+          }}
+        >
+          <AuthButton onClick={handleClickAuth} />
+        </Box>
+
+        {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
+        <IconButton
+          aria-label="more"
+          id="long-button"
+          aria-controls={open ? "long-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
+          aria-haspopup="true"
+          onClick={handleClick}
+          sx={{
+            display: { md: "none", sm: "block", xs: "block" },
+            // background: 'red'
+            background: `url(${menuBack})`,
+            backgroundRepeat: "no-repeat",
+            borderRadius: 0,
+            backgroundSize: "contain",
+            marginLeft: "-30px",
+            width: { sm: "54px", xs: "38px" },
+            height: { sm: "54px", xs: "35px" },
+          }}
+        >
+          <MenuIcon
+            sx={{
+              color: "black",
+              background: "transparent",
+            }}
+            onClick={handleMobileClose}
+          />
+          <Menu
+            id="long-menu"
+            MenuListProps={{
+              "aria-labelledby": "long-button",
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClick={handleMobileClose}
+          >
+            {pages.map((option) => (
+              <NavLink
+                key={option.name}
+                to={option.to}
+                style={{
+                  color: "black",
+                }}
+              >
+                <MenuItem
+                  selected={option === "Pyxis"}
+                  onClick={handleMobileClose}
                 >
-                    <Logo/>
-                    <Box
-                        sx={{
-                            // width: "50%",
-                            // justifyContent: "space-between",
-                            // margin: '0 auto',
-                            // textAlign: 'left',
-                            fontSize: "16px",
-                            // paddingRight: '20%',
-                            display: {md: "flex", sm: "none", xs: "none"},
-                            justifyContent: 'flex-start'
-                        }}
-                    >
-                        {pages.map((page, index) => (
-                            <NavLink key={index} to={page.to}
-                                     style={{
-                                         color: "#FEFDFD",
-                                         marginRight: '16px'
-                                     }}>
-                                <Typography sx={navCSS}>{page.name}</Typography>
-                            </NavLink>
-                        ))}
-                    </Box>
-                    {/*<div ref={widgetContainerRef}></div>*/}
-                    {/*<div id="ya-widget-frame"></div>*/}
-                    {/*<y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>*/}
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-end',
-                        // width: '20%'
-                    }}>
-                        <AuthButton onClick={handleClickAuth}/>
-                    </Box>
-
-                    {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
-                    <IconButton
-                        aria-label="more"
-                        id="long-button"
-                        aria-controls={open ? "long-menu" : undefined}
-                        aria-expanded={open ? "true" : undefined}
-                        aria-haspopup="true"
-                        onClick={handleClick}
-                        sx={{
-                            display: {md: "none", sm: "block", xs: "block"},
-                            // background: 'red'
-                            background: `url(${menuBack})`,
-                            backgroundRepeat: 'no-repeat',
-                            borderRadius: 0,
-                            backgroundSize: 'contain',
-                            marginLeft: '-30px',
-                            width: {sm: "54px", xs: "38px"},
-                            height: {sm: "54px", xs: "35px"},
-                        }}
-                    >
-                        <MenuIcon
-                            sx={{
-                                color: "black",
-                                background: 'transparent'
-
-                            }}
-
-                            onClick={handleMobileClose}
-                        />
-                        <Menu
-                            id="long-menu"
-                            MenuListProps={{
-                                "aria-labelledby": "long-button",
-                            }}
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClick={handleMobileClose}
-                        >
-                            {pages.map((option) => (
-                                <NavLink
-                                    key={option.name}
-                                    to={option.to}
-                                    style={{
-                                        color: "black",
-                                    }}
-                                >
-                                    <MenuItem
-                                        selected={option === "Pyxis"}
-                                        onClick={handleMobileClose}
-                                    >
-                                        {option.name}
-                                    </MenuItem>
-                                </NavLink>
-                            ))}
-                        </Menu>
-                    </IconButton>
-                </Container>
-            </Box>
-
-    );
+                  {option.name}
+                </MenuItem>
+              </NavLink>
+            ))}
+          </Menu>
+        </IconButton>
+      </Container>
+    </Box>
+  );
 };
 
 export default MyBar;

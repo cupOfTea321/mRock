@@ -1,30 +1,28 @@
 .MuiAutocomplete-endAdornment button {
-    color: var(--main);
+  color: var(--main);
 }
 .MuiAutocomplete-listbox {
-    padding: 0 !important;
-    margin: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 .MuiInputBase-root {
-    color: rgba(201, 201, 201, 1) !important;
-    background: transparent !important;
-    border-radius: 100px !important;
-    border: 1px solid rgba(134, 84, 204, 1) !important;
+  color: rgba(201, 201, 201, 1) !important;
+  background: transparent !important;
+  border-radius: 100px !important;
+  border: 1px solid rgba(134, 84, 204, 1) !important;
 }
 .MuiInputBase-root:hover {
-    border-radius: 100px;
-    border: 1px solid rgba(134, 84, 204, 1) !important;
-
+  border-radius: 100px;
+  border: 1px solid rgba(134, 84, 204, 1) !important;
 }
-.css-8n73m4-MuiInputBase-root-MuiInput-root:hover{
-    color: rgba(201, 201, 201, 1) !important;
+.css-8n73m4-MuiInputBase-root-MuiInput-root:hover {
+  color: rgba(201, 201, 201, 1) !important;
 }
 .MuiInputBase-colorPrimary {
-    color: rgba(201, 201, 201, 1) !important;
+  color: rgba(201, 201, 201, 1) !important;
 }
-.MuiOutlinedInput-root{
-
-    color: #C9C9C9 !important;
+.MuiOutlinedInput-root {
+  color: #c9c9c9 !important;
 }
 /*.MuiInput-input{*/
 /*    border-radius: 100px;*/
@@ -32,35 +30,32 @@
 /*    color: white !important;*/
 /*}*/
 
-.Mui-Focused{
-    border-color: rgba(134, 84, 204, 1);
-    color: rgba(134, 84, 204, 1);
-
+.Mui-Focused {
+  border-color: rgba(134, 84, 204, 1);
+  color: rgba(134, 84, 204, 1);
 }
-.myTextField .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: red !important;
+.myTextField
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: red !important;
 }
-.MuiInputBase-colorPrimary{
-    color: red;
+.MuiInputBase-colorPrimary {
+  color: red;
 }
-.MuiSvgIcon-root{
-    /*color: rgba(134, 84, 204, 1);*/
-    background: rgba(134, 84, 204, 1);
-    color: white;
-    border-radius: 50%;
+.MuiSvgIcon-root {
+  /*color: rgba(134, 84, 204, 1);*/
+  background: rgba(134, 84, 204, 1);
+  color: white;
+  border-radius: 50%;
 }
 .MuiCheckbox-root {
-    border-radius: 50% !important;
-    border: 1px solid rgba(134, 84, 204, 1);
+  border-radius: 50% !important;
+  border: 1px solid rgba(134, 84, 204, 1);
 }
-.MuiIconButton-root{
-    border-radius: 50% !important;
 
-}
-.MuiCheckbox-root svg{
-    background: white;
-    color: rgba(134, 84, 204, 1);
-
+.MuiCheckbox-root svg {
+  background: white;
+  color: rgba(134, 84, 204, 1);
 }
 /*.css-6aj0jg-MuiContainer-root {*/
 /*    padding-left: 0 !important;*/
