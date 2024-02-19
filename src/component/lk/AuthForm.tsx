@@ -13,6 +13,8 @@ import AuthButton from "../../../public/AuthButton";
 import authBackM from "../../assets/items/authBackM.png";
 import authIcon from "../../assets/items/authIcon.svg";
 import regBack1 from "../../assets/lk/regBack1.png";
+
+
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
 import { setUser } from "../../redux/features/userSlice";
