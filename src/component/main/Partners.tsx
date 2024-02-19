@@ -2,7 +2,7 @@ import React from 'react';
 import {backText, blackText} from "../../mui/palette";
 import item9 from "../../assets/back/backItem9.svg";
 import back3 from "../../assets/back3.svg";
-import back4 from "../../assets/back4.svg";
+import back4 from "../../assets/maxim-maximonline-ru-black.svg";
 import back5 from "../../assets/back5.svg";
 import itemLeft from "../../assets/items/item4.svg";
 import rock from "../../assets/rock.svg";
@@ -15,7 +15,6 @@ const Partners = () => {
         <WhiteContainer sx={{
             marginTop: '-120px',
             // marginBottom: '0',
-
             paddingBottom: '220px',
 
         }}>
@@ -91,7 +90,7 @@ const Partners = () => {
                 position: 'absolute',
                 bottom: {sm: 150, xs: 50},
                 zIndex: 500,
-                right: {sm: 200, xs: -20},
+                right: {sm: 200, xs: 20},
                 width: {lg: '324px', md: '259px', sm: '200px', xs: '184px'},
                 height: {lg: '224px', md: '179px', sm: '130px', xs: '118px'},
             }} className={'animate__fadeInUp animate__animated wow'}/>
