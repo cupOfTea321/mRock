@@ -1,9 +1,7 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import back from "../assets/Union.png";
 
 const WhiteContainer = ({ children, sx }) => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
