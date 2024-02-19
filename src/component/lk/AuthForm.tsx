@@ -9,12 +9,9 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import AuthButton from "../../../public/AuthButton";
-import authBackM from "../../assets/items/authBackM.png";
 import authIcon from "../../assets/items/authIcon.svg";
 import authMob from "../../assets/lk/authMob.svg";
 
-import regBack1 from "../../assets/lk/regBack1.png";
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
 import { setUser } from "../../redux/features/userSlice";
@@ -143,7 +140,7 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
-      <AuthButton
+      {/* <AuthButton
         text={""}
         sx={{
           width: { sm: "230px", xs: "115px" },
@@ -156,6 +153,15 @@ const AuthForm: React.FC = ({}) => {
         }}
         type="submit"
         to={"/musician"}
+      /> */}
+      <Box
+        sx={{
+          width: { sm: "230px", xs: "115px" },
+          height: { sm: "42px", xs: "36px" },
+          marginTop: "16px",
+        }}
+        component={"img"}
+        src={authMob}
       />
       <Typography
         sx={{
