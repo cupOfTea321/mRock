@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import ItemText from "../component/ui/ItemText";
 import MusItem from "../component/lk/MusItem";
 import {fetchGetWithToken} from "../handlers/tokenFetch";
+import {rolesTarget, setRolesTarget} from "../handlers/rolesTarget";
 
 // const data = [
 //     'Имя фамилия',
@@ -17,13 +18,6 @@ import {fetchGetWithToken} from "../handlers/tokenFetch";
 // ]
 const MusicianPage = () => {
     const navigate = useNavigate()
-    useEffect(() => {
-        document.body.classList.add("full-height-body");
-
-        return () => {
-            document.body.classList.remove("full-height-body");
-        };
-    }, []);
     const handleClick = () => {
         navigate('change')
     }
@@ -32,18 +26,31 @@ const MusicianPage = () => {
     const token = localStorage.getItem('access')
     const url = 'https://xn--80affwgpn.xn--p1ai/api/profile/my/';
     useEffect(() => {
+        document.body.classList.add("full-height-body");
+
+
         fetchGetWithToken(url, token)
             .then((result) => {
+                // result.role = rolesTarget(data.role);
                 setData(result);
             })
             .catch((error) => {
                 console.error(error);
             });
+        return () => {
+            document.body.classList.remove("full-height-body");
+        };
     }, [])
+
     if (data === null) {
         return <div>Loading...</div>;
     }
-    console.log(data)
+    // useEffect(() => {
+    //
+    // }, [data.role])
+    // data.role = rolesTarget(data.role);
+    // console.log(rolesTarget(data.role))
+
     return (
         <>
             <BlackBackground  />
@@ -75,7 +82,7 @@ const MusicianPage = () => {
                         marginBottom: '50px',
                     }}/>
                     <MusItem item={data?.name}/>
-                    <MusItem item={data?.role}/>
+                    <MusItem item={rolesTarget(data?.role)}/>
                     <MusItem item={data?.social_link}/>
                     <Typography
                         onClick={handleClick}

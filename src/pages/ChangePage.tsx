@@ -12,7 +12,8 @@ import MyAuto from "../component/ui/MyAuto";
 import {setRolesTarget} from "../handlers/rolesTarget";
 import {useChangeDataMutation, useUserCreateMutation} from "../redux/services";
 import {fetchGetWithToken} from "../handlers/tokenFetch";
-
+import { useNavigate } from "react-router-dom";
+import {setUser} from "../redux/features/userSlice";
 const ChangePage = () => {
     const inputStyle = {
         width: '228px',
@@ -29,6 +30,7 @@ const ChangePage = () => {
         setFormState((prev) => ({...prev, [name]: value}));
         console.log(formState)
     };
+    const navigate = useNavigate();
     const formData = new FormData();
     const token = localStorage.getItem('access')
     const [role, setRole] = useState('');
@@ -53,6 +55,7 @@ const ChangePage = () => {
                 .catch((error) => {
                     return console.error("rejected", error);
                 });
+
             if (!regResult.isSuccess) return;
         } catch (e) {
             console.error(e);
@@ -68,6 +71,7 @@ const ChangePage = () => {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const handleFileChange = (event) => {
+        formState.avatar = event.target.files[0]
         setSelectedFile(event.target.files[0]);
         handleUpload();
     };
@@ -76,9 +80,22 @@ const ChangePage = () => {
         if (selectedFile) {
             // Выполните действия, связанные с загрузкой выбранного файла
             console.log(selectedFile);
-            formState.avatar = selectedFile
+
         }
     };
+    const [err, setErr] = useState(false)
+    useEffect(() => {
+        const isAuth = () => {
+            if (regResult.isSuccess) {
+                setErr(false)
+                navigate("/musician");
+            }
+            if (regResult.isError) {
+                setErr(true)
+            }
+        };
+        isAuth();
+    }, [regResult]);
     useEffect(() => {
         setUser().then((res) => {
             setFormState(res)
@@ -163,7 +180,13 @@ const ChangePage = () => {
                                inputProps={{ accept: '.png, .jpg, .jpeg' }}/>
                         {/*<Button onClick={handleUpload}>Upload</Button>*/}
                     </Grid>
-
+                    {
+                        err && <Box sx={{
+                            color: 'red'
+                        }}>
+                            Введите корректные данные
+                        </Box>
+                    }
                     <ItemText
                         img={itemSave}
                         title={'Сохранить'}

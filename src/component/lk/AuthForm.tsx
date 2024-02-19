@@ -40,8 +40,8 @@ const AuthForm: React.FC = ({}) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const cleanedPhoneNumber = formState.username.replace(/\D/g, "");
-    const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
-    formState.username = modifiedPhoneNumber;
+    // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
+    formState.username = cleanedPhoneNumber;
     console.log(formState);
     try {
       await login(formState)
