@@ -30,7 +30,8 @@ const RandomBlock = ({sx, data}) => {
                     }}>
                         <Box component={'img'} src={item.avatar} sx={{
                             ...imageStyle,
-                            ...textStyle
+                            ...textStyle,
+                            objectFit: 'cover'
                         }}/>
                         <Typography sx={{
                             ...blackText,

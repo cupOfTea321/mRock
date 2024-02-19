@@ -18,6 +18,7 @@ export const musiciansSwitch = (index) => {
                 clipPath: 'polygon(5% 0, 95% 0%, 100% 100%, 0 100%)',
                 transform: 'rotate(3.21deg)'
 
+
             }
             textStyle = {
                 transform: 'rotate(3.21deg)'
@@ -88,4 +89,33 @@ export const sliderSwitch = (index) => {
     }
 
     return [imageStyle, textStyle]
+}
+export const aboutSwitch = (index) => {
+    let imgStyle = {
+        marginTop: '280px',
+        height: '263px',
+    }
+    switch (index) {
+        case 0:
+            imgStyle = {
+                marginTop: '67px',
+                height: '284px'
+            }
+            break
+        case 1:
+            imgStyle = {
+                marginTop: '160px',
+                height: '303px'
+            }
+            break
+        case 2:
+            imgStyle = {
+                marginTop: '30px',
+                height: '226px',
+            }
+            break
+        default:
+    }
+
+    return imgStyle
 }

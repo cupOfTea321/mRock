@@ -10,6 +10,8 @@ import back2 from "../../assets/about/aboutBack2.svg";
 import back3 from "../../assets/about/aboutBack3.svg";
 import back4 from "../../assets/about/aboutBack4.svg";
 import BlackBackground from "../../utils/BlackBackground";
+import {aboutSwitch} from "../../handlers/sliderSwitch";
+import Swiper from "../../utils/Swiper";
 
 const AboutBanner = () => {
     const items = [
@@ -61,44 +63,25 @@ const AboutBanner = () => {
                 marginBottom: '80px'
             }} className={'animate__bounceIn animate__animated wow'}>
                 {items.map((item, index) => {
-                    let imgStyle = {
-                        marginTop: '280px',
-                        height: '263px'
-                    }
-                    switch (index) {
-                        case 0:
-                            imgStyle = {
-                                marginTop: '67px',
-                                height: '284px'
-                            }
-                            break
-                        case 1:
-                            imgStyle = {
-                                marginTop: '160px',
-                                height: '303px'
-                            }
-                            break
-                        case 2:
-                            imgStyle = {
-                                marginTop: '30px',
-                                height: '226px'
-                            }
-                            break
-                        default:
-                    }
+                    const imgStyle = aboutSwitch(index)
                     return (
-                        <Box key={item} src={item} component={'img'} sx={
-                            imgStyle
-                        }/>
+                        <Box key={item} src={item} component={'img'} sx={{
+                                ...imgStyle,
+                                display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'}
+                            }}/>
                     )
                 })}
+                <Swiper slides={items}  about={true}  sx={{
+                    display: {lg: 'none', md: 'flex', sm: 'flex', xs: 'flex'},
+                }}  />
             </Container>
+
             <Box component={'img'} src={back3} sx={{
                 display: {sm: 'block', xs: 'none'},
                 position: 'absolute',
                 zIndex: 650,
                 right: 0,
-                top: 200
+                top: 200,
             }} className={'animate__fadeInRight animate__animated wow'}/>
             <Box component={'img'} src={back4} sx={{
                 position: 'absolute',
