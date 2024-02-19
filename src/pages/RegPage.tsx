@@ -67,26 +67,6 @@ const RegPage = () => {
             <Typography variant={"h2"}>
               Станьте участником самого масштабного рок-бэнда страны!
             </Typography>
-            <Box
-              sx={{
-                width: { sm: "200px", xs: "115px" },
-                height: { sm: "51px", xs: "40px" },
-                marginTop: "16px",
-                color: "#131313",
-                backgroundImage: {
-                  sm: `url(${ticketDesk})`,
-                  xs: `url(${ticketMob})`,
-                },
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Typography>Билеты</Typography>
-            </Box>
           </Box>
           <RegForm />
         </Box>

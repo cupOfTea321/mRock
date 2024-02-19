@@ -71,26 +71,7 @@ const AuthPage = () => {
               Станьте голосом, мелодией и драйвом самого масштабного концерта
               2024 года!
             </Typography>
-            <Box
-              sx={{
-                width: { sm: "200px", xs: "115px" },
-                height: { sm: "51px", xs: "40px" },
-                marginTop: "16px",
-                color: "#131313",
-                backgroundImage: {
-                  sm: `url(${ticketDesk})`,
-                  xs: `url(${ticketMob})`,
-                },
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Typography>Билеты</Typography>
-            </Box>
+
           </Box>
           <AuthForm />
         </Box>
