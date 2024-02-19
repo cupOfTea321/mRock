@@ -1,71 +1,102 @@
-import React, {useEffect} from 'react';
-import Logo from "../component/layout/Logo";
-import {Box, Container, Typography} from "@mui/material";
-import authPhone from "../assets/lk/authPhone.png"
-import item1 from "../assets/lk/item1.png"
-import WhiteItem from "../component/ui/WhiteItem";
+import { Box, Container, Typography } from "@mui/material";
+import { useEffect } from "react";
 import rightBack from "../assets/lk/rightBack.svg";
-import Input from "../component/ui/Input";
+import ticketDesk from "../assets/ticketDesk.png";
+import ticketMob from "../assets/ticketMob.png";
+
+import Logo from "../component/layout/Logo";
 import AuthForm from "../component/lk/AuthForm";
-import {colStyle} from "../mui/palette";
 import FullBack from "../component/lk/FullBack";
-import {useNavigate} from "react-router-dom";
-import {useAppDispatch} from "../redux/store";
-import {useUserAuthMutation} from "../redux/services";
+import { colStyle } from "../mui/palette";
 const AuthPage = () => {
-    useEffect(() => {
-        document.body.classList.add("full-height-body");
+  useEffect(() => {
+    document.body.classList.add("full-height-body");
 
-        return () => {
-            document.body.classList.remove("full-height-body");
-        };
-    }, []);
+    return () => {
+      document.body.classList.remove("full-height-body");
+    };
+  }, []);
 
-    return (
-        <>
-            <FullBack/>
+  return (
+    <>
+      <FullBack />
+      <Box
+        src={rightBack}
+        component={"img"}
+        sx={{
+          position: "absolute",
+          objectFit: "cover",
+          display: { lg: "block", md: "none", sm: "none", xs: "none" },
+          right: 0,
+          top: 0,
+          height: "97svh",
+          width: "auto",
+        }}
+        className={"animate__bounceIn animate__animated wow"}
+      />
+      <Container
+        sx={{
+          position: "relative",
+        }}
+      >
+        <Logo
+          sx={{
+            marginTop: "26px",
+            marginBottom: { md: "90px", sm: "40px", xs: "40px" },
+          }}
+        />
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xl: "space-between", lg: "space-between" },
+            flexDirection: {
+              lg: "row",
+              md: "column-reverse",
+              sm: "column-reverse",
+              xs: "column-reverse",
+            },
+            alignItems: "center",
+            gap: { xs: "140px" },
+          }}
+        >
+          <Box
+            sx={{
+              ...colStyle,
+              justifyContent: "center",
+              width: { xs: "100%", sm: "70%", md: "50%", lg: "40%" },
+            }}
+          >
+            <Typography variant={"h2"}>
+              Станьте голосом, мелодией и драйвом самого масштабного концерта
+              2024 года!
+            </Typography>
             <Box
-                src={rightBack}
-                component={'img'}
-                sx={{
-                    position: 'absolute',
-                    display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
-                    // zIndex: 500,
-                    right: 0,
-                    top: -150,
-                    width: '50%',
-                    height: '1000px'
-                    // bottom: 250
-                }} className={'animate__bounceIn animate__animated wow'}
-            />
-            <Container sx={{
-                position: 'relative'
-            }}>
-                <Logo sx={{
-                    marginTop: '26px',
-                    marginBottom: '140px',
-                }}/>
-
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-
-                }}>
-                    <Box sx={{
-                        ...colStyle,
-                        justifyContent: 'center'
-                    }}>
-                        <Typography variant={'h2'}>
-                            Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
-                        </Typography>
-                    </Box>
-                    <AuthForm />
-                </Box>
-            </Container>
-
-        </>
-
-    );
+              sx={{
+                width: { sm: "200px", xs: "115px" },
+                height: { sm: "51px", xs: "40px" },
+                marginTop: "16px",
+                color: "#131313",
+                backgroundImage: {
+                  sm: `url(${ticketDesk})`,
+                  xs: `url(${ticketMob})`,
+                },
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography>Билеты</Typography>
+            </Box>
+          </Box>
+          <AuthForm />
+        </Box>
+      </Container>
+    </>
+  );
 };
 
 export default AuthPage;

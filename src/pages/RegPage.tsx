@@ -1,63 +1,98 @@
-import React, {useEffect} from 'react';
-import FullBack from "../component/lk/FullBack";
-import Logo from "../component/layout/Logo";
-import {colStyle} from "../mui/palette";
-import WhiteItem from "../component/ui/WhiteItem";
-import AuthForm from "../component/lk/AuthForm";
-import {Box, Container, Typography} from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import { useEffect } from "react";
 import rightBack from "../assets/lk/regBack.svg";
+import ticketDesk from "../assets/ticketDesk.png";
+import ticketMob from "../assets/ticketMob.png";
+import Logo from "../component/layout/Logo";
+import FullBack from "../component/lk/FullBack";
 import RegForm from "../component/lk/RegForm";
+import { colStyle } from "../mui/palette";
 const RegPage = () => {
-    useEffect(() => {
-        document.body.classList.add("full-height-body");
+  useEffect(() => {
+    document.body.classList.add("full-height-body");
 
-        return () => {
-            document.body.classList.remove("full-height-body");
-        };
-    }, []);
-    return (
-        <>
-            <FullBack/>
+    return () => {
+      document.body.classList.remove("full-height-body");
+    };
+  }, []);
+  return (
+    <>
+      <FullBack />
+      <Box
+        src={rightBack}
+        component={"img"}
+        sx={{
+          position: "absolute",
+          display: { lg: "block", md: "none", sm: "none", xs: "none" },
+          right: 0,
+          top: 0,
+          height: "97svh",
+          width: "auto",
+        }}
+        className={"animate__bounceIn animate__animated wow"}
+      />
+      <Container
+        sx={{
+          position: "relative",
+        }}
+      >
+        <Logo
+          sx={{
+            marginTop: "26px",
+            marginBottom: { md: "90px", sm: "40px", xs: "40px" },
+          }}
+        />
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xl: "space-between", lg: "space-between" },
+            flexDirection: {
+              lg: "row",
+              md: "column-reverse",
+              sm: "column-reverse",
+              xs: "column-reverse",
+            },
+            alignItems: "center",
+            gap: { xs: "140px" },
+          }}
+        >
+          <Box
+            sx={{
+              ...colStyle,
+              justifyContent: "center",
+              width: { xs: "100%", sm: "70%", md: "50%", lg: "40%" },
+            }}
+          >
+            <Typography variant={"h2"}>
+              Станьте участником самого масштабного рок-бэнда страны!
+            </Typography>
             <Box
-                src={rightBack}
-                component={'img'}
-                sx={{
-                    position: 'absolute',
-                    display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
-                    // zIndex: 500,
-                    right: 0,
-                    top: -50,
-                    width: '50%',
-                    height: '90%'
-                    // bottom: 250
-                }} className={'animate__bounceIn animate__animated wow'}
-            />
-            <Container sx={{
-                position: 'relative'
-            }}>
-                <Logo sx={{
-                    marginTop: '26px',
-                    marginBottom: '140px',
-                }}/>
-
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-
-                }}>
-                    <Box sx={{
-                        ...colStyle,
-                        justifyContent: 'center'
-                    }}>
-                        <Typography variant={'h2'}>
-                            Станьте участником самого масштабного рок-бэнда страны!
-                        </Typography>
-                    </Box>
-                    <RegForm  />
-                </Box>
-            </Container>
-        </>
-    );
+              sx={{
+                width: { sm: "200px", xs: "115px" },
+                height: { sm: "51px", xs: "40px" },
+                marginTop: "16px",
+                color: "#131313",
+                backgroundImage: {
+                  sm: `url(${ticketDesk})`,
+                  xs: `url(${ticketMob})`,
+                },
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography>Билеты</Typography>
+            </Box>
+          </Box>
+          <RegForm />
+        </Box>
+      </Container>
+    </>
+  );
 };
 
 export default RegPage;
