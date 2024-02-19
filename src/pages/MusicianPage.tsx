@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import BlackBackground from "../utils/BlackBackground";
 import {Box, Container, Typography} from "@mui/material";
 import Logo from "../component/layout/Logo";
-import AuthButton from "../../public/AuthButton";
+import AuthButton from "../component/ui/AuthButton";
 import item2 from "../assets/lk/item2.png";
 import MusRight from "../component/lk/MusRight";
 import {useNavigate} from "react-router-dom";

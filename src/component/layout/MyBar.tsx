@@ -6,7 +6,7 @@ import menuBack from "../../assets/menu.webp"
 import {CSSTransition} from 'react-transition-group'
 import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
-import AuthButton from "../../../public/AuthButton";
+import AuthButton from "../ui/AuthButton";
 
 const MyBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
