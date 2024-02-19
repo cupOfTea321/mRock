@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AuthButton from "../../../public/AuthButton";
 import item1 from "../../assets/lk/item1.png";
-import regBack1 from "../../assets/lk/regBack1.png";
-import regBackM from "../../assets/lk/regBackM.png";
+import regMob from "../../assets/lk/regMob.svg";
 import FormBack from "../../assets/mobileFormBack.png";
+
 import { setRolesTarget } from "../../handlers/rolesTarget";
 import { backText, colStyle } from "../../mui/palette";
 import { setUser } from "../../redux/features/userSlice";
@@ -159,14 +159,14 @@ const RegForm: React.FC = ({}) => {
         </Typography>
       </Box>
       <AuthButton
-        text={"Зарегистрироваться"}
+        text={""}
         sx={{
           width: { sm: "230px", xs: "186px" },
           height: { sm: "42px", xs: "34px" },
           marginTop: "16px",
           backgroundImage: {
-            sm: `url(${regBack1})`,
-            xs: `url(${regBackM})`,
+            sm: `url(${regMob})`,
+            xs: `url(${regMob})`,
           },
           backgroundSize: "cover",
         }}
