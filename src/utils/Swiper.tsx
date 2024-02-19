@@ -99,6 +99,7 @@ const MySwiper = ({
                         }}>
                             <Box component={'img'} src={item.avatar} sx={{
                                 ...imageStyle,
+                                objectFit: 'cover'
                             }}/>
                             <Typography sx={{
                                 // ...blackText,

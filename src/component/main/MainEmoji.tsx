@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Container, Typography} from "@mui/material";
 import BlackBackground from "../../utils/BlackBackground";
-import item2 from "../../assets/items/pinkBack.webp";
+import item2 from "../../assets/items/item9.png";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import peopleBack from "../../assets/peopleBack.png";
@@ -41,10 +41,12 @@ const MainEmoji = () => {
                     Испытайте
                 </Typography>
                 <ItemText sx={{
-                    background: `url(${item2})`,
+                    backgroundImage: `url(${item2})`,
                     width: {md: '339px', sm: '300px', xs: '231px'},
                     height: {md: '49px', sm: '40px', xs: '37px'},
-                    backgroundPosition: 'inherit'
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    // backgroundPosition: 'inherit'
                 }} variant={'h2'} title={'Самую сильную'}/>
                 <Typography variant={'h2'}>
                     музыкальную эмоцию,
