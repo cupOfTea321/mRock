@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 const BlackBackground = ({ back = backLines, sx }) => {
   return (
     <>
+   
       <Box
         sx={{
           position: "absolute",
@@ -12,7 +13,7 @@ const BlackBackground = ({ back = backLines, sx }) => {
           top: 0,
           left: 0,
           width: "100vw",
-          height: { md: "100vh", sm: "1500px", xs: "1100px" },
+          height: "100%",
           backgroundColor: "black",
           backgroundRepeat: "no-repeat",
           ...sx,
@@ -23,7 +24,7 @@ const BlackBackground = ({ back = backLines, sx }) => {
           position: "absolute",
           zIndex: 360,
           width: "100vw",
-          height: { md: "100vh", sm: "1500px", xs: "1100px" },
+          height: "100%",
           opacity: 0.3,
           // filter: 'blur(20px)',
           background: `url(${back})`,

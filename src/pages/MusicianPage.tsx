@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import AuthButton from "../../public/AuthButton";
+import back from "../assets/back/backLines.png";
 import anketa from "../assets/lk/anketa.svg";
 import like from "../assets/lk/like.png";
 import likeBack from "../assets/lk/likeBack.png";
@@ -10,42 +11,66 @@ import MusItem from "../component/lk/MusItem";
 import MusRight from "../component/lk/MusRight";
 import ItemText from "../component/ui/ItemText";
 import { backText } from "../mui/palette";
-import BlackBackground from "../utils/BlackBackground";
 
 // const data = ["Имя фамилия", "Барабаны", "Ссылка вк"];
 const MusicianPage = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-      document.body.classList.add("full-height-body");
+  //   const navigate = useNavigate();
+  //   useEffect(() => {
+  //     document.body.classList.add("full-height-body");
 
-      return () => {
-        document.body.classList.remove("full-height-body");
-      };
-    }, []);
-    const handleClick = () => {
-      navigate("change");
-    };
-    const [data, setData] = useState(null);
+  //     return () => {
+  //       document.body.classList.remove("full-height-body");
+  //     };
+  //   }, []);
+  //   const handleClick = () => {
+  //     navigate("change");
+  //   };
+  //   const [data, setData] = useState(null);
 
-    const token = localStorage.getItem("access");
-    const url = "https://xn--80affwgpn.xn--p1ai/api/profile/my/";
-    useEffect(() => {
-      fetchGetWithToken(url, token)
-        .then((result) => {
-          setData(result);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, []);
-    if (data === null) {
-      return <div>Loading...</div>;
-    }
-    console.log(data);
+  //   const token = localStorage.getItem("access");
+  //   const url = "https://xn--80affwgpn.xn--p1ai/api/profile/my/";
+  //   useEffect(() => {
+  //     fetchGetWithToken(url, token)
+  //       .then((result) => {
+  //         setData(result);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   }, []);
+  //   if (data === null) {
+  //     return <div>Loading...</div>;
+  //   }
+  //   console.log(data);
   return (
     <>
-      <BlackBackground />
-      <MusRight likes={data.likes} />
+      <Box
+        sx={{
+          position: "absolute",
+          zIndex: 340,
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: { md: "100vh", sm: "1500px", xs: "1100px" },
+          backgroundColor: "black",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></Box>
+      <Box
+        sx={{
+          position: "absolute",
+          zIndex: 360,
+          width: "100vw",
+          height: { md: "100vh", sm: "1500px", xs: "1100px" },
+          opacity: 0.3,
+          background: `url(${back})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></Box>
+      <MusRight
+      //   likes={data.likes}
+      />
       <Container
         sx={{
           position: "relative",
@@ -109,7 +134,7 @@ const MusicianPage = () => {
                 marginRight: "6px",
               }}
             />
-            {data?.likes}
+            {/* {data?.likes} */}
           </Box>
         </Box>
 
@@ -134,15 +159,22 @@ const MusicianPage = () => {
           <Box
             sx={{
               display: { md: "none", xs: "block" },
+              marginBottom: "50px",
             }}
             component={"img"}
             src={anketa}
           />
-          <MusItem item={data?.name} />
-          <MusItem item={data?.role} />
-          <MusItem item={data?.social_link} />
+          <MusItem
+          //   item={data?.name}
+          />
+          <MusItem
+          //   item={data?.role}
+          />
+          <MusItem
+          //   item={data?.social_link}
+          />
           <Typography
-            onClick={handleClick}
+            // onClick={handleClick}
             style={{
               textDecoration: "underline",
               marginTop: "38px",
