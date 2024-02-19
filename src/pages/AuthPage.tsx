@@ -1,6 +1,9 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import rightBack from "../assets/lk/rightBack.svg";
+import ticketDesk from "../assets/ticketDesk.png";
+import ticketMob from "../assets/ticketMob.png";
+
 import Logo from "../component/layout/Logo";
 import AuthForm from "../component/lk/AuthForm";
 import FullBack from "../component/lk/FullBack";
@@ -22,13 +25,12 @@ const AuthPage = () => {
         component={"img"}
         sx={{
           position: "absolute",
+          objectFit: "cover",
           display: { lg: "block", md: "none", sm: "none", xs: "none" },
-          // zIndex: 500,
           right: 0,
           top: 0,
-          width: "50%",
-          height: "100%",
-          // bottom: 250
+          height: "97svh",
+          width: "auto",
         }}
         className={"animate__bounceIn animate__animated wow"}
       />
@@ -40,30 +42,61 @@ const AuthPage = () => {
         <Logo
           sx={{
             marginTop: "26px",
-            marginBottom: "140px",
+            marginBottom: { md: "90px", sm: "40px", xs: "40px" },
           }}
         />
 
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-
-                }}>
-                    <Box sx={{
-                        ...colStyle,
-                        justifyContent: 'center'
-                    }}>
-                        <Typography variant={'h2'}>
-                            Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
-                        </Typography>
-                    </Box>
-                    <AuthForm />
-                </Box>
-            </Container>
-
-        </>
-
-    );
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xl: "space-between", lg: "space-between" },
+            flexDirection: {
+              lg: "row",
+              md: "column-reverse",
+              sm: "column-reverse",
+              xs: "column-reverse",
+            },
+            alignItems: "center",
+            gap: { xs: "140px" },
+          }}
+        >
+          <Box
+            sx={{
+              ...colStyle,
+              justifyContent: "center",
+              width: { xs: "100%", sm: "70%", md: "50%", lg: "40%" },
+            }}
+          >
+            <Typography variant={"h2"}>
+              Станьте голосом, мелодией и драйвом самого масштабного концерта
+              2024 года!
+            </Typography>
+            <Box
+              sx={{
+                width: { sm: "200px", xs: "115px" },
+                height: { sm: "51px", xs: "40px" },
+                marginTop: "16px",
+                color: "#131313",
+                backgroundImage: {
+                  sm: `url(${ticketDesk})`,
+                  xs: `url(${ticketMob})`,
+                },
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography>Билеты</Typography>
+            </Box>
+          </Box>
+          <AuthForm />
+        </Box>
+      </Container>
+    </>
+  );
 };
 
 export default AuthPage;
