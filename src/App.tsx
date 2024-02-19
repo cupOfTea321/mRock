@@ -1,72 +1,72 @@
-import {useEffect, useLayoutEffect} from "react";
-import {ThemeProvider} from "@mui/material";
-import {privateRoutes, routes} from "./router/router.js";
-import { Route, Routes, useLocation, Navigate } from "react-router-dom";
-import {theme} from "./mui";
+import { ThemeProvider } from "@mui/material";
+import { useEffect, useLayoutEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
+import { afisha } from "./handlers/afisha";
+import { theme } from "./mui";
+import { privateRoutes, routes } from "./router/router.js";
 import ScrollToTop from "./utils/ScrollToTop";
-import {useSelector} from "react-redux";
-import {afisha} from "./handlers/afisha";
 function App() {
-    useEffect(() => {
-        const wow = new WOW({
-            // Настройки по умолчанию
-            offset: 100,
-            // mobile: false,
-            live: true,
-        });
+  useEffect(() => {
+    const wow = new WOW({
+      // Настройки по умолчанию
+      offset: 100,
+      // mobile: false,
+      live: true,
+    });
 
-        wow.init();
-    }, []);
+    wow.init();
+  }, []);
 
-
-    const location = useLocation();
-    useLayoutEffect(() => {
-        afisha()
-    }, [location.pathname])
-    // const { isLoading } = useGetProjectsQuery(1);
-    const isLoading = false
-    const { nodeRef } =
+  const location = useLocation();
+  useLayoutEffect(() => {
+    afisha();
+  }, [location.pathname]);
+  // const { isLoading } = useGetProjectsQuery(1);
+  const isLoading = false;
+  const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {};
-    const isAuthenticated = localStorage.getItem('access');
-    return isLoading ? (
-        <div>Загрузка</div>
-    ) : (
-        <>
-            <ScrollToTop />
-            <ThemeProvider theme={theme}>
-                <Routes>
-                    <Route
-                        path={"/"}
-                        element={<Layout location={location} nodeRef={nodeRef} />}
-                    >
-                        {routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact
-                                element={route.element}
-                            />
-                        ))}
-                    </Route>
-                    <Route
-                        path={"/"}
-                        element={<Layout location={location} nodeRef={nodeRef} />}
-                    >
-                        {privateRoutes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact
-                                element={isAuthenticated ? route.element : <Navigate to="/" replace />}
-                            />
-                        ))}
-                    </Route>
-                </Routes>
-            </ThemeProvider>
-        </>
-    );
+  const isAuthenticated = localStorage.getItem("access");
+  return isLoading ? (
+    <div>Загрузка</div>
+  ) : (
+    <>
+      <ScrollToTop />
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route
+            path={"/"}
+            element={<Layout location={location} nodeRef={nodeRef} />}
+          >
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact
+                element={route.element}
+              />
+            ))}
+          </Route>
+          <Route
+            path={"/"}
+            element={<Layout location={location} nodeRef={nodeRef} />}
+          >
+            {privateRoutes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact
+                element={
+                  isAuthenticated ? route.element : <Navigate to="/" replace />
+                }
+              />
+            ))}
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;

@@ -1,29 +1,36 @@
-import React from 'react';
-import whiteBack from "../assets/main/whiteBack.svg";
-import whiteBackM from "../assets/main/WhiteContainerM.png";
-import whiteBackM2 from "../assets/backM.png";
-import {Box} from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
+import back from "../assets/Union.png";
 
-const WhiteContainer = ({children, sx}) => {
-    return (
-        <Box sx={{
-            width: '100vw',
-            backgroundImage: {
-                sm: `url(${whiteBack})`,
-                xs: `url(${whiteBackM})`,
-            },
-            backgroundSize: 'contain',
-            marginTop: '-50px',
-            marginBottom: '-50px',
-            paddingBottom: '120px',
-            zIndex:   350,
-            height: '100%',
-            position: 'relative',
-            ...sx
-        }}>
-            {children}
-        </Box>
-    );
+const WhiteContainer = ({ children, sx }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+  return (
+    <Box
+      sx={{
+        width: "100vw",
+        marginTop: "-50px",
+        marginBottom: "-50px",
+        paddingBottom: "120px",
+        zIndex: 350,
+        height: "50%",
+        position: "relative",
+        ...sx,
+      }}
+    >
+      <Box
+        component={"img"}
+        width={"100%"}
+        src={back}
+        sx={{
+          position: "absolute",
+          height: "100%",
+          bottom: 0,
+          zIndex: -100,
+        }}
+      />
+      {children}
+    </Box>
+  );
 };
 
 export default WhiteContainer;

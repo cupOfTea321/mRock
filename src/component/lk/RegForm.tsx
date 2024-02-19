@@ -2,7 +2,6 @@ import { Box, Checkbox, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import AuthButton from "../../../public/AuthButton";
 import item1 from "../../assets/lk/item1.png";
 import regMob from "../../assets/lk/regMob.svg";
 import FormBack from "../../assets/mobileFormBack.png";
@@ -158,7 +157,7 @@ const RegForm: React.FC = ({}) => {
           Согласие на обработку персональных данных
         </Typography>
       </Box>
-      <AuthButton
+      {/* <AuthButton
         text={""}
         sx={{
           width: { sm: "230px", xs: "186px" },
@@ -172,6 +171,15 @@ const RegForm: React.FC = ({}) => {
         }}
         type="submit"
         to={"/musician"}
+      /> */}
+      <Box
+        sx={{
+          width: { sm: "230px", xs: "186px" },
+          height: { sm: "42px", xs: "34px" },
+          marginTop: "16px",
+        }}
+        component={"img"}
+        src={regMob}
       />
     </Box>
   );
