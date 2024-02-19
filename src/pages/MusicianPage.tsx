@@ -30,7 +30,7 @@ const MusicianPage = () => {
     const [data, setData] = useState(null);
 
     const token = localStorage.getItem('access')
-    const url = 'http://85.193.87.7/api/profile/my/';
+    const url = 'https://xn--80affwgpn.xn--p1ai/api/profile/my/';
     useEffect(() => {
         fetchGetWithToken(url, token)
             .then((result) => {

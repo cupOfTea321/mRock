@@ -60,7 +60,7 @@ const ChangePage = () => {
     };
     const [data, setData] = useState(null);
 
-    const url = 'http://85.193.87.7/api/profile/my/';
+    const url = 'https://xn--80affwgpn.xn--p1ai/api/profile/my/';
     const setUser = async () => {
         const {avatar, name, role, social_link} = data
         return  {avatar, name, role, social_link}

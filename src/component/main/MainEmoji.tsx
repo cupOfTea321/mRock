@@ -5,6 +5,8 @@ import item2 from "../../assets/items/item2.png";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
 import peopleBack from "../../assets/peopleBack.png";
+import item9 from "../../assets/items/item9.png";
+import ItemText from "../ui/ItemText";
 const MainEmoji = () => {
     return (
         <Box
@@ -38,10 +40,12 @@ const MainEmoji = () => {
                 <Typography variant={'h2'}>
                     Испытайте
                 </Typography>
-                <Box component={'img'} src={item2} sx={{
+                <ItemText sx={{
+                    background: `url(${item2})`,
                     width: {md: '351px', sm: '300px', xs: '231px'},
                     height: {md: '52px', sm: '40px', xs: '37px'},
-                }}/>
+
+                }} variant={'h2'} title={'Самую сильную'}/>
                 <Typography variant={'h2'}>
                     музыкальную эмоцию,
                 </Typography>

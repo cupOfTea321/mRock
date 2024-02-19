@@ -54,18 +54,18 @@ const MainBanner = () => {
             {/*}}/>*/}
 
 
-            <Box component={'img'} src={mobileBanner} sx={{
-                position: 'absolute',
-                bottom: 130,
-                // right: 50,
-                margin: '0 auto',
-                zIndex: 500,
-                display: {sm: 'none', xs: 'block'},
-                // top: 0,
-                left: 0,
-                right: 0,
+            {/*<Box component={'img'} src={mobileBanner} sx={{*/}
+            {/*    position: 'absolute',*/}
+            {/*    bottom: 130,*/}
+            {/*    // right: 50,*/}
+            {/*    margin: '0 auto',*/}
+            {/*    zIndex: 500,*/}
+            {/*    display: {sm: 'none', xs: 'block'},*/}
+            {/*    // top: 0,*/}
+            {/*    left: 0,*/}
+            {/*    right: 0,*/}
 
-            }}/>
+            {/*}}/>*/}
         </Box>
     );
 };

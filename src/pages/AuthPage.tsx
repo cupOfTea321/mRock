@@ -44,28 +44,26 @@ const AuthPage = () => {
           }}
         />
 
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box
-            sx={{
-              ...colStyle,
-              justifyContent: "center",
-            }}
-          >
-            <Typography variant={"h2"}>
-              Станьте голосом, мелодией и драйвом самого масштабного концерта
-              2024 года!
-            </Typography>
-          </Box>
-          <AuthForm />
-        </Box>
-      </Container>
-    </>
-  );
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+
+                }}>
+                    <Box sx={{
+                        ...colStyle,
+                        justifyContent: 'center'
+                    }}>
+                        <Typography variant={'h2'}>
+                            Станьте голосом, мелодией и драйвом самого масштабного концерта 2024 года!
+                        </Typography>
+                    </Box>
+                    <AuthForm />
+                </Box>
+            </Container>
+
+        </>
+
+    );
 };
 
 export default AuthPage;

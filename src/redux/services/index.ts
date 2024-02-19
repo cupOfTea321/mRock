@@ -1,10 +1,11 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 const token = localStorage.getItem('access')
+
 export const rockCoreApi = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://xn--80affwgpn.xn--p1ai/",
+        baseUrl: "https://xn--80affwgpn.xn--p1ai/api",
         prepareHeaders: (headers) => {
             const token = localStorage.getItem('access')
             if (token) {
