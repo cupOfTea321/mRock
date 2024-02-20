@@ -163,11 +163,13 @@ const MyBar = () => {
                         onClose={handleCloseUserMenu}
                     >
                         {settings.map((setting,index) => (
-                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                <NavLink onClick={index === 1 && handleExit} to={setting.to && setting.to} textAlign="center" style={{
-                                    color: 'black'
-                                }}>{setting.name}</NavLink>
+                            <NavLink key={setting} onClick={index === 1 && handleExit} to={setting.to && setting.to} textAlign="center" style={{
+                                color: 'black'
+                            }}>
+                            <MenuItem  onClick={handleCloseUserMenu}>
+                                {setting.name}
                             </MenuItem>
+                            </NavLink>
                         ))}
                     </Menu>
                 </Box>
