@@ -152,30 +152,33 @@ const AuthForm: React.FC = ({}) => {
                 Введены некорректные данные
             </Box>
         }
-       <AuthButton
-        text={""}
-        icon={true}
-        sx={{
-          width: { sm: "230px", xs: "115px" },
-          height: { sm: "42px", xs: "36px" },
-          marginTop: "16px",
-          backgroundImage: {
-            sm: `url(${authMob})`,
-            xs: `url(${authMob})`,
-          },
-        }}
-        type="submit"
-        to={"/musician"}
-      />
-      {/*<Box*/}
+      {/* <AuthButton*/}
+      {/*  text={""}*/}
+      {/*  icon={true}*/}
       {/*  sx={{*/}
       {/*    width: { sm: "230px", xs: "115px" },*/}
       {/*    height: { sm: "42px", xs: "36px" },*/}
       {/*    marginTop: "16px",*/}
+      {/*    backgroundImage: {*/}
+      {/*      sm: `url(${authMob})`,*/}
+      {/*      xs: `url(${authMob})`,*/}
+      {/*    },*/}
       {/*  }}*/}
-      {/*  component={"img"}*/}
-      {/*  src={authMob}*/}
+      {/*  type="submit"*/}
+      {/*  to={"/musician"}*/}
       {/*/>*/}
+        <Box component={'button'} type={'submit'}>
+      <Box
+
+        sx={{
+          width: { sm: "230px", xs: "115px" },
+          height: { sm: "42px", xs: "36px" },
+          marginTop: "16px",
+        }}
+        component={"img"}
+        src={authMob}
+      />
+    </Box>
       <Typography
         sx={{
           h3,

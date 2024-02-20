@@ -2,7 +2,7 @@ import { Autocomplete, Box, TextField, Typography } from "@mui/material";
 import { input } from "./Input";
 const top100Films = ["гитарист", "вокалист", "барабанщик", "басист"];
 const MyAuto = (props) => {
-  const { sx, onChange, name, value, setRole } = props;
+  const { sxAuto, sx, onChange, name, value, setRole } = props;
 
   // console.log(name, value)
   const onBlyatChange = (event, value) => {
@@ -17,7 +17,7 @@ const MyAuto = (props) => {
       onChange={onBlyatChange}
       disablePortal
       sx={{
-        width: "216px",
+          ...sxAuto
       }}
       id="combo-box-demo"
       options={top100Films}
