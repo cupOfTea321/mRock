@@ -10,7 +10,7 @@ import {motion} from "framer-motion";
 const WhiteItem =  ({sx}) => {
     const yandexClick = () => {
         console.log('yandexClick')
-        ym(96408862, 'reachGoal', 'tickets')
+        ym( 'reachGoal', 'tickets')
     }
     return (
         <Box component={motion.button}  sx={{

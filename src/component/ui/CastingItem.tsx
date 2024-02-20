@@ -22,7 +22,7 @@ const CastingItem = ({sx}) => {
         textAlign: 'centre',
     }
     const yandexClick = () => {
-        ym(96408862,'reachGoal','kasting')
+        ym('reachGoal','kasting')
         navigate('/reg')
 
     }

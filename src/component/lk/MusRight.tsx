@@ -22,7 +22,7 @@ const MusRight = ({ likes = 0 }) => {
         height: "95%",
         display: { md: "block", xs: "none" },
       }}
-      className={"animate__bounceIn animate__animated wow"}
+      className={"animate__fadeInRight animate__animated wow"}
     >
       <Box
         sx={{

@@ -13,11 +13,13 @@ import authIcon from "../../assets/items/authIcon.svg";
 
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
+import { setUser } from "../../redux/features/userSlice";
 import { useUserAuthMutation } from "../../redux/services";
-import AuthButton from "../ui/AuthButton";
 import { input } from "../ui/Input";
 import { TextMaskCustom } from "./TextMaskCustom";
-
+import AuthButton from "../ui/AuthButton";
+import InputMask from 'react-input-mask'
+import PhoneMask from "./PhoneMask";
 const AuthForm: React.FC = ({}) => {
   const handleChange = ({ target: { name, value } }) => {
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -62,16 +64,17 @@ const AuthForm: React.FC = ({}) => {
     width: { lg: "403px ", md: "268px", sm: "268px", xs: "268px" },
     marginBottom: 0,
   };
-  const [err, setErr] = useState(false);
+    const [err, setErr] = useState(false)
   useEffect(() => {
     const isAuth = () => {
       if (loginResult.isSuccess) {
+
         navigate("/musician");
-        setErr(false);
+          setErr(false)
       }
-      if (loginResult.isError) {
-        setErr(true);
-      }
+        if (loginResult.isError) {
+            setErr(true)
+        }
     };
     isAuth();
   }, [loginResult]);
@@ -111,7 +114,7 @@ const AuthForm: React.FC = ({}) => {
         name={"username"}
         onChange={handleChange}
         InputProps={{
-          inputComponent: TextMaskCustom as any,
+          inputComponent: PhoneMask,
         }}
         sx={{
           ...input,
@@ -165,7 +168,6 @@ const AuthForm: React.FC = ({}) => {
         type="submit"
         to={"/musician"}
       />
-
       <Typography
         sx={{
           h3,

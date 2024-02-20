@@ -47,7 +47,7 @@ const MainEmoji = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     // backgroundPosition: 'inherit'
-                }} variant={'h2'} title={'Самую сильную'}/>
+                }} variant={'h2'} title={'самую сильную'}/>
                 <Typography variant={'h2'}>
                     музыкальную эмоцию,
                 </Typography>
