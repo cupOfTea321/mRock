@@ -50,11 +50,12 @@ const ThousandPage = () => {
               height: { sm: "55px", xs: "31px" },
             }}
             title={"рок-бэнд"}
+            text
           />
           <Typography variant={"h2"}>страны</Typography>
         </Box>
       </Box>
-      <CardsBlock  data={data} />
+      <CardsBlock data={data} />
       <Box
         component={"img"}
         src={back3}

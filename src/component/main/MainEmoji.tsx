@@ -40,7 +40,9 @@ const MainEmoji = () => {
                 <Typography variant={'h2'}>
                     Испытайте
                 </Typography>
-                <ItemText sx={{
+                <ItemText
+                text
+                sx={{
                     backgroundImage: `url(${item2})`,
                     width: {md: '339px', sm: '300px', xs: '231px'},
                     height: {md: '49px', sm: '40px', xs: '37px'},

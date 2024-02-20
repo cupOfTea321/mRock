@@ -7,47 +7,75 @@ import { backText, blackText } from "../../mui/palette";
 const ItemText = ({
   sx,
   typo,
-  text,
   title = "Анкета музыканта",
   onClick,
   whitetext,
+  text,
   img = item2,
   variant = "",
   type = "button",
 }) => {
   return (
-    <Box
-      onClick={onClick}
-      sx={{
-        ...backText,
-        backgroundImage: `url(${img})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        width: { sm: "414px" },
-        height: { sm: "61px" },
-        ...sx,
-      }}
-      component={text ? "img" : motion.button}
-      type={type}
-      whileHover={{
-        backgroundImage: `url(${greenHover})`,
-        transition: { delay: 0.1, duration: 0.2 },
-      }}
-    >
-      <Typography
-        component={motion.p}
-        variant={variant}
-        sx={{
-          color: whitetext ? "white" : blackText,
-          ...typo,
-        }}
-        whileHover={{
-          color: "black",
-        }}
-      >
-        {title}
-      </Typography>
-    </Box>
+    <>
+      {text ? (
+        <Box
+          onClick={onClick}
+          sx={{
+            ...backText,
+            backgroundImage: `url(${img})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: { sm: "414px" },
+            height: { sm: "61px" },
+            ...sx,
+          }}
+          type={type}
+        >
+          <Typography
+            variant={variant}
+            sx={{
+              color: "black",
+              ...typo,
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
+      ) : (
+        <Box
+          onClick={onClick}
+          sx={{
+            ...backText,
+            backgroundImage: `url(${img})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            width: { sm: "414px" },
+            height: { sm: "61px" },
+            ...sx,
+          }}
+          component={motion.button}
+          type={type}
+          whileHover={{
+            backgroundImage: `url(${greenHover})`,
+            transition: { delay: 0.1, duration: 0.2 },
+          }}
+        >
+          <Typography
+            component={motion.p}
+            variant={variant}
+            sx={{
+              color: whitetext ? "white" : blackText,
+              ...typo,
+            }}
+            whileHover={{
+              color: "black",
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
+      )}
+    </>
   );
 };
 
