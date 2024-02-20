@@ -10,7 +10,7 @@ import rightBack from "../assets/lk/musBack.png";
 import personMob from "../assets/lk/person.png";
 import saveIc from "../assets/lk/save.svg";
 import itemSave from "../assets/items/saveBack.png";
-import {Box, Button, Container, Grid, Input} from "@mui/material";
+import {Box, Button, Container, Grid, Input, Typography} from "@mui/material";
 import {backText, h3} from "../mui/palette";
 import back from "../assets/back/backLines.png";
 import ItemText from "../component/ui/ItemText";
@@ -20,6 +20,7 @@ import {useChangeDataMutation, useUserCreateMutation} from "../redux/services";
 import {fetchGetWithToken} from "../handlers/tokenFetch";
 import { useNavigate } from "react-router-dom";
 import ym from "react-yandex-metrika";
+import {input, Input as MyInput} from "../component/ui/Input";
 const ChangePage = () => {
     const inputStyle = {
         width: { md: "228px", xs: "300px" },

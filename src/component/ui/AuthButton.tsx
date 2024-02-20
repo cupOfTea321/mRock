@@ -1,10 +1,7 @@
 import React from 'react';
-import authBack from "../../../public/test2.webp";
-import authBackM from "../../../public/testM.webp";
 import {NavLink, useNavigate} from "react-router-dom";
 import {Box, Typography} from "@mui/material";
 import {motion} from "framer-motion";
-import greenHover from "../../assets/leftHover.svg";
 import ym from "react-yandex-metrika";
 import authBack from "../../../public/test2.webp";
 import authBackM from "../../../public/testM.webp";
@@ -48,6 +45,7 @@ const AuthButton = ({
         // transform: 'rotate(26deg)',
         width: { sm: "164px", xs: "115px" },
         height: { sm: "41px", xs: "36px" },
+            cursor: 'pointer',
         ...sx,
       }}
       component={!icon ? motion.button : "button"}
