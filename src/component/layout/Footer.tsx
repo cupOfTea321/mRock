@@ -11,6 +11,8 @@ import { blackText } from "../../mui/palette";
 import BlackBackground from "../../utils/BlackBackground";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
+import { useState } from "react";
+import { ModalPolice } from "../main/ModalPolice";
 type FooterMenu = {
   page: string;
   to?: string;
@@ -69,6 +71,7 @@ const Footer = ({ path }) => {
     cursor: "pointer",
   };
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
   const handleMenu = (to) => {
     navigate(to);
   };
@@ -224,12 +227,12 @@ const Footer = ({ path }) => {
                 ...footerText,
                 textAlign: "right",
                 display: { sm: "block", xs: "none" },
-
-                // marginBottom: '-15px'
               }}
+              onClick={()=>setOpen(true)}
             >
               Политика конфиденциальности
             </Box>
+            <ModalPolice open={open} setOpen={setOpen} />
           </Box>
         </Box>
 
