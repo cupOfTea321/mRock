@@ -21,7 +21,6 @@ const MainGallery = () => {
         marginTop: "-140px",
         zIndex: 350,
         position: "relative",
-
         paddingBottom: "150px",
       }}
     >
@@ -42,7 +41,8 @@ const MainGallery = () => {
           position: "absolute",
           zIndex: 360,
           width: "100vw",
-          height: "100%",
+          height: "105%",
+          top: "-70px",
           // opacity: 0.3    ,
           // filter: 'blur(20px)',
           background: `url(${back})`,

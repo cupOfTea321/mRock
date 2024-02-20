@@ -4,7 +4,7 @@ import item9 from "../../assets/back/backItem9.webp";
 import back3 from "../../assets/back3.svg";
 import back5 from "../../assets/back5.svg";
 import itemLeft from "../../assets/items/item4.svg";
-import back4 from "../../assets/maxim-maximonline-ru-black.svg";
+import back4 from "../../assets/main/maxim.svg";
 import rock from "../../assets/rock.svg";
 import { backText, blackText } from "../../mui/palette";
 import WhiteContainer from "../../utils/WhiteContainer";
