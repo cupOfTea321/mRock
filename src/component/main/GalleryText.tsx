@@ -29,7 +29,9 @@ const GalleryText = () => {
                 justifyContent: 'center',
                 alignItems: 'center'
             }} >
-                <ItemText sx={{
+                <ItemText 
+                text
+                sx={{
                     background: `url(${item9})`,
                     width: {md: '342px', sm: '240px', xs: '220px'},
                     height: {md: '50px', sm: '40px', xs: '32px'},

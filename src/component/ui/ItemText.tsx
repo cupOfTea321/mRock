@@ -7,6 +7,7 @@ import { backText, blackText } from "../../mui/palette";
 const ItemText = ({
   sx,
   typo,
+  text,
   title = "Анкета музыканта",
   onClick,
   whitetext,
@@ -26,7 +27,7 @@ const ItemText = ({
         height: { sm: "61px" },
         ...sx,
       }}
-      component={motion.button}
+      component={text ? "img" : motion.button}
       type={type}
       whileHover={{
         backgroundImage: `url(${greenHover})`,
