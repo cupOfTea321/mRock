@@ -1,5 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
+import {Avatar, Box, Container, IconButton, Menu, MenuItem, Tooltip, Typography,} from "@mui/material";
 import React, {useEffect, useRef, useState} from "react";
 import {NavLink, useNavigate} from "react-router-dom";
 import menuBack from "../../assets/menu.webp"
@@ -8,14 +8,19 @@ import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
 import AuthButton from "../ui/AuthButton";
 import ym from "react-yandex-metrika";
-
+import {AccountCircle} from "@mui/icons-material";
+const settings = [
+    {name: 'Профиль', to: '/musician'},
+    {name: 'Выйти', to: null},
+];
 const MyBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [open, setOpen] = React.useState(false);
     const handleMobileClose = () => {
         setOpen(!open);
     };
-
+    const token = localStorage.getItem('access')
+    console.log(token)
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -58,20 +63,20 @@ const MyBar = () => {
         };
     }, []);
     const [show, setShow] = useState(false);
-    const widgetContainerRef = useRef(null);
 
-    // useEffect(() => {
-    //     if (widgetContainerRef.current) {
-    //         // Создаем новый экземпляр виджета Яндекс.Афиши
-    //         const widget = new YandexTicketDealer.Widget({
-    //             container: widgetContainerRef.current
-    //         });
-    //
-    //         // Инициализируем и отображаем виджет
-    //         widget.init();
-    //     }
-    // }, []);
 
+    // USER MENU
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElUser(event.currentTarget);
+    };
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
+    const handleExit = () => {
+        localStorage.removeItem('access');
+        navigate('')
+    }
     return (
         <Box
             sx={{
@@ -111,10 +116,6 @@ const MyBar = () => {
                 <Logo />
                 <Box
                     sx={{
-                        // width: "50%",
-                        // justifyContent: "space-between",
-                        // margin: '0 auto',
-                        // textAlign: 'left',
                         fontSize: "16px",
                         // paddingRight: '20%',
                         display: { md: "flex", sm: "none", xs: "none" },
@@ -134,19 +135,54 @@ const MyBar = () => {
                         </NavLink>
                     ))}
                 </Box>
-                {/*<div ref={widgetContainerRef}></div>*/}
-                {/*<div id="ya-widget-frame"></div>*/}
-                {/*<y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>*/}
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "flex-end",
-                        // width: '20%'
-                    }}
-                >
-                    <AuthButton onClick={handleClickAuth} />
+                {token ? <Box sx={{ flexGrow: 0 }}>
+                    <Tooltip title="Open settings">
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
+                            <AccountCircle sx={{
+                            width: '30px',
+                            height: '30px',
+                            }
+                            }  />
+                        </IconButton>
+                    </Tooltip>
+                    <Menu
+                        sx={{ mt: '45px' }}
+                        id="menu-appbar"
+                        anchorEl={anchorElUser}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        open={Boolean(anchorElUser)}
+                        onClose={handleCloseUserMenu}
+                    >
+                        {settings.map((setting,index) => (
+                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                <NavLink onClick={index === 1 && handleExit} to={setting.to && setting.to} textAlign="center" style={{
+                                    color: 'black'
+                                }}>{setting.name}</NavLink>
+                            </MenuItem>
+                        ))}
+                    </Menu>
                 </Box>
+                : <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "flex-end",
+                            // width: '20%'
+                        }}
+                    >
+                        <AuthButton onClick={handleClickAuth} />
+                    </Box>
+                }
+
 
                 {/* МОБИЛЬНАЯ ВЕРСИЯ*/}
                 <IconButton

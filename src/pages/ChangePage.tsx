@@ -10,7 +10,7 @@ import rightBack from "../assets/lk/musBack.png";
 import personMob from "../assets/lk/person.png";
 import saveIc from "../assets/lk/save.svg";
 import itemSave from "../assets/items/saveBack.png";
-import {Box, Button, Container, Grid, Input} from "@mui/material";
+import {Box, Button, Container, Grid, Input, Typography} from "@mui/material";
 import {backText, h3} from "../mui/palette";
 import back from "../assets/back/backLines.png";
 import ItemText from "../component/ui/ItemText";
@@ -26,6 +26,11 @@ const ChangePage = () => {
         width: { md: "228px", xs: "300px" },
         height: { md: "56px", xs: "50px" },
         marginRight: "24px",
+        label:  {
+            display: 'none',
+            position: 'fixed'
+        },
+        marginTop: '8px'
     }
     const [formState, setFormState] = React.useState({
         name: '',
@@ -130,7 +135,10 @@ const ChangePage = () => {
         return <div>Loading...</div>;
     }
     console.log(data)
-
+    const labelStyle = {
+        paddingLeft: '16px',
+        marginTop: '16px'
+    }
     return (
         <>
             <Box
@@ -251,28 +259,51 @@ const ChangePage = () => {
                             marginBottom: { md: "30px", xs: "30px" },
                         }}
                     >
-                        <MyInput
-                            name={"name"}
-                            handleChange={handleChange}
-                            value={formState.name}
-                            sx={inputStyle}
-                            placehold={"Введите имя"}
-                        />
+                        <Box>
+                            <Typography sx={labelStyle}>
+                                Имя
+                            </Typography>
+                            <MyInput
+                                required={true}
+                                name={"name"}
+                                handleChange={handleChange}
+                                value={formState.name}
+                                sx={inputStyle}
+                                placehold={"Введите имя"}
+                            />
+                        </Box>
+                        <Box>
+                            <Typography sx={labelStyle}>
+                                Роль
+                            </Typography>
                         <MyAuto
+
                             setRole={setRole}
                             onChange={handleChange}
                             name={"role"}
                             sx={inputStyle}
                         />
+                        </Box>
+                        <Box>
+                            <Typography sx={labelStyle}>
+                                Ссылка на vk
+                            </Typography>
                         <MyInput
+                            required={true}
                             name={"social_link"}
                             handleChange={handleChange}
                             value={formState.social_link}
                             sx={inputStyle}
                             placehold={"Введите ссылку"}
                         />
+                        </Box>
                         {/*<MyInput type={'file'} handleChange={handleChange} name={'avatar'} value={formState.avatar} sx={inputStyle}  placehold={'Файл'}/>*/}
+                        <Box>
+                            <Typography sx={labelStyle}>
+                                Файл
+                            </Typography>
                         <Input
+                            required={true}
                             variant="outlined"
                             sx={{
                                 ...input,
@@ -291,6 +322,7 @@ const ChangePage = () => {
                             onClick={handleUpload}
                             inputProps={{ accept: ".png, .jpg, .jpeg" }}
                         />
+                        </Box>
                         {/*<Button onClick={handleUpload}>Upload</Button>*/}
                     </Box>
                     {

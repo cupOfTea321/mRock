@@ -49,6 +49,7 @@ const MusicianPage = () => {
     if (data === null) {
         return <div>Loading...</div>;
     }
+
     console.log(data)
     return (
         <>
@@ -59,7 +60,7 @@ const MusicianPage = () => {
                     top: 0,
                     left: 0,
                     width: "100vw",
-                    height: { md: "100vh", sm: "1500px", xs: "1100px" },
+                    height: {md: "100vh", sm: "1500px", xs: "1100px"},
                     backgroundColor: "black",
                     backgroundRepeat: "no-repeat",
                 }}
@@ -69,7 +70,7 @@ const MusicianPage = () => {
                     position: "absolute",
                     zIndex: 360,
                     width: "100vw",
-                    height: { md: "100vh", sm: "1500px", xs: "1100px" },
+                    height: {md: "100vh", sm: "1500px", xs: "1100px"},
                     opacity: 0.3,
                     background: `url(${back})`,
                     backgroundSize: "cover",
@@ -87,100 +88,100 @@ const MusicianPage = () => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     zIndex: "400",
-                    position: { md: "static", sm: "absolute", xs: "absolute" },
-                    width: { md: "auto", sm: "90%", xs: "90%" },
+                    position: {md: "static", sm: "absolute", xs: "absolute"},
+                    width: {md: "auto", sm: "90%", xs: "90%"},
                 }}>
                     <Logo sx={{
                         marginTop: '26px',
                         marginBottom: '26px',
                     }}/>
 
-          <AuthButton exit={true} text={"Выйти"} to={"/"} />
-        </Box>
-        <Box
-          sx={{
-            backgroundImage: {
-              md: `url(${rightBack})`,
-              xs: `url(${personMob})`,
-            },
-            backgroundRepeat: "no-repeat",
-            backgroundSize: { sm: "contain", xs: "cover" },
-            backgroundPosition: { xs: "center top" },
-            zIndex: 200,
-            width: { md: "689px", sm: "100%", xs: "100%" },
-            height: { sm: "100%", xs: "70%" },
-            display: { md: "none", xs: "block" },
-            position: "relative",
-          }}
-          className={"animate__bounceIn animate__animated wow"}
-        >
-          <Box
-            sx={{
-              background: `url(${likeBack})`,
-              right: 0,
-              position: "absolute",
-              left: 0,
-              margin: "0 auto",
-              bottom: 0,
-              width: "140px",
-              height: "77px",
-              ...backText,
-            }}
-          >
-            <Box
-              component={"img"}
-              src={like}
-              sx={{
-                marginRight: "6px",
-              }}
-            />
-            {data?.likes}
-          </Box>
-        </Box>
+                    <AuthButton exit={true} text={"Выйти"} to={"/"}/>
+                </Box>
+                <Box
+                    sx={{
+                        backgroundImage: {
+                            md: `url(${rightBack})`,
+                            xs: `url(${personMob})`,
+                        },
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: {sm: "contain", xs: "cover"},
+                        backgroundPosition: {xs: "center top"},
+                        zIndex: 200,
+                        width: {md: "689px", sm: "100%", xs: "100%"},
+                        height: {sm: "100%", xs: "70%"},
+                        display: {md: "none", xs: "block"},
+                        position: "relative",
+                    }}
+                    className={"animate__bounceIn animate__animated wow"}
+                >
+                    <Box
+                        sx={{
+                            background: `url(${likeBack})`,
+                            right: 0,
+                            position: "absolute",
+                            left: 0,
+                            margin: "0 auto",
+                            bottom: 0,
+                            width: "140px",
+                            height: "77px",
+                            ...backText,
+                        }}
+                    >
+                        <Box
+                            component={"img"}
+                            src={like}
+                            sx={{
+                                marginRight: "6px",
+                            }}
+                        />
+                        {data?.likes}
+                    </Box>
+                </Box>
 
-        <Box
-          sx={{
-            width: "100%",
-            display: { xs: "flex", md: "block" },
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: { md: "0", xs: "70px" },
-          }}
-        >
-          <ItemText
-            variant={"h2"}
-            sx={{
-              marginTop: "24px",
-              marginBottom: "50px",
-              display: { md: "block", xs: "none" },
-            }}
-          />
-          <Box
-            sx={{
-              display: { md: "none", xs: "block" },
-              marginBottom: "50px",
-            }}
-            component={"img"}
-            src={anketa}
-          />
-          <MusItem item={data?.name} />
-            <MusItem item={rolesTarget(data?.role)}/>
-          <MusItem item={data?.social_link} />
-          <Typography
-            onClick={handleClick}
-            style={{
-              textDecoration: "underline",
-              marginTop: "38px",
-              cursor: "pointer",
-            }}
-          >
-            Редактировать анкету
-          </Typography>
-        </Box>
-      </Container>
-    </>
-  );
+                <Box
+                    sx={{
+                        width: "100%",
+                        display: {xs: "flex", md: "block"},
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginTop: {md: "0", xs: "70px"},
+                    }}
+                >
+                    <ItemText
+                        variant={"h2"}
+                        sx={{
+                            marginTop: "24px",
+                            marginBottom: "50px",
+                            display: {md: "block", xs: "none"},
+                        }}
+                    />
+                    <Box
+                        sx={{
+                            display: {md: "none", xs: "block"},
+                            marginBottom: "50px",
+                        }}
+                        component={"img"}
+                        src={anketa}
+                    />
+                    <MusItem item={data?.name} title={'Имя'}/>
+                    <MusItem item={rolesTarget(data?.role)} title={'Роль'} />
+                    <MusItem item={data?.social_link} title={'Ссылка на страницу vk'}/>
+                    <Typography
+                        onClick={handleClick}
+                        style={{
+                            textDecoration: "underline",
+                            marginTop: "38px",
+                            cursor: "pointer",
+                        }}
+                    >
+                        Редактировать анкету
+                    </Typography>
+                </Box>
+            </Container>
+        </>
+    );
 };
 
 export default MusicianPage;

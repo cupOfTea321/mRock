@@ -39,6 +39,7 @@ const RegForm: React.FC = ({}) => {
       await reg(formState)
         .unwrap()
         .then((payload) => {
+            navigate("/auth");
           return console.log("fulfilled", payload);
         })
         .catch((error) => {

@@ -19,7 +19,8 @@ import { useUserAuthMutation } from "../../redux/services";
 import { input } from "../ui/Input";
 import { TextMaskCustom } from "./TextMaskCustom";
 import AuthButton from "../ui/AuthButton";
-
+import InputMask from 'react-input-mask'
+import PhoneMask from "./PhoneMask";
 const AuthForm: React.FC = ({}) => {
   const handleChange = ({ target: { name, value } }) => {
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -46,6 +47,7 @@ const AuthForm: React.FC = ({}) => {
         .unwrap()
         .then((payload) => {
           localStorage.setItem("access", payload.access);
+
           return console.log("fulfilled", payload);
         })
         .catch((error) => {
@@ -114,13 +116,14 @@ const AuthForm: React.FC = ({}) => {
         name={"username"}
         onChange={handleChange}
         InputProps={{
-          inputComponent: TextMaskCustom as any,
+          inputComponent: PhoneMask,
         }}
         sx={{
           ...input,
           ...authText,
         }}
       />
+
       <TextField
         label="Пароль"
         name={"password"}

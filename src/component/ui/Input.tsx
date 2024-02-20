@@ -19,7 +19,7 @@ export const input = {
     color: "red !important",
   },
   label: {
-    color: "rgba(201, 201, 201, 1)",
+    color: "black",
     paddingLeft: "16px",
   },
   placeholder: {
@@ -29,10 +29,11 @@ export const input = {
   fontSize: "16px",
 };
 export const Input = ({
-  title,
+  title = false,
   placehold = "Введите название...",
   handleChange,
   value,
+    required = false,
   type = "",
   name,
   sx,
@@ -48,6 +49,7 @@ export const Input = ({
           <Typography sx={{ fontSize: "16px" }}>{title}</Typography>
         </Box>
       }
+      required={required}
       value={value}
       onChange={handleChange}
       sx={{
