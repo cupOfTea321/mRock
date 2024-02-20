@@ -21,7 +21,6 @@ const MainGallery = () => {
         marginTop: "-140px",
         zIndex: 350,
         position: "relative",
-
         paddingBottom: "150px",
       }}
     >
@@ -42,7 +41,8 @@ const MainGallery = () => {
           position: "absolute",
           zIndex: 360,
           width: "100vw",
-          height: "150%",
+          height: "105%",
+          top: "-70px",
           // opacity: 0.3    ,
           // filter: 'blur(20px)',
           background: `url(${back})`,
@@ -118,7 +118,6 @@ const MainGallery = () => {
       >
         <Box
           component={motion.img}
-          
           whileHover={{ scale: 1.1 }}
           src={leftGalleryM}
           onClick={() => handleClick("/reg")}
@@ -128,9 +127,9 @@ const MainGallery = () => {
           }}
         />
         <Box
-           component={motion.img}
-           onClick={() => handleClick("/about")}
-           whileHover={{ scale: 1.1 }}
+          component={motion.img}
+          onClick={() => handleClick("/about")}
+          whileHover={{ scale: 1.1 }}
           src={centreGalleryM}
           sx={{
             marginRight: { md: "-8%", sm: "-10%", xs: 0 },
@@ -141,8 +140,8 @@ const MainGallery = () => {
           }}
         />
         <Box
-            component={motion.img}
-            whileHover={{ scale: 1.1 }}
+          component={motion.img}
+          whileHover={{ scale: 1.1 }}
           src={rightGalleryM}
           sx={{
             cursor: "pointer",

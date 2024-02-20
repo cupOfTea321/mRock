@@ -150,6 +150,7 @@ const MusicianPage = () => {
                     }}
                 >
                     <ItemText
+                    text
                         variant={"h2"}
                         sx={{
                             marginTop: "24px",

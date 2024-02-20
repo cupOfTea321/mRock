@@ -71,6 +71,7 @@ const MainThousand = () => {
         {/*}}/>*/}
         <ItemText
           variant={"h2"}
+          text
           sx={{
             background: `url(${item1})`,
             width: { md: "238px", sm: "180px", xs: "144px" },
