@@ -1,9 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import rightBack from "../assets/lk/rightBack.svg";
-import ticketDesk from "../assets/ticketDesk.png";
-import ticketMob from "../assets/ticketMob.png";
-
 import Logo from "../component/layout/Logo";
 import AuthForm from "../component/lk/AuthForm";
 import FullBack from "../component/lk/FullBack";
@@ -38,6 +35,7 @@ const AuthPage = () => {
         sx={{
           position: "relative",
         }}
+        maxWidth={"xl"}
       >
         <Logo
           sx={{
@@ -49,7 +47,7 @@ const AuthPage = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: { xl: "space-between", lg: "space-between" },
+            justifyContent: {xxl: "space-between",xl: "space-around"},
             flexDirection: {
               lg: "row",
               md: "column-reverse",
@@ -64,14 +62,13 @@ const AuthPage = () => {
             sx={{
               ...colStyle,
               justifyContent: "center",
-              width: { xs: "100%", sm: "70%", md: "50%", lg: "40%" },
+              width: { xs: "100%", sm: "70%", md: "50%", lg: "30%" },
             }}
           >
             <Typography variant={"h2"}>
               Станьте голосом, мелодией и драйвом самого масштабного концерта
               2024 года!
             </Typography>
-
           </Box>
           <AuthForm />
         </Box>

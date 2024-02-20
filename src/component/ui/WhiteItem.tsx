@@ -1,6 +1,6 @@
 import React from 'react';
 import whiteBack from "../../assets/items/tickets.webp";
-import greenHover from "../../assets/rightHover.svg";
+import greenHover from "../../assets/hovers/purpleHover.webp";
 import whiteBackM from "../../assets/items/ticketsM.webp";
 import {Box, Typography} from "@mui/material";
 import {backText, h3} from "../../mui/palette";
@@ -34,7 +34,9 @@ const WhiteItem =  ({sx}) => {
         }} onClick={yandexClick}
              whileHover={{
                  backgroundImage: `url(${greenHover})`,
-                 transition: { delay: 0.1, duration: 0.2 }
+                 transition: { delay: 0.1, duration: 0.2 },
+                 color: "white",
+                 fontWeight: 400,
         }}
               >
             {/*<Typography sx={h3}>*/}

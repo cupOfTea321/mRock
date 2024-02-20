@@ -10,7 +10,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import authIcon from "../../assets/items/authIcon.svg";
-import authMob from "../../assets/lk/authMob.svg";
 
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
@@ -47,7 +46,6 @@ const AuthForm: React.FC = ({}) => {
         .unwrap()
         .then((payload) => {
           localStorage.setItem("access", payload.access);
-
           return console.log("fulfilled", payload);
         })
         .catch((error) => {
@@ -84,7 +82,7 @@ const AuthForm: React.FC = ({}) => {
     <Box
       sx={{
         ...colStyle,
-        width: { lg: "20%", md: "60%" },
+        width: "fit-content",
       }}
       component={"form"}
       onSubmit={handleFormSubmit}
@@ -123,7 +121,6 @@ const AuthForm: React.FC = ({}) => {
           ...authText,
         }}
       />
-
       <TextField
         label="Пароль"
         name={"password"}
@@ -148,40 +145,29 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
-        {
-            err && <Box sx={{
-                color: 'red'
-            }}>
-                Введены некорректные данные
-            </Box>
-        }
-      {/* <AuthButton*/}
-      {/*  text={""}*/}
-      {/*  icon={true}*/}
-      {/*  sx={{*/}
-      {/*    width: { sm: "230px", xs: "115px" },*/}
-      {/*    height: { sm: "42px", xs: "36px" },*/}
-      {/*    marginTop: "16px",*/}
-      {/*    backgroundImage: {*/}
-      {/*      sm: `url(${authMob})`,*/}
-      {/*      xs: `url(${authMob})`,*/}
-      {/*    },*/}
-      {/*  }}*/}
-      {/*  type="submit"*/}
-      {/*  to={"/musician"}*/}
-      {/*/>*/}
-        <Box component={'button'} type={'submit'}>
-      <Box
-
+      <Box sx={{ width: "90%" }}>
+        <Typography
+          onClick={() => navigate("/reset")}
+          sx={{
+            color: "#C9C9C9",
+            cursor: "pointer",
+            marginTop: "20px",
+            textAlign: "right",
+          }}
+        >
+          Забыли пароль?
+        </Typography>
+      </Box>
+      <AuthButton
+        text={"Войти"}
         sx={{
           width: { sm: "230px", xs: "115px" },
           height: { sm: "42px", xs: "36px" },
           marginTop: "16px",
         }}
-        component={"img"}
-        src={authMob}
+        type="submit"
+        to={"/musician"}
       />
-    </Box>
       <Typography
         sx={{
           h3,

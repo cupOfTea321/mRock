@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import moreBtn from "../../assets/items/moreBack.png";
+import moreBtn from "../../assets/hovers/purpleHover.webp";
 import person1 from "../../assets/thousand/img1.png";
 import person2 from "../../assets/thousand/img2.png";
 import person3 from "../../assets/thousand/img3.png";
