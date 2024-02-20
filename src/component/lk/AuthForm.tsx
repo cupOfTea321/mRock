@@ -10,15 +10,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import authIcon from "../../assets/items/authIcon.svg";
-import authMob from "../../assets/lk/authMob.svg";
 
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
 import { setUser } from "../../redux/features/userSlice";
 import { useUserAuthMutation } from "../../redux/services";
+import AuthButton from "../ui/AuthButton";
 import { input } from "../ui/Input";
 import { TextMaskCustom } from "./TextMaskCustom";
-import AuthButton from "../ui/AuthButton";
 
 const AuthForm: React.FC = ({}) => {
   const handleChange = ({ target: { name, value } }) => {
@@ -141,29 +140,28 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
-       <AuthButton
-        text={""}
+      <Typography
+        onClick={() => navigate("/reset")}
+        sx={{
+          color: "#C9C9C9",
+          margin: "20px 0 0 50px",
+
+          cursor: "pointer",
+        }}
+      >
+        Забыли пароль?
+      </Typography>
+      <AuthButton
+        text={"Войти"}
         sx={{
           width: { sm: "230px", xs: "115px" },
           height: { sm: "42px", xs: "36px" },
           marginTop: "16px",
-          backgroundImage: {
-            sm: `url(${authMob})`,
-            xs: `url(${authMob})`,
-          },
         }}
         type="submit"
         to={"/musician"}
       />
-      {/*<Box*/}
-      {/*  sx={{*/}
-      {/*    width: { sm: "230px", xs: "115px" },*/}
-      {/*    height: { sm: "42px", xs: "36px" },*/}
-      {/*    marginTop: "16px",*/}
-      {/*  }}*/}
-      {/*  component={"img"}*/}
-      {/*  src={authMob}*/}
-      {/*/>*/}
+
       <Typography
         sx={{
           h3,
