@@ -42,7 +42,7 @@ const MainGallery = () => {
           position: "absolute",
           zIndex: 360,
           width: "100vw",
-          height: "100%",
+          height: "150%",
           // opacity: 0.3    ,
           // filter: 'blur(20px)',
           background: `url(${back})`,

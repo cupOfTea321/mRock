@@ -13,9 +13,7 @@ import ItemText from "../ui/ItemText";
 import RandomBlock from "../ui/RandomBlock";
 const MainThousand = () => {
   const navigate = useNavigate();
-  const handleClick = () => navigate("thousand");
-  // const {data, isLoading} = useGetRandomQuery()
-  // if (isLoading) return <Loader title={`Загрузка...`} />;
+
   const data = [
     {
       avatar: slider1,
@@ -108,7 +106,7 @@ const MainThousand = () => {
           height: { md: "50px", sm: "40px", xs: "28px" },
           cursor: "pointer",
         }}
-        onClick={handleClick}
+        onClick={() => navigate("/thousand")}
         title={"Тысяча"}
         className={"animate__fadeInUp animate__animated wow"}
       />
