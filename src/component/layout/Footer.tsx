@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back6 from "../../assets/back6.svg";
@@ -7,11 +8,13 @@ import back8 from "../../assets/back8.svg";
 import footerItem from "../../assets/footerItem.png";
 import footerItemM from "../../assets/footerM.png";
 import footerRock from "../../assets/footerRock.svg";
-import item5 from "../../assets/items/item5.svg";
+import item5 from "../../assets/hovers/footerback.webp";
 import { blackText } from "../../mui/palette";
 import BlackBackground from "../../utils/BlackBackground";
+import { ModalData } from "../lk/ModalData";
 import { ModalPolice } from "../main/ModalPolice";
 import CastingItem from "../ui/CastingItem";
+import ItemText from "../ui/ItemText";
 import WhiteItem from "../ui/WhiteItem";
 type FooterMenu = {
   page: string;
@@ -60,7 +63,11 @@ const Footer = ({ path }) => {
     },
     {
       page: "Личный кабинет",
-      to: "core",
+      to: "musician",
+    },
+    {
+      page: "Оферта",
+      to: "ofer",
     },
   ];
   const footerText = {
@@ -72,8 +79,15 @@ const Footer = ({ path }) => {
   };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [openData, setOpenData] = useState(false);
+
+  const [hovered, setHovered] = useState(false);
   const handleMenu = (to) => {
-    navigate(to);
+    if (to === "ofer") {
+      setOpenData(true);
+    } else {
+      navigate(to);
+    }
   };
   const handleHistory = (to) => {
     window.location.href = "https://t.me/mega_rock_bot";
@@ -111,10 +125,11 @@ const Footer = ({ path }) => {
             sx={{
               // width: '10%',
               textAlign: { sm: "left", xs: "center" },
-              // margin: '0 auto',
-              // display: 'flex',
-              // flexDirection: 'column',
-              // alignItems: 'centre'
+              flexDirection: "column",
+              display: "flex",
+              alignItems: { xs: "center", md: "start" },
+              gap: "20px",
+              marginBottom: "20px",
             }}
           >
             <Typography
@@ -135,14 +150,28 @@ const Footer = ({ path }) => {
             >
               Свяжитесь с нами
             </Typography>
-            <Box
-              component={"img"}
-              src={item5}
+            {/* <Box
+              component={motion.img}
+              src={hovered ? greenHover : item5}
               sx={{
                 marginTop: "14px",
                 cursor: "pointer",
               }}
               onClick={handleHistory}
+              onHoverStart={()=>setHovered(true)}
+              onHoverEnd={()=>setHovered(false)}
+            /> */}
+            <ItemText
+              title="Написать организаторам"
+              whitetext
+              sx={{
+                backgroundImage: `url(${item5})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                color: "white",
+                width: "250px",
+                height: "42px",
+              }}
             />
           </Box>
           <Box
@@ -214,6 +243,10 @@ const Footer = ({ path }) => {
             >
               {footerMenu.map((item) => (
                 <Box
+                  component={motion.div}
+                  whileHover={{
+                    color: "#8654CC",
+                  }}
                   onClick={() => handleMenu(item.to)}
                   key={item.page}
                   style={footerText}
@@ -228,11 +261,16 @@ const Footer = ({ path }) => {
                 textAlign: "right",
                 display: { sm: "block", xs: "none" },
               }}
+              component={motion.div}
+              whileHover={{
+                color: "#8654CC",
+              }}
               onClick={() => setOpen(true)}
             >
               Политика конфиденциальности
             </Box>
             <ModalPolice open={open} setOpen={setOpen} />
+            <ModalData open={openData} setOpen={setOpenData} />
           </Box>
         </Box>
 
@@ -285,7 +323,6 @@ const Footer = ({ path }) => {
               Политика конфиденциальности
             </Typography>
           </Typography>
-       
         </Box>
       </Container>
       <Box

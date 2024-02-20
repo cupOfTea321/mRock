@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import item1 from "../../assets/lk/item1.png";
-import regMob from "../../assets/lk/regMob.svg";
 import FormBack from "../../assets/mobileFormBack.png";
 
 import { setRolesTarget } from "../../handlers/rolesTarget";
 import { backText, colStyle } from "../../mui/palette";
-import { setUser } from "../../redux/features/userSlice";
 import { useUserCreateMutation } from "../../redux/services";
+import AuthButton from "../ui/AuthButton";
 import { Input, input } from "../ui/Input";
 import MyAuto from "../ui/MyAuto";
+import { ModalData } from "./ModalData";
 import { TextMaskCustom } from "./TextMaskCustom";
 
 const RegForm: React.FC = ({}) => {
@@ -57,16 +57,17 @@ const RegForm: React.FC = ({}) => {
     width: { lg: "403px ", md: "268px", sm: "268px", xs: "268px" },
     marginBottom: 0,
   };
-    const [err, setErr] = useState(false)
+  const [err, setErr] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const isAuth = () => {
       if (regResult.isSuccess) {
         navigate("/musician");
-          setErr(false)
+        setErr(false);
       }
-        if (regResult.isError) {
-            setErr(true)
-        }
+      if (regResult.isError) {
+        setErr(true);
+      }
     };
     isAuth();
   }, [regResult]);
@@ -157,45 +158,37 @@ const RegForm: React.FC = ({}) => {
             color: "black",
           }}
         >
-          Согласие на обработку персональных данных
+          Согласие на обработку{" "}
+          <span
+          style={{
+            cursor: 'pointer',
+            textDecoration: "underline"
+          }}
+          onClick={() => setOpen(true)}>персональных данных</span>
         </Typography>
+        <ModalData open={open} setOpen={setOpen} />
       </Box>
-      {/* <AuthButton
-        text={""}
+      <AuthButton
+        text={"Зарегистрироваться"}
         sx={{
           width: { sm: "230px", xs: "186px" },
           height: { sm: "42px", xs: "34px" },
           marginTop: "16px",
-          backgroundImage: {
-            sm: `url(${regMob})`,
-            xs: `url(${regMob})`,
-          },
           backgroundSize: "cover",
         }}
         type="submit"
         to={"/musician"}
-      /> */}
-        {
-            err && <Box sx={{
-                color: 'red'
-            }}>
-                Введены некорректные данные
-            </Box>
-        }
-        <Box component={'button'} type={'submit'}>
-
-            <Box
-                sx={{
-                    width: { sm: "230px", xs: "186px" },
-                    height: { sm: "42px", xs: "34px" },
-                    marginTop: "16px",
-                }}
-                component={"img"}
-                src={regMob}
-            />
+      />
+      {err && (
+        <Box
+          sx={{
+            color: "red",
+          }}
+        >
+          Введены некорректные данные
         </Box>
-        </Box>
-
+      )}
+    </Box>
   );
 };
 

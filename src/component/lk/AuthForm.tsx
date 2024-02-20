@@ -13,7 +13,6 @@ import authIcon from "../../assets/items/authIcon.svg";
 
 import FormBack from "../../assets/mobileFormBack.png";
 import { colStyle, h3 } from "../../mui/palette";
-import { setUser } from "../../redux/features/userSlice";
 import { useUserAuthMutation } from "../../redux/services";
 import AuthButton from "../ui/AuthButton";
 import { input } from "../ui/Input";
@@ -63,17 +62,16 @@ const AuthForm: React.FC = ({}) => {
     width: { lg: "403px ", md: "268px", sm: "268px", xs: "268px" },
     marginBottom: 0,
   };
-    const [err, setErr] = useState(false)
+  const [err, setErr] = useState(false);
   useEffect(() => {
     const isAuth = () => {
       if (loginResult.isSuccess) {
-
         navigate("/musician");
-          setErr(false)
+        setErr(false);
       }
-        if (loginResult.isError) {
-            setErr(true)
-        }
+      if (loginResult.isError) {
+        setErr(true);
+      }
     };
     isAuth();
   }, [loginResult]);
@@ -81,7 +79,7 @@ const AuthForm: React.FC = ({}) => {
     <Box
       sx={{
         ...colStyle,
-        width: { lg: "20%", md: "60%" },
+        width: "fit-content",
       }}
       component={"form"}
       onSubmit={handleFormSubmit}
@@ -144,17 +142,19 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
-      <Typography
-        onClick={() => navigate("/reset")}
-        sx={{
-          color: "#C9C9C9",
-          margin: "20px 0 0 50px",
-
-          cursor: "pointer",
-        }}
-      >
-        Забыли пароль?
-      </Typography>
+      <Box sx={{ width: "90%" }}>
+        <Typography
+          onClick={() => navigate("/reset")}
+          sx={{
+            color: "#C9C9C9",
+            cursor: "pointer",
+            marginTop: "20px",
+            textAlign: "right",
+          }}
+        >
+          Забыли пароль?
+        </Typography>
+      </Box>
       <AuthButton
         text={"Войти"}
         sx={{

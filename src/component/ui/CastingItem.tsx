@@ -6,7 +6,7 @@ import {backText} from "../../mui/palette";
 import {useNavigate} from "react-router-dom";
 import ym from "react-yandex-metrika";
 import {motion} from "framer-motion";
-import greenHover from "../../assets/leftHover.svg";
+import greenHover from "../../assets/hovers/leftHover.webp";
 const CastingItem = ({sx}) => {
     const navigate = useNavigate();
     // const handleClick = () => navigate('/reg')
