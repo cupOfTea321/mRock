@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import back6 from "../../assets/back6.svg";
 import back7 from "../../assets/back7.svg";
@@ -9,10 +10,9 @@ import footerRock from "../../assets/footerRock.svg";
 import item5 from "../../assets/items/item5.svg";
 import { blackText } from "../../mui/palette";
 import BlackBackground from "../../utils/BlackBackground";
+import { ModalPolice } from "../main/ModalPolice";
 import CastingItem from "../ui/CastingItem";
 import WhiteItem from "../ui/WhiteItem";
-import { useState } from "react";
-import { ModalPolice } from "../main/ModalPolice";
 type FooterMenu = {
   page: string;
   to?: string;
@@ -228,7 +228,7 @@ const Footer = ({ path }) => {
                 textAlign: "right",
                 display: { sm: "block", xs: "none" },
               }}
-              onClick={()=>setOpen(true)}
+              onClick={() => setOpen(true)}
             >
               Политика конфиденциальности
             </Box>
@@ -258,9 +258,11 @@ const Footer = ({ path }) => {
             sx={{
               ...footerText,
               ...blackText,
-              paddingBottom: { lg: "30px", md: "15px", sm: "15px", xs: "30px" },
+              paddingBottom: { lg: "30px", md: "15px", sm: "15px", xs: "20px" },
               width: { lg: "65%", md: "80%", xs: "290px" },
-              paddingRight: "60px",
+              paddingRight: "55px",
+              display: "flex",
+              flexDirection: "column",
               textAlign: {
                 lg: "left",
                 md: "center",
@@ -272,7 +274,18 @@ const Footer = ({ path }) => {
           >
             Организатор мероприятия продюсерский центр “ПОЗИЦИЯ” (ИП Жарков
             К.С., ИНН 507461873349, ОГРНИП 315507400000705)
+            <Typography
+              sx={{
+                marginTop: "10px",
+                display: { sm: "none", xs: "block" },
+              }}
+              onClick={() => setOpen(true)}
+              variant="h5"
+            >
+              Политика конфиденциальности
+            </Typography>
           </Typography>
+       
         </Box>
       </Container>
       <Box
