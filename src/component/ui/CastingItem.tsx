@@ -5,6 +5,8 @@ import {Box, Typography} from "@mui/material";
 import {backText} from "../../mui/palette";
 import {useNavigate} from "react-router-dom";
 import ym from "react-yandex-metrika";
+import {motion} from "framer-motion";
+import greenHover from "../../assets/leftHover.svg";
 const CastingItem = ({sx}) => {
     const navigate = useNavigate();
     // const handleClick = () => navigate('/reg')
@@ -25,13 +27,19 @@ const CastingItem = ({sx}) => {
 
     }
     return (
-        <Box sx={{
+        <Box component={motion.button} sx={{
             ...castingBtn,
+            color: 'white',
             backgroundImage: {
                 sm: `url(${authBack})`,
                 xs: `url(${authBackM})`,
             },
-            ...sx
+            ...sx,
+
+        }} whileHover={{
+            backgroundImage: `url(${greenHover})`,
+            color: 'black',
+            transition: { delay: 0.1, duration: 0.2 }
         }} onClick={yandexClick}>
             {/*<Typography>*/}
             Кастинг

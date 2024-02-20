@@ -3,6 +3,9 @@ import authBack from "../../../public/test2.webp";
 import authBackM from "../../../public/testM.webp";
 import {NavLink, useNavigate} from "react-router-dom";
 import {Box, Typography} from "@mui/material";
+import {motion} from "framer-motion";
+import greenHover from "../../assets/leftHover.svg";
+import ym from "react-yandex-metrika";
 
 const AuthButton = ({
     text = 'Авторизация',
@@ -15,6 +18,7 @@ const AuthButton = ({
     const navigate = useNavigate();
     const handleClick = (to) => {
         // navigate(to)
+        ym(96408862,'reachGoal','log_in')
     }
     const handleExit = () => {
         localStorage.removeItem('access');
@@ -37,16 +41,21 @@ const AuthButton = ({
             width: {sm: '164px', xs: '115px'},
             height: {sm: '41px', xs: '36px'},
             ...sx
-        }} component={'button'}>
+        }} component={motion.button} whileHover={{
+            backgroundImage: `url(${greenHover})`,
+            transition: { delay: 0.1, duration: 0.2 }
+        }} >
             {/*<NavLink to={to}*/}
             {/*         style={{*/}
 
             {/*             // marginRight: '16px'*/}
             {/*         }}>*/}
-                <Typography sx={{
+                <Typography component={motion.p} sx={{
                     color: "#FEFDFD",
                     fontSize: {sm: "16px", xs: '12px'},
 
+                }} whileHover={{
+                    color: 'black'
                 }}>{text}</Typography>
             {/*</NavLink>*/}
         </Box>

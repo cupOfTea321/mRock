@@ -7,6 +7,7 @@ import {CSSTransition} from 'react-transition-group'
 import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
 import AuthButton from "../ui/AuthButton";
+import ym from "react-yandex-metrika";
 
 const MyBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,6 +35,7 @@ const MyBar = () => {
     const [background, setBackground] = useState('transparent');
     const navigate = useNavigate();
     const handleClickAuth = (to) => {
+        ym(96408862,'reachGoal','log_in')
         navigate('auth')
     }
     useEffect(() => {
@@ -99,7 +101,7 @@ const MyBar = () => {
           gridTemplateColumns: { md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr" },
           justifyItems: { md: "none", xs: "baseline" },
           alignItems: "center",
-          marginTop: { sm: "20px", xs: "10px" },
+          marginTop: '10px',
           marginBottom: { sm: "20px", xs: "10px" },
           position: "relative",
           zIndex: 1200,
