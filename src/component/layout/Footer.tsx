@@ -163,6 +163,7 @@ const Footer = ({ path }) => {
             /> */}
             <ItemText
               title="Написать организаторам"
+              onClick={handleHistory}
               whitetext
               sx={{
                 backgroundImage: `url(${item5})`,

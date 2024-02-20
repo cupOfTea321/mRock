@@ -63,7 +63,7 @@ const RegForm: React.FC = ({}) => {
   useEffect(() => {
     const isAuth = () => {
       if (regResult.isSuccess) {
-        navigate("/musician");
+        // navigate("/musician");
         setErr(false);
       }
       if (regResult.isError) {
