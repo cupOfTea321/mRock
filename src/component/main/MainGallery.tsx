@@ -43,8 +43,6 @@ const MainGallery = () => {
           width: "100vw",
           height: "105%",
           top: "-70px",
-          // opacity: 0.3    ,
-          // filter: 'blur(20px)',
           background: `url(${back})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
