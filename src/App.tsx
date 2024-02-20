@@ -7,6 +7,7 @@ import { afisha } from "./handlers/afisha";
 import { theme } from "./mui";
 import { privateRoutes, routes } from "./router/router.js";
 import ScrollToTop from "./utils/ScrollToTop";
+import {YMInitializer} from "react-yandex-metrika";
 function App() {
   useEffect(() => {
     const wow = new WOW({
@@ -21,6 +22,7 @@ function App() {
 
   const location = useLocation();
   useLayoutEffect(() => {
+
     afisha();
   }, [location.pathname]);
   // const { isLoading } = useGetProjectsQuery(1);
@@ -32,6 +34,7 @@ function App() {
     <div>Загрузка</div>
   ) : (
     <>
+      <YMInitializer accounts={[96408862]} />
       <ScrollToTop />
       <ThemeProvider theme={theme}>
         <Routes>

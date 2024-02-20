@@ -1,6 +1,6 @@
 import React from 'react';
-import authBack from "./test2.webp";
-import authBackM from "./testM.webp";
+import authBack from "../../../public/test2.webp";
+import authBackM from "../../../public/testM.webp";
 import {NavLink, useNavigate} from "react-router-dom";
 import {Box, Typography} from "@mui/material";
 

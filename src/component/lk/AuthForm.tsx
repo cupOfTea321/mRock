@@ -18,6 +18,7 @@ import { setUser } from "../../redux/features/userSlice";
 import { useUserAuthMutation } from "../../redux/services";
 import { input } from "../ui/Input";
 import { TextMaskCustom } from "./TextMaskCustom";
+import AuthButton from "../ui/AuthButton";
 
 const AuthForm: React.FC = ({}) => {
   const handleChange = ({ target: { name, value } }) => {
@@ -37,8 +38,8 @@ const AuthForm: React.FC = ({}) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const cleanedPhoneNumber = formState.username.replace(/\D/g, "");
-    const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
-    formState.username = modifiedPhoneNumber;
+    // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
+    formState.username = cleanedPhoneNumber;
     console.log(formState);
     try {
       await login(formState)
@@ -140,7 +141,7 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
-      {/* <AuthButton
+       <AuthButton
         text={""}
         sx={{
           width: { sm: "230px", xs: "115px" },
@@ -153,16 +154,16 @@ const AuthForm: React.FC = ({}) => {
         }}
         type="submit"
         to={"/musician"}
-      /> */}
-      <Box
-        sx={{
-          width: { sm: "230px", xs: "115px" },
-          height: { sm: "42px", xs: "36px" },
-          marginTop: "16px",
-        }}
-        component={"img"}
-        src={authMob}
       />
+      {/*<Box*/}
+      {/*  sx={{*/}
+      {/*    width: { sm: "230px", xs: "115px" },*/}
+      {/*    height: { sm: "42px", xs: "36px" },*/}
+      {/*    marginTop: "16px",*/}
+      {/*  }}*/}
+      {/*  component={"img"}*/}
+      {/*  src={authMob}*/}
+      {/*/>*/}
       <Typography
         sx={{
           h3,

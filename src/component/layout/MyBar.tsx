@@ -1,81 +1,74 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  Box,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Typography,
-} from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
-import AuthButton from "../../../public/AuthButton";
-import menuBack from "../../assets/menu.webp";
+import {Box, Container, IconButton, Menu, MenuItem, Typography,} from "@mui/material";
+import React, {useEffect, useRef, useState} from "react";
+import {NavLink, useNavigate} from "react-router-dom";
+import menuBack from "../../assets/menu.webp"
+import {CSSTransition} from 'react-transition-group'
 import BlackBackground from "../../utils/BlackBackground";
 import Logo from "./Logo";
+import AuthButton from "../ui/AuthButton";
 
 const MyBar = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-  const handleMobileClose = () => {
-    setOpen(!open);
-  };
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const pages = [
-    { name: "Главная", to: "/" },
-    { name: "Идея", to: "/idea" },
-    { name: "О мероприятии", to: "/about" },
-    { name: "Тысяча", to: "/thousand" },
-  ];
-  const navCSS = {
-    color: "#FEFDFD",
-    fontSize: "16px",
-    "&:hover": {
-      color: "rgba(134, 84, 204, 1)",
-    },
-  };
-  const [background, setBackground] = useState("transparent");
-  const navigate = useNavigate();
-  const handleClickAuth = (to) => {
-    navigate("auth");
-  };
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-
-      if (scrollTop > 0) {
-        setShow(true);
-        setBackground("#282828"); // Установите цвет фона верхней панели при начале прокрутки
-      } else {
-        setShow(false);
-        setBackground("transparent"); // Установите прозрачный цвет фона верхней панели при попадании наверх страницы
-      }
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
+    const handleMobileClose = () => {
+        setOpen(!open);
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
     };
-  }, []);
-  const [show, setShow] = useState(false);
-  const widgetContainerRef = useRef(null);
+    const pages = [
+        {name: "Главная", to: "/"},
+        {name: "Идея", to: "/idea"},
+        {name: "О мероприятии", to: "/about"},
+        {name: "Тысяча", to: "/thousand"},
+    ];
+    const navCSS = {
+        color: "#FEFDFD",
+        fontSize: "16px",
+        "&:hover": {
+            color: "rgba(134, 84, 204, 1)",
+        },
+    };
+    const [background, setBackground] = useState('transparent');
+    const navigate = useNavigate();
+    const handleClickAuth = (to) => {
+        navigate('auth')
+    }
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset;
 
-  // useEffect(() => {
-  //     if (widgetContainerRef.current) {
-  //         // Создаем новый экземпляр виджета Яндекс.Афиши
-  //         const widget = new YandexTicketDealer.Widget({
-  //             container: widgetContainerRef.current
-  //         });
-  //
-  //         // Инициализируем и отображаем виджет
-  //         widget.init();
-  //     }
-  // }, []);
+            if (scrollTop > 0) {
+                setShow(true)
+                setBackground('#282828'); // Установите цвет фона верхней панели при начале прокрутки
+            } else {
+                setShow(false)
+                setBackground('transparent'); // Установите прозрачный цвет фона верхней панели при попадании наверх страницы
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    const [show, setShow] = useState(false);
+    const widgetContainerRef = useRef(null);
+
+    // useEffect(() => {
+    //     if (widgetContainerRef.current) {
+    //         // Создаем новый экземпляр виджета Яндекс.Афиши
+    //         const widget = new YandexTicketDealer.Widget({
+    //             container: widgetContainerRef.current
+    //         });
+    //
+    //         // Инициализируем и отображаем виджет
+    //         widget.init();
+    //     }
+    // }, []);
 
   return (
     <Box
@@ -106,7 +99,7 @@ const MyBar = () => {
           gridTemplateColumns: { md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr" },
           justifyItems: { md: "none", xs: "baseline" },
           alignItems: "center",
-          marginTop: { sm: "20px", xs: "10px" },
+          marginTop: { md: "10px", xs: "10px" },
           marginBottom: { sm: "20px", xs: "10px" },
           position: "relative",
           zIndex: 1200,

@@ -35,7 +35,7 @@ const MyAuto = (props) => {
                             display: "flex",
                         }}
                     >
-                        <Typography sx={{ fontSize: "16px" }}>Инструмент</Typography>
+                        <Typography sx={{ fontSize: "16px" }}>Роль</Typography>
                     </Box>
                 } />
             )}
