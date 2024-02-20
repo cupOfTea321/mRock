@@ -99,7 +99,7 @@ const MyBar = () => {
           gridTemplateColumns: { md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr" },
           justifyItems: { md: "none", xs: "baseline" },
           alignItems: "center",
-          marginTop: { sm: "20px", xs: "10px" },
+          marginTop: { md: "10px", xs: "10px" },
           marginBottom: { sm: "20px", xs: "10px" },
           position: "relative",
           zIndex: 1200,
