@@ -25,7 +25,11 @@ const Partners = () => {
         paddingBottom: "220px",
       }}
     >
-      <Container>
+      <Container
+        sx={{
+          position: "relative",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -129,41 +133,41 @@ const Partners = () => {
           src={back4}
           sx={{
             position: "absolute",
-            bottom: { sm: 150, xs: 50 },
+            bottom: { sm: -100, xs: -150 },
             zIndex: 500,
-            right: { sm: 200, xs: 20 },
+            right: { sm: 50, xs: 20, md: 0 },
             width: { lg: "324px", md: "259px", sm: "200px", xs: "184px" },
             height: { lg: "224px", md: "179px", sm: "130px", xs: "118px" },
           }}
           className={"animate__fadeInUp animate__animated wow"}
         />
-        <Box
-          component={"img"}
-          src={back5}
-          sx={{
-            position: "absolute",
-            top: { sm: 131, xs: 450 },
-            right: { sm: -20, xs: "auto" },
-            left: { sm: "auto", xs: -70 },
-            zIndex: 500,
-            width: { lg: "371px", md: "297px", sm: "222px", xs: "194px" },
-            height: { lg: "307px", md: "246px", sm: "184px", xs: "123px" },
-          }}
-          className={"animate__fadeInRight animate__animated wow"}
-        />
-        <Box
-          component={"img"}
-          src={back3}
-          sx={{
-            display: { sm: "block", xs: "none" },
-            position: "absolute",
-            top: -31,
-            left: 200,
-            zIndex: 500,
-          }}
-          className={"animate__fadeInUp animate__animated wow"}
-        />
       </Container>
+      <Box
+        component={"img"}
+        src={back5}
+        sx={{
+          position: "absolute",
+          top: { sm: 131, xs: 450 },
+          right: { sm: -20, xs: "auto" },
+          left: { sm: "auto", xs: -70 },
+          zIndex: 500,
+          width: { lg: "371px", md: "297px", sm: "222px", xs: "194px" },
+          height: { lg: "307px", md: "246px", sm: "184px", xs: "123px" },
+        }}
+        className={"animate__fadeInRight animate__animated wow"}
+      />
+      <Box
+        component={"img"}
+        src={back3}
+        sx={{
+          display: { sm: "block", xs: "none" },
+          position: "absolute",
+          top: -31,
+          left: 200,
+          zIndex: 500,
+        }}
+        className={"animate__fadeInUp animate__animated wow"}
+      />
     </WhiteContainer>
   );
 };
