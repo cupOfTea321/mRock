@@ -13,7 +13,7 @@ const WhiteItem =  ({sx}) => {
         ym(96408862, 'reachGoal', 'tickets')
     }
     return (
-        <Box component={motion.div}  sx={{
+        <Box component={motion.button}  sx={{
             ...backText,
             cursor: 'pointer',
             width: {sm: '200px', xs: '115px'},

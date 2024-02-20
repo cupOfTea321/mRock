@@ -33,7 +33,7 @@ const CardsBlock = ({ data }) => {
         className={"animate__fadeInUp animate__animated wow"}
       >
         <Input title={"Имя"} placehold={""} />
-        <MyAuto />
+        <MyAuto  sxAuto={{width: "216px",}}/>
       </Box>
       <Grid
         container

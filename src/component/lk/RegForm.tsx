@@ -30,8 +30,8 @@ const RegForm: React.FC = ({}) => {
     e.preventDefault();
     setFormState((prev) => ({ ...prev, ["role"]: role }));
     const cleanedPhoneNumber = formState.phone.replace(/\D/g, "");
-    const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
-    formState.phone = modifiedPhoneNumber;
+    // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
+    formState.phone = cleanedPhoneNumber;
     formState.role = setRolesTarget(formState.role);
 
     console.log(formState);
@@ -57,13 +57,16 @@ const RegForm: React.FC = ({}) => {
     width: { lg: "403px ", md: "268px", sm: "268px", xs: "268px" },
     marginBottom: 0,
   };
+    const [err, setErr] = useState(false)
   useEffect(() => {
     const isAuth = () => {
-      console.log(formState);
       if (regResult.isSuccess) {
-        dispatch(setUser(formState));
         navigate("/musician");
+          setErr(false)
       }
+        if (regResult.isError) {
+            setErr(true)
+        }
     };
     isAuth();
   }, [regResult]);
@@ -172,16 +175,27 @@ const RegForm: React.FC = ({}) => {
         type="submit"
         to={"/musician"}
       /> */}
-      <Box
-        sx={{
-          width: { sm: "230px", xs: "186px" },
-          height: { sm: "42px", xs: "34px" },
-          marginTop: "16px",
-        }}
-        component={"img"}
-        src={regMob}
-      />
-    </Box>
+        {
+            err && <Box sx={{
+                color: 'red'
+            }}>
+                Введены некорректные данные
+            </Box>
+        }
+        <Box component={'button'} type={'submit'}>
+
+            <Box
+                sx={{
+                    width: { sm: "230px", xs: "186px" },
+                    height: { sm: "42px", xs: "34px" },
+                    marginTop: "16px",
+                }}
+                component={"img"}
+                src={regMob}
+            />
+        </Box>
+        </Box>
+
   );
 };
 

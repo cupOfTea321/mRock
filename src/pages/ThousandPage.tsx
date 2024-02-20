@@ -54,7 +54,7 @@ const ThousandPage = () => {
           <Typography variant={"h2"}>страны</Typography>
         </Box>
       </Box>
-      <CardsBlock data={data} />
+      <CardsBlock  data={data} />
       <Box
         component={"img"}
         src={back3}

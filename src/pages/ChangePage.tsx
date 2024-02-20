@@ -20,6 +20,7 @@ import {setRolesTarget} from "../handlers/rolesTarget";
 import {useChangeDataMutation, useUserCreateMutation} from "../redux/services";
 import {fetchGetWithToken} from "../handlers/tokenFetch";
 import { useNavigate } from "react-router-dom";
+import ym from "react-yandex-metrika";
 const ChangePage = () => {
     const inputStyle = {
         width: { md: "228px", xs: "300px" },
@@ -92,6 +93,7 @@ const ChangePage = () => {
     useEffect(() => {
         const isAuth = () => {
             if (regResult.isSuccess) {
+                ym(96408862,'reachGoal','lead_mus')
                 setErr(false)
                 navigate("/musician");
             }
