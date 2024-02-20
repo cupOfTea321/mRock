@@ -3,7 +3,6 @@ import BlackBackground from "../utils/BlackBackground";
 import MusRight from "../component/lk/MusRight";
 import Logo from "../component/layout/Logo";
 import AuthButton from "../component/ui/AuthButton";
-import back from "../assets/back/backLines.png";
 import editIcon from "../assets/lk/editicon.svg";
 import like from "../assets/lk/like.png";
 import likeBack from "../assets/lk/likeBack.png";
@@ -12,7 +11,7 @@ import personMob from "../assets/lk/person.png";
 import saveIc from "../assets/lk/save.svg";
 import itemSave from "../assets/items/saveBack.png";
 import {Box, Button, Container, Grid, Input} from "@mui/material";
-import {h3} from "../mui/palette";
+import {backText, h3} from "../mui/palette";
 import back from "../assets/back/backLines.png";
 import ItemText from "../component/ui/ItemText";
 import {input, Input as MyInput} from "../component/ui/Input";
@@ -78,6 +77,7 @@ const ChangePage = () => {
     const [selectedFile, setSelectedFile] = useState(null);
 
     const handleFileChange = (event) => {
+        formState.avatar = event.target.files[0]
         setSelectedFile(event.target.files[0]);
         handleUpload();
     };
@@ -86,7 +86,6 @@ const ChangePage = () => {
         if (selectedFile) {
             // Выполните действия, связанные с загрузкой выбранного файла
             console.log(selectedFile);
-            formState.avatar = selectedFile
         }
     };
     const [err, setErr] = useState(false)
@@ -292,7 +291,20 @@ const ChangePage = () => {
                         />
                         {/*<Button onClick={handleUpload}>Upload</Button>*/}
                     </Box>
-                    <Box component={"img"} src={saveIc} />
+                    {
+                        err && <Box sx={{
+                            color: 'red'
+                        }}>
+                            Введите корректные данные
+                        </Box>
+                    }
+                    <Box
+                        component={'button'}
+                        type={'submit'}
+                    >
+                        <Box component={"img"} src={saveIc} />
+                    </Box>
+
                 </Box>
             </Container>
         </>

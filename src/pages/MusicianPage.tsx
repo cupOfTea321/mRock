@@ -16,6 +16,7 @@ import like from "../assets/lk/like.png";
 import likeBack from "../assets/lk/likeBack.png";
 import rightBack from "../assets/lk/musBack.png";
 import personMob from "../assets/lk/person.png";
+import {backText} from "../mui/palette";
 // const data = [
 //     'Имя фамилия',
 //     'Барабаны',
