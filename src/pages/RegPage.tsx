@@ -1,8 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useEffect } from "react";
 import rightBack from "../assets/lk/regBack.svg";
-import ticketDesk from "../assets/ticketDesk.png";
-import ticketMob from "../assets/ticketMob.png";
 import Logo from "../component/layout/Logo";
 import FullBack from "../component/lk/FullBack";
 import RegForm from "../component/lk/RegForm";
@@ -39,7 +37,7 @@ const RegPage = () => {
         <Logo
           sx={{
             marginTop: "26px",
-            marginBottom: { md: "90px", sm: "40px", xs: "40px" },
+            marginBottom: { md: "65px", sm: "40px", xs: "40px" },
           }}
         />
 

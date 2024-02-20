@@ -8,6 +8,7 @@ import FormBack from "../../assets/mobileFormBack.png";
 import { setRolesTarget } from "../../handlers/rolesTarget";
 import { backText, colStyle } from "../../mui/palette";
 import { useUserCreateMutation } from "../../redux/services";
+import { ModalPolice } from "../main/ModalPolice";
 import AuthButton from "../ui/AuthButton";
 import { Input, input } from "../ui/Input";
 import MyAuto from "../ui/MyAuto";
@@ -39,7 +40,7 @@ const RegForm: React.FC = ({}) => {
       await reg(formState)
         .unwrap()
         .then((payload) => {
-            navigate("/auth");
+          navigate("/auth");
           return console.log("fulfilled", payload);
         })
         .catch((error) => {
@@ -60,6 +61,8 @@ const RegForm: React.FC = ({}) => {
   };
   const [err, setErr] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openData, setDataOpen] = useState(false);
+
   useEffect(() => {
     const isAuth = () => {
       if (regResult.isSuccess) {
@@ -142,7 +145,7 @@ const RegForm: React.FC = ({}) => {
         sx={{
           display: "flex",
           alignItems: "center",
-          width: { sm: "402px", xs: "268px" },
+          width: { sm: "370px", xs: "268px" },
           marginRight: "13px",
           marginTop: "16px",
         }}
@@ -157,18 +160,41 @@ const RegForm: React.FC = ({}) => {
           sx={{
             fontSize: "14px",
             color: "black",
+            textAlign: "start",
           }}
         >
           Согласие на обработку{" "}
           <span
-          style={{
-            cursor: 'pointer',
-            textDecoration: "underline"
-          }}
-          onClick={() => setOpen(true)}>персональных данных</span>
+            style={{
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+            onClick={() => setOpen(true)}
+          >
+            персональных данных
+          </span>
         </Typography>
-        <ModalData open={open} setOpen={setOpen} />
+        <ModalData open={openData} setOpen={setDataOpen} />
+        <ModalPolice open={open} setOpen={setOpen} />
       </Box>
+      <Typography
+        sx={{
+          fontSize: "14px",
+          color: "black",
+          width: { sm: "370px", xs: "268px" },
+        }}
+      >
+        <span
+          style={{
+            cursor: "pointer",
+            textDecoration: "underline",
+            paddingLeft: "10px",
+          }}
+          onClick={() => setDataOpen(true)}
+        >
+          Регистрируясь, вы принимаете условия публичной оферты
+        </span>
+      </Typography>
       <AuthButton
         text={"Зарегистрироваться"}
         sx={{
