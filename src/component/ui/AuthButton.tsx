@@ -19,7 +19,7 @@ const AuthButton = ({
     const navigate = useNavigate();
     const handleClick = (to) => {
         // navigate(to)
-        ym(96408862,'reachGoal','log_in')
+        ym('reachGoal','log_in')
     }
     const handleExit = () => {
         localStorage.removeItem('access');

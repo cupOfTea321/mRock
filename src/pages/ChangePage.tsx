@@ -98,7 +98,7 @@ const ChangePage = () => {
     useEffect(() => {
         const isAuth = () => {
             if (regResult.isSuccess) {
-                ym(96408862,'reachGoal','lead_mus')
+                ym('reachGoal','lead_mus')
                 setErr(false)
                 navigate("/musician");
             }

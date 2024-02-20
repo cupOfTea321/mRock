@@ -40,7 +40,7 @@ const MyBar = () => {
     const [background, setBackground] = useState('transparent');
     const navigate = useNavigate();
     const handleClickAuth = (to) => {
-        ym(96408862,'reachGoal','log_in')
+        ym('reachGoal','log_in')
         navigate('auth')
     }
     useEffect(() => {
