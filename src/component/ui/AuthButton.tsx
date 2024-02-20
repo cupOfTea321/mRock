@@ -9,6 +9,7 @@ import ym from "react-yandex-metrika";
 
 const AuthButton = ({
     text = 'Авторизация',
+    icon = false,
     sx,
     exit = false,
     to = 'auth',
@@ -41,7 +42,7 @@ const AuthButton = ({
             width: {sm: '164px', xs: '115px'},
             height: {sm: '41px', xs: '36px'},
             ...sx
-        }} component={motion.button} whileHover={{
+        }} component={!icon ? motion.button : 'button'} whileHover={{
             backgroundImage: `url(${greenHover})`,
             transition: { delay: 0.1, duration: 0.2 }
         }} >

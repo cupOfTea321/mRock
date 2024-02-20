@@ -64,13 +64,17 @@ const AuthForm: React.FC = ({}) => {
     width: { lg: "403px ", md: "268px", sm: "268px", xs: "268px" },
     marginBottom: 0,
   };
+    const [err, setErr] = useState(false)
   useEffect(() => {
     const isAuth = () => {
-      console.log("isAuth");
       if (loginResult.isSuccess) {
-        dispatch(setUser(formState));
+
         navigate("/musician");
+          setErr(false)
       }
+        if (loginResult.isError) {
+            setErr(true)
+        }
     };
     isAuth();
   }, [loginResult]);
@@ -141,8 +145,16 @@ const AuthForm: React.FC = ({}) => {
           ),
         }}
       />
+        {
+            err && <Box sx={{
+                color: 'red'
+            }}>
+                Введены некорректные данные
+            </Box>
+        }
        <AuthButton
         text={""}
+        icon={true}
         sx={{
           width: { sm: "230px", xs: "115px" },
           height: { sm: "42px", xs: "36px" },
