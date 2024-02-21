@@ -11,6 +11,7 @@ import leftGallery from "../../assets/main/leftGallery.svg";
 import rightGalleryM from "../../assets/main/rightGalM.svg";
 import back from "../../assets/фон.png";
 import GalleryText from "./GalleryText";
+import React from "react";
 
 const MainGallery = () => {
   const navigate = useNavigate();
@@ -90,16 +91,24 @@ const MainGallery = () => {
           whileHover={{ scale: 1.1 }}
         />
         <Box
-          component={motion.img}
+          component={motion.div}
           whileHover={{ scale: 1.1 }}
           src={rightGallery}
           sx={{
+              background: `url(${rightGallery})`,
+              marginTop: "120px",
+              backgroundRepeat: 'no-repeat',
             cursor: "pointer",
             width: { md: "393px", sm: "308px", xs: "235px" },
             height: { md: "530px", sm: "424px", xs: "176px" },
+              position: 'relative'
           }}
           className={"animate__fadeInRight animate__animated wow"}
-        />
+        >
+            <y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button">
+
+            </y:ticket>
+        </Box>
       </Box>
       {/* МОБИЛЬНАЯ ГАЛЕРЕЯ */}
       <Box
@@ -138,16 +147,24 @@ const MainGallery = () => {
           }}
         />
         <Box
-          component={motion.img}
+          component={motion.div}
           whileHover={{ scale: 1.1 }}
           src={rightGalleryM}
           sx={{
+              background: `url(${rightGalleryM})`,
+              backgroundRepeat: 'no-repeat',
             cursor: "pointer",
             marginTop: "-30px",
             width: "80%",
+              height: '200px',
             marginLeft: "10%",
+              position: 'relative'
           }}
-        />
+        >
+            <y:ticket style={{
+                // position: 'absolute',
+            }} data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>
+        </Box>
       </Box>
       <Box
         component={"img"}

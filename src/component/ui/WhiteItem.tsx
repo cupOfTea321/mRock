@@ -28,6 +28,7 @@ const WhiteItem =  ({sx}) => {
             fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
+            position: 'relative',
             // backgroundBlendMode: 'multiply',
             // transition: 'background-color 0.3s ease',
             ...sx
@@ -39,12 +40,13 @@ const WhiteItem =  ({sx}) => {
                  fontWeight: 400,
         }}
               >
-            {/*<Typography sx={h3}>*/}
-            {/*    Билеты*/}
 
-            {/*</Typography>*/}
             {/*<div id="ya-widget-frame"></div>*/}
             <y:ticket data-session-id="ticketsteam-6369@16168107" data-template="yandex-button"></y:ticket>
+            <Typography sx={h3}>
+                Билеты
+
+            </Typography>
         </Box>
     );
 };
