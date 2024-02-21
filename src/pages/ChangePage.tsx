@@ -134,6 +134,14 @@ const ChangePage = () => {
     paddingLeft: "16px",
     marginTop: "16px",
   };
+  const basicInput = {
+      color: 'white',
+      background: 'transparent',
+      border: '2px solid #8654CC',
+      borderRadius: '100px',
+      marginBottom: '16px',
+      paddingLeft: '16px',
+  }
   return (
     <>
       <Box
@@ -261,15 +269,29 @@ const ChangePage = () => {
             }}
           >
             <Box>
-              <Typography sx={labelStyle}>Имя</Typography>
-              <MyInput
-                required={true}
-                name={"name"}
-                handleChange={handleChange}
-                value={formState.name}
-                sx={inputStyle}
-                placehold={"Введите имя"}
-              />
+              <Typography sx={{
+                  ...labelStyle,
+                  // marginBottom: '8px'
+              }}>Имя</Typography>
+              {/*<MyInput*/}
+              {/*  required={true}*/}
+              {/*  name={"name"}*/}
+              {/*  handleChange={handleChange}*/}
+              {/*  value={formState.name}*/}
+              {/*  sx={inputStyle}*/}
+              {/*  placehold={"Введите имя"}*/}
+              {/*/>*/}
+                <Box component={'input'}
+                    required={true}
+                    name={"name"}
+                    handleChange={handleChange}
+                    value={formState.name}
+                    sx={{
+                        ...inputStyle,
+                        ...basicInput
+                }}
+                    placehold={"Введите имя"}
+                />
             </Box>
             <Box>
               <Typography sx={labelStyle}>Роль</Typography>
@@ -282,18 +304,22 @@ const ChangePage = () => {
             </Box>
             <Box>
               <Typography sx={labelStyle}>Ссылка на vk</Typography>
-              <MyInput
+              <Box
+                  component={'input'}
                 required={true}
                 name={"social_link"}
                 handleChange={handleChange}
                 value={formState.social_link}
-                sx={inputStyle}
+                sx={{
+                    ...inputStyle,
+                    ...basicInput
+                }}
                 placehold={"Введите ссылку"}
               />
             </Box>
             {/*<MyInput type={'file'} handleChange={handleChange} name={'avatar'} value={formState.avatar} sx={inputStyle}  placehold={'Файл'}/>*/}
             <Box>
-              <Typography sx={labelStyle}>Файл</Typography>
+              <Typography sx={labelStyle}>Фото</Typography>
               <Input
                 required={true}
                 variant="outlined"
@@ -301,9 +327,6 @@ const ChangePage = () => {
                   ...input,
                   ...inputStyle,
                   paddingLeft: "32px",
-                  // borderRadius: "100px",
-                  // borderColor: "rgba(134, 84, 204, 1) !important",
-                  // color: 'white !important',
                   '& input[type="file"]::-webkit-file-upload-button': {
                     visibility: "hidden",
                     display: "none",

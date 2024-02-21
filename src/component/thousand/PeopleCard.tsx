@@ -4,9 +4,11 @@ import onLikeIcon from "../../assets/thousand/fill.svg";
 import likeIcon from "../../assets/thousand/nofill.svg";
 import vkIcon from "../../assets/thousand/vkIcon.svg";
 import { h3 } from "../../mui/palette";
+import {rolesTarget} from "../../handlers/rolesTarget";
 
 export default function PeopleCard({ link, main = false, person }) {
-  const { name, avatar, role, social_link } = person;
+  let { name, avatar, role, social_link } = person;
+    role = rolesTarget(role)
   console.log(person);
   const like = true;
   const vk = true;
@@ -16,9 +18,12 @@ export default function PeopleCard({ link, main = false, person }) {
     cursor: "pointer",
   };
   const [onLike, setOnLike] = useState(false);
+  const handleSocial = () => {
+      window.location.href = social_link;
+  }
   const handleLike = () => {
+
     setOnLike(!onLike);
-    console.log(onLike);
   };
   return (
     <Box
@@ -73,6 +78,7 @@ export default function PeopleCard({ link, main = false, person }) {
         {like && vk && (
           <Box
             src={vkIcon}
+            onClick={handleSocial}
             component={"img"}
             sx={{
               ...iconStyle,

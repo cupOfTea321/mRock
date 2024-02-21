@@ -12,10 +12,14 @@ import rightGalleryM from "../../assets/main/rightGalM.svg";
 import back from "../../assets/фон.png";
 import GalleryText from "./GalleryText";
 import React from "react";
+import ym from "react-yandex-metrika";
 
 const MainGallery = () => {
   const navigate = useNavigate();
   const handleClick = (to) => navigate(to);
+    const yandexClick = () => {
+        ym( 'reachGoal', 'tickets')
+    }
   return (
     <Box
       sx={{
@@ -94,6 +98,7 @@ const MainGallery = () => {
           component={motion.div}
           whileHover={{ scale: 1.1 }}
           src={rightGallery}
+          onClick={yandexClick}
           sx={{
               background: `url(${rightGallery})`,
               marginTop: "120px",
@@ -150,6 +155,7 @@ const MainGallery = () => {
           component={motion.div}
           whileHover={{ scale: 1.1 }}
           src={rightGalleryM}
+          onClick={yandexClick}
           sx={{
               background: `url(${rightGalleryM})`,
               backgroundRepeat: 'no-repeat',

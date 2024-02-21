@@ -9,7 +9,6 @@ import {motion} from "framer-motion";
 
 const WhiteItem =  ({sx}) => {
     const yandexClick = () => {
-        console.log('yandexClick')
         ym( 'reachGoal', 'tickets')
     }
     return (
