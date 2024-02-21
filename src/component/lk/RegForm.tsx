@@ -115,7 +115,7 @@ const RegForm: React.FC = ({}) => {
         placehold={"Введите имя"}
         sx={{
           ...authText,
-        }}
+        }} required={true}
       />
 
       <TextField
@@ -130,7 +130,7 @@ const RegForm: React.FC = ({}) => {
         sx={{
           ...input,
           ...authText,
-        }}
+        }} required={true}
       />
       <MyAuto
         sx={{
@@ -140,6 +140,7 @@ const RegForm: React.FC = ({}) => {
         onChange={handleChange}
         name={"role"}
         value={formState.role}
+        required={true}
       />
       <Box
         sx={{
@@ -154,7 +155,7 @@ const RegForm: React.FC = ({}) => {
           sx={{
             background: "white",
             borderRadius: "50% ",
-          }}
+          }} required={true}
         />
         <Typography
           sx={{

@@ -40,6 +40,7 @@ const CardsBlock = ({ data }) => {
 
         }} title={"Имя"} placehold={""} />
         <MyAuto   sxAuto={{
+
             width: "216px",
             label: {
                 color: 'white',

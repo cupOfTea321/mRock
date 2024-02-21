@@ -23,6 +23,7 @@ const MyAuto = (props) => {
       options={top100Films}
       renderInput={(params) => (
         <TextField
+            value={value}
           {...params}
           sx={{
             ...input,

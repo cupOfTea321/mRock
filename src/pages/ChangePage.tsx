@@ -50,9 +50,9 @@ const ChangePage = () => {
     formState.role = setRolesTarget(formState.role);
     const formData = new FormData();
     formData.append("name", formState.name);
-    formData.append("avatar", formState.avatar);
+    if (formState.avatar) formData.append("avatar", formState.avatar);
     formData.append("role", formState.role);
-    formData.append("social_link", formState.social_link);
+      if (formState.social_link) formData.append("social_link", formState.social_link);
     console.log(`formData ${formData}`);
     console.log(formState);
     try {
@@ -271,16 +271,7 @@ const ChangePage = () => {
             <Box>
               <Typography sx={{
                   ...labelStyle,
-                  // marginBottom: '8px'
               }}>Имя</Typography>
-              {/*<MyInput*/}
-              {/*  required={true}*/}
-              {/*  name={"name"}*/}
-              {/*  handleChange={handleChange}*/}
-              {/*  value={formState.name}*/}
-              {/*  sx={inputStyle}*/}
-              {/*  placehold={"Введите имя"}*/}
-              {/*/>*/}
                 <Box component={'input'}
                     required={true}
                     name={"name"}
@@ -298,6 +289,7 @@ const ChangePage = () => {
               <MyAuto
                 setRole={setRole}
                 onChange={handleChange}
+                value={formState.role}
                 name={"role"}
                 sx={inputStyle}
               />
@@ -306,7 +298,6 @@ const ChangePage = () => {
               <Typography sx={labelStyle}>Ссылка на vk</Typography>
               <Box
                   component={'input'}
-                required={true}
                 name={"social_link"}
                 handleChange={handleChange}
                 value={formState.social_link}
@@ -321,7 +312,6 @@ const ChangePage = () => {
             <Box>
               <Typography sx={labelStyle}>Фото</Typography>
               <Input
-                required={true}
                 variant="outlined"
                 sx={{
                   ...input,
