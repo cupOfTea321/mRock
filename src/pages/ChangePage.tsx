@@ -35,9 +35,13 @@ const ChangePage = () => {
     role: "",
     social_link: "",
   });
+    const [userData, setUserData] = React.useState()
   const handleChange = ({ target: { name, value } }) => {
+      console.log(name, value)
     setFormState((prev) => ({ ...prev, [name]: value }));
+
     console.log(formState);
+    console.log('handleChange');
   };
   const navigate = useNavigate();
   const formData = new FormData();
@@ -47,14 +51,13 @@ const ChangePage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setFormState((prev) => ({ ...prev, ["role"]: role }));
-    formState.role = setRolesTarget(formState.role);
+    formState.role = setRolesTarget(role);
     const formData = new FormData();
     formData.append("name", formState.name);
-    if (formState.avatar) formData.append("avatar", formState.avatar);
+      console.log(userData)
+    if (formState.avatar && formState.avatar !== userData?.avatar )  formData.append("avatar", formState.avatar);
     formData.append("role", formState.role);
       if (formState.social_link) formData.append("social_link", formState.social_link);
-    console.log(`formData ${formData}`);
-    console.log(formState);
     try {
       await reg(formData, token)
         .unwrap()
@@ -87,7 +90,8 @@ const ChangePage = () => {
   const handleUpload = () => {
     if (selectedFile) {
       // Выполните действия, связанные с загрузкой выбранного файла
-      console.log(selectedFile);
+
+      // console.log(selectedFile);
     }
   };
   const [err, setErr] = useState(false);
@@ -105,11 +109,10 @@ const ChangePage = () => {
     isAuth();
   }, [regResult]);
   useEffect(() => {
-    setUser().then((res) => {
-      setFormState(res);
-    });
     fetchGetWithToken(url, token)
       .then((result) => {
+          console.log(result)
+          setUserData(result)
         setData(result);
       })
       .catch((error) => {
@@ -123,13 +126,14 @@ const ChangePage = () => {
   }, []);
   useEffect(() => {
     setUser().then((res) => {
+
       setFormState(res);
     });
   }, [data]);
   if (data === null) {
     return <div>Loading...</div>;
   }
-  console.log(data);
+  // console.log(data);
   const labelStyle = {
     paddingLeft: "16px",
     marginTop: "16px",
@@ -272,10 +276,11 @@ const ChangePage = () => {
               <Typography sx={{
                   ...labelStyle,
               }}>Имя</Typography>
-                <Box component={'input'}
+                <Box
+                    component={'input'}
                     required={true}
                     name={"name"}
-                    handleChange={handleChange}
+                    onChange={handleChange}
                     value={formState.name}
                     sx={{
                         ...inputStyle,
@@ -286,9 +291,11 @@ const ChangePage = () => {
             </Box>
             <Box>
               <Typography sx={labelStyle}>Роль</Typography>
+
               <MyAuto
                 setRole={setRole}
                 onChange={handleChange}
+                role={role}
                 value={formState.role}
                 name={"role"}
                 sx={inputStyle}
@@ -299,7 +306,7 @@ const ChangePage = () => {
               <Box
                   component={'input'}
                 name={"social_link"}
-                handleChange={handleChange}
+                  onChange={handleChange}
                 value={formState.social_link}
                 sx={{
                     ...inputStyle,
