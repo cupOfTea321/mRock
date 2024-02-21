@@ -312,7 +312,7 @@ const ChangePage = () => {
             <Box>
               <Typography sx={labelStyle}>Фото</Typography>
               <Input
-                variant="outlined"
+                // variant="outlined"
                 sx={{
                   ...input,
                   ...inputStyle,

@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField, Typography } from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import { input } from "./Input";
 const top100Films = ["гитарист", "вокалист", "барабанщик", "басист"];
 const MyAuto = (props) => {
@@ -17,27 +17,18 @@ const MyAuto = (props) => {
       onChange={onBlyatChange}
       disablePortal
       sx={{
-          ...sxAuto
+        ...sxAuto,
       }}
       id="combo-box-demo"
       options={top100Films}
       renderInput={(params) => (
         <TextField
-            value={value}
+          value={value}
           {...params}
           sx={{
             ...input,
             ...sx,
           }}
-          label={
-            <Box
-              sx={{
-                display: "flex",
-              }}
-            >
-              <Typography sx={{ fontSize: "16px" }}>Роль</Typography>
-            </Box>
-          }
         />
       )}
     />

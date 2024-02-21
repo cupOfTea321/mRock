@@ -57,6 +57,9 @@
   background: white;
   color: rgba(134, 84, 204, 1);
 }
+.css-p8po1-MuiInputBase-root-MuiInput-root::before {
+  border-bottom: none !important;
+}
 /*.css-6aj0jg-MuiContainer-root {*/
 /*    padding-left: 0 !important;*/
 /*    padding-right: 0 !important;*/
