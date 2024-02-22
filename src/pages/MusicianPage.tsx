@@ -24,6 +24,7 @@ import {backText} from "../mui/palette";
 // ]
 const MusicianPage = () => {
     const navigate = useNavigate()
+
     const handleClick = () => {
         navigate('change')
     }
@@ -77,7 +78,7 @@ const MusicianPage = () => {
                     backgroundRepeat: "no-repeat",
                 }}
             ></Box>
-            <MusRight likes={data.likes}/>
+            <MusRight likes={data.likes} img={data.avatar}/>
             <Container sx={{
                 position: 'relative',
                 zIndex: 400,
@@ -102,8 +103,9 @@ const MusicianPage = () => {
                     sx={{
                         backgroundImage: {
                             md: `url(${rightBack})`,
-                            xs: `url(${personMob})`,
+                            xs: `url(${!data.avatar ? personMob : data.avatar})`,
                         },
+                        clipPath: 'polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 20% 90%)',
                         backgroundRepeat: "no-repeat",
                         backgroundSize: {sm: "contain", xs: "cover"},
                         backgroundPosition: {xs: "center top"},
@@ -171,10 +173,11 @@ const MusicianPage = () => {
                     <MusItem item={data?.social_link} title={'Ссылка на страницу vk'}/>
                     <Typography
                         onClick={handleClick}
-                        style={{
+                        sx={{
                             textDecoration: "underline",
                             marginTop: "38px",
                             cursor: "pointer",
+                            marginLeft: {md: '32px', sm: 0, xs: 0}
                         }}
                     >
                         Редактировать анкету
@@ -186,3 +189,4 @@ const MusicianPage = () => {
 };
 
 export default MusicianPage;
+

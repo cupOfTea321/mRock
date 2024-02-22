@@ -9,6 +9,8 @@ import Logo from "./Logo";
 import AuthButton from "../ui/AuthButton";
 import ym from "react-yandex-metrika";
 import {AccountCircle} from "@mui/icons-material";
+import {fetchGetWithToken} from "../../handlers/tokenFetch";
+
 const settings = [
     {name: 'Профиль', to: '/musician'},
     {name: 'Выйти', to: null},
@@ -40,9 +42,11 @@ const MyBar = () => {
     const [background, setBackground] = useState('transparent');
     const navigate = useNavigate();
     const handleClickAuth = (to) => {
-        ym('reachGoal','log_in')
+        ym('reachGoal', 'log_in')
         navigate('auth')
     }
+    const url = 'https://xn--80affwgpn.xn--p1ai/api/profile/my/';
+    const [data, setData] = useState(null);
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.pageYOffset;
@@ -55,7 +59,13 @@ const MyBar = () => {
                 setBackground('transparent'); // Установите прозрачный цвет фона верхней панели при попадании наверх страницы
             }
         };
-
+        fetchGetWithToken(url, token)
+            .then((result) => {
+                setData(result);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -73,6 +83,9 @@ const MyBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    // if (data === null) {
+    //     return <div>Loading...</div>;
+    // }
     const handleExit = () => {
         localStorage.removeItem('access');
         navigate('')
@@ -85,7 +98,7 @@ const MyBar = () => {
                 right: 0,
                 left: 0,
                 zIndex: 800,
-                height: { sm: "124px", xs: "104px" },
+                height: {sm: "124px", xs: "104px"},
 
                 display: "flex",
                 animation: "colorFade 0.5s",
@@ -103,22 +116,22 @@ const MyBar = () => {
                 maxWidth={"lg"}
                 sx={{
                     display: "grid",
-                    gridTemplateColumns: { md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr" },
-                    justifyItems: { md: "none", xs: "baseline" },
+                    gridTemplateColumns: {md: "4fr 5fr 1fr", xs: "9fr 7fr 0.5fr"},
+                    justifyItems: {md: "none", xs: "baseline"},
                     alignItems: "center",
                     marginTop: '10px',
-                    marginBottom: { sm: "20px", xs: "10px" },
+                    marginBottom: {sm: "20px", xs: "10px"},
                     position: "relative",
                     zIndex: 1200,
                 }}
                 className="animate__animated animate__fadeInDown wow"
             >
-                <Logo />
+                <Logo/>
                 <Box
                     sx={{
                         fontSize: "16px",
                         // paddingRight: '20%',
-                        display: { md: "flex", sm: "none", xs: "none" },
+                        display: {md: "flex", sm: "none", xs: "none"},
                         justifyContent: "flex-start",
                     }}
                 >
@@ -135,45 +148,54 @@ const MyBar = () => {
                         </NavLink>
                     ))}
                 </Box>
-                {token ? <Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Пользователь">
-                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
-                            <AccountCircle sx={{
-                            width: '30px',
-                            height: '30px',
-                            }
-                            }  />
-                        </IconButton>
-                    </Tooltip>
-                    <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                    >
-                        {settings.map((setting,index) => (
-                            <NavLink key={setting} onClick={index === 1 && handleExit} to={setting.to && setting.to} textAlign="center" style={{
-                                color: 'black'
-                            }}>
-                            <MenuItem  onClick={handleCloseUserMenu}>
-                                {setting.name}
-                            </MenuItem>
-                            </NavLink>
-                        ))}
-                    </Menu>
-                </Box>
-                : <Box
+                {token ? <Box sx={{flexGrow: 0}}>
+                        <Tooltip title="Пользователь">
+                            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
+                                {
+                                    !data?.avatar ? <AccountCircle sx={{
+                                            width: '30px',
+                                            height: '30px',
+                                        }
+                                        }/>
+                                        : <Box component={'img'} src={data.avatar} sx={{
+                                            width: '32px',
+                                            height: '32px',
+                                            borderRadius: '50%',
+                                        border: '2px solid white'
+                                        }}/>
+                                }
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{mt: '45px'}}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {settings.map((setting, index) => (
+                                <NavLink key={setting} onClick={index === 1 && handleExit} to={setting.to && setting.to}
+                                         textAlign="center" style={{
+                                    color: 'black'
+                                }}>
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        {setting.name}
+                                    </MenuItem>
+                                </NavLink>
+                            ))}
+                        </Menu>
+                    </Box>
+                    : <Box
                         sx={{
                             display: "flex",
                             alignItems: "center",
@@ -181,7 +203,7 @@ const MyBar = () => {
                             // width: '20%'
                         }}
                     >
-                        <AuthButton onClick={handleClickAuth} />
+                        <AuthButton onClick={handleClickAuth}/>
                     </Box>
                 }
 
@@ -195,15 +217,15 @@ const MyBar = () => {
                     aria-haspopup="true"
                     onClick={handleClick}
                     sx={{
-                        display: { md: "none", sm: "block", xs: "block" },
+                        display: {md: "none", sm: "block", xs: "block"},
                         // background: 'red'
                         background: `url(${menuBack})`,
                         backgroundRepeat: "no-repeat",
                         borderRadius: 0,
                         backgroundSize: "contain",
                         marginLeft: "-30px",
-                        width: { sm: "54px", xs: "38px" },
-                        height: { sm: "54px", xs: "35px" },
+                        width: {sm: "54px", xs: "38px"},
+                        height: {sm: "54px", xs: "35px"},
                     }}
                 >
                     <MenuIcon

@@ -32,3 +32,15 @@ export const colStyle = {
   flexDirection: 'column',
   alignItems: 'center'
 }
+export const changeStyle = {
+  width: {md: "228px", xs: "300px"},
+  height: {md: "56px", xs: "50px"},
+  label: {
+    color: 'black',
+  },
+  background: 'transparent',
+  border: '2px solid #8654CC',
+  borderRadius: '100px',
+  marginBottom: '16px',
+  paddingLeft: '16px',
+}

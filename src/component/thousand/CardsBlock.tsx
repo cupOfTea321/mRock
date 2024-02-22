@@ -4,10 +4,13 @@ import person1 from "../../assets/thousand/img1.png";
 import person2 from "../../assets/thousand/img2.png";
 import person3 from "../../assets/thousand/img3.png";
 import person4 from "../../assets/thousand/img4.png";
-import { Input } from "../ui/Input";
+import {input, Input} from "../ui/Input";
 import ItemText from "../ui/ItemText";
 import MyAuto from "../ui/MyAuto";
 import PeopleCard from "./PeopleCard";
+import ChangeSelect from "../lk/ChangeSelect";
+import {changeStyle} from "../../mui/palette";
+import React from "react";
 const CardsBlock = ({ data }) => {
   const people = [
     { image: person1 },
@@ -39,14 +42,36 @@ const CardsBlock = ({ data }) => {
             },
 
         }} title={"Имя"} placehold={""} />
-        <MyAuto   sxAuto={{
+          {/*ТУТ !!!!!!!!!!!!!!!!!*/}
+          <ChangeSelect
+              inputStyle={{
+                  ...input,
+                  color: 'white',
 
-            width: "216px",
-            label: {
-                color: 'white',
-                paddingLeft: "16px",
-            },
-        }}/>
+                  width: {md: "216px", xs: "300px"},
+                  height: {md: "60px", xs: "50px"},
+                  label: {
+                      color: 'black',
+                  },
+                  background: 'transparent',
+                  border: '2px solid #8654CC',
+                  borderRadius: '100px',
+                  // marginBottom: '16px',
+                  paddingLeft: '16px',
+              }}
+              // basicInput={authText}
+              // formState={formState}
+              // handleChange={handleChange}
+              // roles={roles}
+          />
+        {/*<MyAuto   sxAuto={{*/}
+        {/*    width: "216px",*/}
+        {/*    color: 'white',*/}
+        {/*    label: {*/}
+        {/*        color: 'white',*/}
+        {/*        paddingLeft: "16px",*/}
+        {/*    },*/}
+        {/*}}/>*/}
       </Box>
       <Grid
         container
