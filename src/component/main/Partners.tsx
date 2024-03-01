@@ -2,7 +2,8 @@ import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import item9 from "../../assets/back/backItem9.webp";
 import back3 from "../../assets/back3.svg";
-import back5 from "../../assets/back5.svg";
+import blast from "../../assets/blast.svg";
+import mega from "../../assets/sbermegamarket.svg";
 import itemLeft from "../../assets/items/item4.svg";
 import back4 from "../../assets/main/maxim.svg";
 import rock from "../../assets/rock.svg";
@@ -90,24 +91,30 @@ const Partners = () => {
             }}
             onClick={() => handleFirst()}
           >
-            <Typography
-              sx={{
-                fontSize: { lg: "80px", md: "60px", sm: "50px", xs: "40px" },
-                fontWeight: 700,
-                color: "#6833b0",
-                width: "60%",
-                lineHeight: {
-                  lg: "63.6px",
-                  md: "50px",
-                  sm: "40px",
-                  xs: "32px",
-                },
-                marginBottom: { sm: "50px", xs: "30px" },
-                // textAlign: 'center'
-              }}
-            >
-              мега маркет
-            </Typography>
+            {/*<Typography*/}
+            {/*  sx={{*/}
+            {/*    fontSize: { lg: "80px", md: "60px", sm: "50px", xs: "40px" },*/}
+            {/*    fontWeight: 700,*/}
+            {/*    color: "#6833b0",*/}
+            {/*    width: "60%",*/}
+            {/*    lineHeight: {*/}
+            {/*      lg: "63.6px",*/}
+            {/*      md: "50px",*/}
+            {/*      sm: "40px",*/}
+            {/*      xs: "32px",*/}
+            {/*    },*/}
+            {/*    marginBottom: { sm: "50px", xs: "30px" },*/}
+            {/*    // textAlign: 'center'*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  мега маркет*/}
+            {/*</Typography>*/}
+              <Box src={mega} component={'img'} sx={{
+                    width: {md: '371px', sm: '280px', xs: '208px'},
+                  height: {md: '149px', sm: '100px', xs: '90px'},
+                  marginBottom: {md: '50px', sm: "30px", xs: "10px" },
+
+              }}/>
           </Box>
           <Box
             component={motion.img}
@@ -142,20 +149,30 @@ const Partners = () => {
           className={"animate__fadeInUp animate__animated wow"}
         />
       </Container>
-      <Box
-        component={"img"}
-        src={back5}
-        sx={{
-          position: "absolute",
-          top: { sm: 131, xs: 450 },
-          right: { sm: -20, xs: "auto" },
-          left: { sm: "auto", xs: -70 },
-          zIndex: 500,
-          width: { lg: "371px", md: "297px", sm: "222px", xs: "194px" },
-          height: { lg: "307px", md: "246px", sm: "184px", xs: "123px" },
-        }}
-        className={"animate__fadeInRight animate__animated wow"}
-      />
+        {/*<Box sx={{*/}
+        {/*    backgroundColor: '#FFE3C7',*/}
+        {/*    width: { lg: "254px", md: "203px", sm: "152px", xs: "149px" },*/}
+        {/*    height: { lg: "184px", md: "147px", sm: "110px", xs: "100px" },*/}
+        {/*    position: "absolute",*/}
+        {/*    top: { sm: 131, xs: 450 },*/}
+        {/*    borderRadius: '20px',*/}
+        {/*    right: { sm: 20, xs: "auto" },*/}
+        {/*    left: { sm: "auto", xs: -70 },*/}
+        {/*    zIndex: 500,*/}
+        {/*}}>*/}
+        {/*    <Box*/}
+        {/*        component={"img"}*/}
+        {/*        src={blast}*/}
+        {/*        sx={{*/}
+        {/*            // width: '120%',*/}
+        {/*            // height: '120%',*/}
+        {/*            // width: { lg: "371px", md: "297px", sm: "222px", xs: "194px" },*/}
+        {/*            // height: { lg: "307px", md: "246px", sm: "184px", xs: "123px" },*/}
+        {/*              }}*/}
+        {/*        className={"animate__fadeInRight animate__animated wow"}*/}
+        {/*    />*/}
+        {/*</Box>*/}
+
       <Box
         component={"img"}
         src={back3}

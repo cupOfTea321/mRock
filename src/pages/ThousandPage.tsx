@@ -11,7 +11,7 @@ import Loader from "../utils/Loader";
 const ThousandPage = () => {
   const { data, isLoading } = useGetMusiciansQuery();
   if (isLoading) return <Loader title={`Загрузка событий...`} />;
-  console.log(data);
+
   return (
     <Box
       sx={{

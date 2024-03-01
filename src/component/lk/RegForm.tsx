@@ -36,16 +36,15 @@ const RegForm: React.FC = ({}) => {
         formState.phone = cleanedPhoneNumber;
         formState.role = setRolesTarget(formState.role);
 
-        console.log(formState);
         try {
             await reg(formState)
                 .unwrap()
                 .then((payload) => {
                     navigate("/auth");
-                    return console.log("fulfilled", payload);
+                    // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
-                    return console.error("rejected", error);
+                    // return console.error("rejected", error);
                 });
             if (!regResult.isSuccess) return;
         } catch (e) {
@@ -160,7 +159,10 @@ const RegForm: React.FC = ({}) => {
                 inputStyle={{
                     ...input,
                     // color: 'white',
-                    ...changeStyle
+                    ...changeStyle,
+                    ':hover': {
+                        color: 'black !important'
+                    },
                 }}
                 basicInput={authText}
                 formState={formState}

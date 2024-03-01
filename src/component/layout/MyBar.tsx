@@ -22,7 +22,6 @@ const MyBar = () => {
         setOpen(!open);
     };
     const token = localStorage.getItem('access')
-    console.log(token)
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -150,6 +149,7 @@ const MyBar = () => {
                 </Box>
                 {token ? <Box sx={{flexGrow: 0}}>
                         <Tooltip title="Пользователь">
+
                             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                 {/*<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
                                 {

@@ -7,9 +7,10 @@ export const rockCoreApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://xn--80affwgpn.xn--p1ai/api",
         prepareHeaders: (headers) => {
-            const token = localStorage.getItem('access')
+            const access = localStorage.getItem('access')
+            const refresh = localStorage.getItem('refresh')
             if (token) {
-                headers.set('Authorization', `Bearer ${token}`);
+                headers.set('Authorization', `Bearer ${access}`);
             }
             return headers;
         },
@@ -42,6 +43,13 @@ export const rockCoreApi = createApi({
                 body,
             }),
         }),
+        userRefresh: builder.mutation({
+            query: (body) => ({
+                url: `token/refresh/`,
+                method: "POST",
+                body: {refresh: body},
+            }),
+        }),
         userCreate: builder.mutation({
             query: (body) => ({
                 url: `auth/register/`,
@@ -68,6 +76,7 @@ export const rockCoreApi = createApi({
 // экспортируем заданные поинты как хуки
 export const {
   useUserAuthMutation,
+  useUserRefreshMutation,
   useUserCreateMutation,
     useGetProfileQuery,
     useChangeDataMutation

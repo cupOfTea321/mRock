@@ -17,6 +17,9 @@ import likeBack from "../assets/lk/likeBack.png";
 import rightBack from "../assets/lk/musBack.png";
 import personMob from "../assets/lk/person.png";
 import {backText} from "../mui/palette";
+import {useUserRefreshMutation} from "../redux/services";
+import {a} from "vite/dist/node/types.d-jgA8ss1A";
+
 // const data = [
 //     'Имя фамилия',
 //     'Барабаны',
@@ -32,26 +35,50 @@ const MusicianPage = () => {
 
     const token = localStorage.getItem('access')
     const url = 'https://xn--80affwgpn.xn--p1ai/api/profile/my/';
+    const [refresh, refreshResult] = useUserRefreshMutation();
     useEffect(() => {
         document.body.classList.add("full-height-body");
-
-
         fetchGetWithToken(url, token)
             .then((result) => {
                 setData(result);
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(async (error) => {
+                if (error == 'Error: token_not_valid') {
+                    const refreshToken = localStorage.getItem("refresh");
+                    await refresh(refreshToken).then((result) => {
+                        if (!result.data.access){
+                            localStorage.removeItem('access');
+                            localStorage.removeItem('refresh');
+
+                            navigate('')
+                        } else{
+                            const newToken = result.data.access
+                            localStorage.setItem('access',  newToken);
+                            fetchGetWithToken(url, newToken)
+                                .then((result) => {
+                                    setData(result);
+                                })
+                        }
+                    })
+                }
+                // if (error.status === 403 || error.status === 401){
+                //     error.code === 'token_not_valid' &&
+                //     // console.error(error);
+                //     const refreshToken = localStorage.getItem("refresh");
+                //     await refresh(refreshToken)
+                //     // return console.error("rejected 403", error);
+                // }
+
             });
         return () => {
             document.body.classList.remove("full-height-body");
         };
-    }, [])
+    }, [token])
     if (data === null) {
         return <div>Loading...</div>;
     }
 
-    console.log(data)
+    // console.log(data)
     return (
         <>
             <Box
@@ -78,7 +105,7 @@ const MusicianPage = () => {
                     backgroundRepeat: "no-repeat",
                 }}
             ></Box>
-            <MusRight likes={data.likes} img={data.avatar}/>
+            <MusRight likes={data.likes} img={!data.avatar ? rightBack : data.avatar}/>
             <Container sx={{
                 position: 'relative',
                 zIndex: 400,
@@ -152,7 +179,7 @@ const MusicianPage = () => {
                     }}
                 >
                     <ItemText
-                    text
+                        text
                         variant={"h2"}
                         sx={{
                             marginTop: "24px",
@@ -169,7 +196,7 @@ const MusicianPage = () => {
                         src={anketa}
                     />
                     <MusItem item={data?.name} title={'Имя'}/>
-                    <MusItem item={rolesTarget(data?.role)} title={'Роль'} />
+                    <MusItem item={rolesTarget(data?.role)} title={'Роль'}/>
                     <MusItem item={data?.social_link} title={'Ссылка на страницу vk'}/>
                     <Typography
                         onClick={handleClick}

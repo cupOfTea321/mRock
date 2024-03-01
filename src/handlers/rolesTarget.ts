@@ -1,6 +1,5 @@
 
 export const rolesTarget = (role) => {
-    console.log('rolesTarget')
     switch (role) {
         case 'VC':
             role = 'Вокалист'

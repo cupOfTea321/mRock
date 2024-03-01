@@ -6,9 +6,6 @@ const MyAuto = (props) => {
   let { sxAuto, sx, onChange, name, value, setRole, role } = props;
     // value = rolesTarget(value)
     value = rolesTarget(value)
-    console.log(value, role)
-
-    console.log('ssssssssssss')
   // console.log(name, value)
   // const onBlyatChange = (event, value) => {
   //   // setValue(newValue)

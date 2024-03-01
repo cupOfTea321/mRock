@@ -40,16 +40,15 @@ const ResetForm: React.FC = ({}) => {
     const cleanedPhoneNumber = formState.username.replace(/\D/g, "");
     // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
     formState.username = cleanedPhoneNumber;
-    console.log(formState);
     try {
       await login(formState)
         .unwrap()
         .then((payload) => {
           localStorage.setItem("access", payload.access);
-          return console.log("fulfilled", payload);
+          // return console.log("fulfilled", payload);
         })
         .catch((error) => {
-          return console.error("rejected", error);
+          // return console.error("rejected", error);
         });
       if (!loginResult.isSuccess) return;
     } catch (e) {
@@ -66,7 +65,6 @@ const ResetForm: React.FC = ({}) => {
   };
   useEffect(() => {
     const isAuth = () => {
-      console.log("isAuth");
       if (loginResult.isSuccess) {
         dispatch(setUser(formState));
         navigate("/musician");

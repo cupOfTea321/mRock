@@ -14,7 +14,7 @@ import authIcon from "../../assets/items/authIcon.svg";
 import FormBack from "../../assets/mobileFormBack.png";
 import {colStyle, h3} from "../../mui/palette";
 import {setUser} from "../../redux/features/userSlice";
-import {useUserAuthMutation} from "../../redux/services";
+import {useUserAuthMutation, useUserRefreshMutation} from "../../redux/services";
 import {input} from "../ui/Input";
 import {TextMaskCustom} from "./TextMaskCustom";
 import AuthButton from "../ui/AuthButton";
@@ -31,6 +31,7 @@ const AuthForm: React.FC = ({}) => {
     };
     const dispatch = useDispatch();
     const [login, loginResult] = useUserAuthMutation();
+    const [refresh, refreshResult] = useUserRefreshMutation();
     const [formState, setFormState] = React.useState({
         username: "",
         password: "",
@@ -41,17 +42,23 @@ const AuthForm: React.FC = ({}) => {
         const cleanedPhoneNumber = formState.username.replace(/\D/g, "");
         // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
         formState.username = cleanedPhoneNumber;
-        console.log(formState);
         try {
             await login(formState)
                 .unwrap()
                 .then((payload) => {
                     localStorage.setItem("access", payload.access);
-                    return console.log("fulfilled", payload);
+                    localStorage.setItem("refresh", payload.refresh);
+                    // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
+                    if (error.status === 403 || error.status === 401){
+                        const refreshToken = localStorage.getItem("refresh");
+                        refresh(refreshToken)
+                        return console.error("rejected 403", error);
+                    }
                     return console.error("rejected", error);
                 });
+
             if (!loginResult.isSuccess) return;
         } catch (e) {
             console.error(e);

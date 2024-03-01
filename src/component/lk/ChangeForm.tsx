@@ -48,7 +48,6 @@ const ChangeForm = () => {
     if (data === null) {
         return <div>Loading...</div>;
     }
-    console.log(data)
     const labelStyle = {
         paddingLeft: '16px'
     }
@@ -68,14 +67,14 @@ const ChangeForm = () => {
     const handleUpload = () => {
         if (selectedFile) {
             // Выполните действия, связанные с загрузкой выбранного файла
-            console.log(selectedFile);
+            // console.log(selectedFile);
         }
     };
     const [err, setErr] = useState(false)
     const handleChange = ({target: {name, value}}) => {
 
         setFormState((prev) => ({...prev, [name]: value}));
-        console.log(formState)
+
     };
     useEffect(() => {
         const isAuth = () => {
@@ -100,16 +99,15 @@ const ChangeForm = () => {
         formData.append('avatar', formState.avatar)
         formData.append('role', formState.role)
         formData.append('social_link', formState.social_link)
-        console.log(`formData ${formData}`  )
-        console.log(formState)
+
         try {
             await reg(formData, token)
                 .unwrap()
                 .then((payload) => {
-                    return console.log("fulfilled", payload);
+                    // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
-                    return console.error("rejected", error);
+                    // return console.error("rejected", error);
                 });
             if (!regResult.isSuccess) return;
         } catch (e) {

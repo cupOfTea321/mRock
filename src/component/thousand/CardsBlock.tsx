@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import {Box, Container, Grid} from "@mui/material";
 import moreBtn from "../../assets/hovers/purpleHover.webp";
 import person1 from "../../assets/thousand/img1.png";
 import person2 from "../../assets/thousand/img2.png";
@@ -6,11 +6,10 @@ import person3 from "../../assets/thousand/img3.png";
 import person4 from "../../assets/thousand/img4.png";
 import {input, Input} from "../ui/Input";
 import ItemText from "../ui/ItemText";
-import MyAuto from "../ui/MyAuto";
 import PeopleCard from "./PeopleCard";
 import ChangeSelect from "../lk/ChangeSelect";
-import {changeStyle} from "../../mui/palette";
 import React from "react";
+
 const CardsBlock = ({ data }) => {
   const people = [
     { image: person1 },
@@ -58,6 +57,9 @@ const CardsBlock = ({ data }) => {
                   borderRadius: '100px',
                   // marginBottom: '16px',
                   paddingLeft: '16px',
+                  ':hover': {
+                      color: 'white !important'
+                  },
               }}
               // basicInput={authText}
               // formState={formState}

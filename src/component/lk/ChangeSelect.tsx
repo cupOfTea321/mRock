@@ -10,6 +10,7 @@ const ChangeSelect = (props) => {
             <Box sx={{
                 ...inputStyle,
                 ...basicInput,
+
                 '&::-ms-expand': {
                     color: 'black',
                     background: 'red'

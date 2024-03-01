@@ -47,7 +47,6 @@ const MySwiper = ({
   ],
   sx,
 }) => {
-  console.log(slides, about);
   const arrowStyle = {
     transform: "translateX(-58%) !important",
 
@@ -55,7 +54,6 @@ const MySwiper = ({
     width: { sm: "58px", xs: "50px" },
     height: { sm: "53px", xs: "50px" },
   };
-  console.log(slides);
   return (
     <Container sx={sx}>
       <Swiper
@@ -135,9 +133,7 @@ const MySwiper = ({
           })}
         {about &&
           slides.map((item, index) => {
-            console.log(item);
             const imgStyle = aboutSwitch(index);
-            console.log(imgStyle);
             return (
               <SwiperSlide
                 key={item}

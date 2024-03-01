@@ -10,7 +10,6 @@ const Layout = ({ location }) => {
     path !== "/reg" &&
     path !== "/musician" &&
     path !== "/musician/change";
-  console.log(visible);
   return (
     <>
       {visible && <MyBar />}

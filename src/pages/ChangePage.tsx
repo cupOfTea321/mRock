@@ -17,7 +17,7 @@ import MyAuto from "../component/ui/MyAuto";
 import {rolesTarget, setRolesTarget} from "../handlers/rolesTarget";
 import {fetchGetWithToken} from "../handlers/tokenFetch";
 import {backText} from "../mui/palette";
-import {useChangeDataMutation} from "../redux/services";
+import {useChangeDataMutation, useUserRefreshMutation} from "../redux/services";
 import ChangeSelect from "../component/lk/ChangeSelect";
 
 const ChangePage = () => {
@@ -39,11 +39,8 @@ const ChangePage = () => {
     });
     const [userData, setUserData] = React.useState()
     const handleChange = ({target: {name, value}}) => {
-        console.log(name, value)
         setFormState((prev) => ({...prev, [name]: value}));
 
-        console.log(formState);
-        console.log('handleChange');
     };
     const navigate = useNavigate();
     const formData = new FormData();
@@ -68,10 +65,10 @@ const ChangePage = () => {
             await reg(formData, token)
                 .unwrap()
                 .then((payload) => {
-                    return console.log("fulfilled", payload);
+                    // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
-                    return console.error("rejected", error);
+                    // return console.error("rejected", error);
                 });
             if (!regResult.isSuccess) return;
         } catch (e) {
@@ -114,14 +111,19 @@ const ChangePage = () => {
         };
         isAuth();
     }, [regResult]);
+    const [refresh, refreshResult] = useUserRefreshMutation();
     useEffect(() => {
         fetchGetWithToken(url, token)
             .then((result) => {
-                console.log(result)
                 setUserData(result)
                 setData(result);
             })
             .catch((error) => {
+                if (error.status === 403 || error.status === 401){
+                    const refreshToken = localStorage.getItem("refresh");
+                    refresh(refreshToken)
+                    return console.error("rejected 403", error);
+                }
                 console.error(error);
             });
         document.body.classList.add("full-height-body");
@@ -129,7 +131,7 @@ const ChangePage = () => {
         return () => {
             document.body.classList.remove("full-height-body");
         };
-    }, []);
+    }, [token]);
     useEffect(() => {
         setUser().then((res) => {
 

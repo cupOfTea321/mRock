@@ -9,7 +9,6 @@ import {rolesTarget} from "../../handlers/rolesTarget";
 export default function PeopleCard({ link, main = false, person }) {
   let { name, avatar, role, social_link } = person;
     role = rolesTarget(role)
-  console.log(person);
   const like = true;
   const vk = true;
   const iconStyle = {

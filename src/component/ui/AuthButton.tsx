@@ -27,6 +27,7 @@ const AuthButton = ({
     }
     const handleExit = () => {
         localStorage.removeItem('access');
+        localStorage.removeItem('refresh');
         navigate('')
     }
     return (
