@@ -146,7 +146,7 @@ const ChangePage = () => {
 
    useEffect(() => {
       const getAccess = async () => {
-         if (localStorage.getItem("refersh")) {
+         if (localStorage.getItem("refresh")) {
             try {
                const data = await fetchGetWithToken(url, token);
                setData(data);
