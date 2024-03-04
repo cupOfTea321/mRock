@@ -35,10 +35,11 @@ const MusicianPage = () => {
       document.body.classList.add("full-height-body");
 
       const getAccess = async () => {
-         if (localStorage.getItem("refersh")) {
+         if (localStorage.getItem("refresh")) {
             try {
+               const data = await fetchGetWithToken(url, token);
+               setData(data);
                await refresh(undefined).unwrap();
-               await fetchGetWithToken(url, token);
             } catch (err: any) {
                if (err.status === 401) {
                   navigate("/auth");

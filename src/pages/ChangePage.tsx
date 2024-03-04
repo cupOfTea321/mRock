@@ -104,6 +104,7 @@ const ChangePage = () => {
          console.error(e);
       }
    };
+
    const [data, setData] = useState(null);
 
    const url = "https://xn--80affwgpn.xn--p1ai/api/profile/my/";
@@ -147,8 +148,9 @@ const ChangePage = () => {
       const getAccess = async () => {
          if (localStorage.getItem("refersh")) {
             try {
+               const data = await fetchGetWithToken(url, token);
+               setData(data);
                await refresh(undefined).unwrap();
-               await fetchGetWithToken(url, token);
             } catch (err: any) {
                if (err.status === 401) {
                   navigate("/auth");
