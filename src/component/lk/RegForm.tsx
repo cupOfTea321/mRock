@@ -219,11 +219,20 @@ const RegForm: React.FC = ({}) => {
                      }}>
                      {regResult?.error?.status === 400 ? (
                         <>
-                           Вы уже зарегистрированы, если забыли пароль пароль,
-                           то напишите нам в Telegram:
-                           <a href="https://t.me/mega_rock_bot">
-                              https://t.me/mega_rock_bot
-                           </a>
+                           Аккаунт зарегистрирован, для восстановления пароля
+                           перейдите по{" "}
+                           <NavLink to={"/reset"}>
+                              <span
+                                 style={{
+                                    cursor: "pointer",
+                                    color: "ButtonText",
+                                    textDecoration: "underline",
+                                    paddingLeft: "10px",
+                                 }}
+                                 onClick={() => setDataOpen(true)}>
+                                 ссылке
+                              </span>
+                           </NavLink>
                         </>
                      ) : (
                         "Введены некорректные данные"
