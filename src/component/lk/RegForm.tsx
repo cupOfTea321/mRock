@@ -1,6 +1,15 @@
-import { Box, Checkbox, TextField, Typography } from "@mui/material";
+import {
+   Box,
+   Checkbox,
+   FormControl,
+   InputLabel,
+   MenuItem,
+   Select,
+   SelectChangeEvent,
+   TextField,
+   Typography,
+} from "@mui/material";
 import React, { FormEvent, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import item1 from "../../assets/lk/item1.png";
 import greenHover from "../../assets/hovers/leftHover.webp";
@@ -11,11 +20,9 @@ import { backText, changeStyle, colStyle } from "../../mui/palette";
 import { useUserCreateMutation } from "../../redux/services";
 import { ModalPolice } from "../main/ModalPolice";
 import AuthButton from "../ui/AuthButton";
-import { Input, input } from "../ui/Input";
-import MyAuto from "../ui/MyAuto";
+import { input } from "../ui/Input";
 import { ModalData } from "./ModalData";
 import { TextMaskCustom } from "./TextMaskCustom";
-import ChangeSelect from "./ChangeSelect";
 
 const authText = {
    label: {
@@ -41,8 +48,15 @@ const RegForm: React.FC = ({}) => {
    });
    const navigate = useNavigate();
 
-   const handleChange = ({ target: { name, value } }) => {
+   const handleChange = ({ target: { name, value } }: any) => {
       setFormState({ ...formState, [name]: value });
+   };
+
+   const handleSelect = (e: SelectChangeEvent) => {
+      setFormState({
+         ...formState,
+         role: e.target.value,
+      });
    };
 
    const handleFormSubmit = async (e: FormEvent) => {
@@ -136,22 +150,37 @@ const RegForm: React.FC = ({}) => {
                   sx={{
                      ...input,
                      ...authText,
+                     marginBottom: "25px",
                   }}
                   required={true}
                />
-               <ChangeSelect
-                  inputStyle={{
-                     ...input,
-                     ...changeStyle,
-                     ":hover": {
-                        color: "black !important",
-                     },
-                  }}
-                  basicInput={authText}
-                  formState={formState}
-                  handleChange={handleChange}
-                  roles={roles}
-               />
+               <FormControl>
+                  <InputLabel
+                     id="select-role"
+                     sx={{
+                        paddingLeft: "17px",
+                     }}>
+                     Роль
+                  </InputLabel>
+                  <Select
+                     sx={{
+                        ...changeStyle,
+                        ...authText,
+                        textAlign: "left",
+                        border: "1.8px solid #8654CC !important",
+                        marginRight: "13px",
+                        color: "ButtonText !important",
+                     }}
+                     labelId="select-role"
+                     id="select-role"
+                     value={formState.role}
+                     label="Роль"
+                     onChange={handleSelect}>
+                     {roles.map((role) => (
+                        <MenuItem value={role}>{role}</MenuItem>
+                     ))}
+                  </Select>
+               </FormControl>
                <Box
                   sx={{
                      display: "flex",
