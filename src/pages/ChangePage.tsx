@@ -1,5 +1,5 @@
 import { Box, Container, Input, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ym from "react-yandex-metrika";
 import back from "../assets/back/backLines.png";
@@ -47,7 +47,7 @@ const basicInput = {
 
 const ChangePage = () => {
    const navigate = useNavigate();
-   const [formState, setFormState] = React.useState({
+   const [formState, setFormState] = useState({
       name: "",
       avatar: "",
       role: "",
@@ -62,13 +62,14 @@ const ChangePage = () => {
    }
 
    const [userData, setUserData] = useState();
+
    const handleChange = ({ target: { name, value } }) => {
       setFormState((prev) => ({ ...prev, [name]: value }));
    };
 
    const [reg, regResult] = useChangeDataMutation();
 
-   const handleFormSubmit = async (e) => {
+   const handleFormSubmit = async (e: FormEvent) => {
       e.preventDefault();
       // СОЗДАНИЕ И УПАКОВКА FORM DATA
       formState.role = setRolesTarget(formState.role);
@@ -78,26 +79,22 @@ const ChangePage = () => {
          formData.append("avatar", formState.avatar);
       formData.append("role", formState.role);
       // ПРИ ОТСУТСТВИИ НАЧАЛА ССЫЛКИ ДОБАВЛЯЕМ ЕГО
-      if (!formState.social_link.startsWith("https://")) {
-         setFormState((prev) => ({
-            ...prev,
-            ["social_link"]: "https://" + formState.social_link,
-         }));
-         handleChange();
+      if (formState.social_link !== "" && formState.social_link !== null) {
+         if (!formState.social_link.startsWith("https://")) {
+            setFormState({
+               ...formState,
+               social_link: "https://" + formState.social_link,
+            });
+         }
       }
 
-      if (formState.social_link)
+      if (formState.social_link !== "" && formState.social_link !== null) {
          formData.append("social_link", formState.social_link);
+      }
+
       try {
-         await reg(formData, token)
-            .unwrap()
-            .then((payload) => {
-               // return console.log("fulfilled", payload);
-            })
-            .catch((error) => {
-               // return console.error("rejected", error);
-            });
-         if (!regResult.isSuccess) return;
+         console.log("work");
+         await reg(formData).unwrap();
       } catch (e) {
          console.error(e);
       }
