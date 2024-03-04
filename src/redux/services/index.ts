@@ -25,9 +25,6 @@ export const rockCoreApi = apiSlice.injectEndpoints({
             body,
          }),
       }),
-      getProfile: builder.query({
-         query: (token) => "/profile/my/",
-      }),
       changeData: builder.mutation({
          query: (body, headers) => ({
             url: `profile/my/`,
@@ -43,6 +40,11 @@ export const rockCoreApi = apiSlice.injectEndpoints({
             url: `auth/reset/`,
             method: "POST",
             body: phoneNumber,
+         }),
+      }),
+      getProfile: builder.query({
+         query: () => ({
+            url: "profile/my/",
          }),
       }),
    }),

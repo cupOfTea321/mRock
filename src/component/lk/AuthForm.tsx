@@ -35,9 +35,7 @@ const authText = {
 };
 
 const AuthForm: React.FC = ({}) => {
-   const dispatch = useDispatch();
    const [login, loginResult] = useUserAuthMutation();
-   const [refresh, refreshResult] = useUserRefreshMutation();
    const [formState, setFormState] = React.useState({
       username: "",
       password: "",

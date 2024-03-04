@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
-import BlackBackground from "../utils/BlackBackground";
+import { useEffect } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Logo from "../component/layout/Logo";
 import AuthButton from "../component/ui/AuthButton";
-import item2 from "../assets/lk/item2.png";
 import MusRight from "../component/lk/MusRight";
 import { useNavigate } from "react-router-dom";
 import ItemText from "../component/ui/ItemText";
 import MusItem from "../component/lk/MusItem";
-import { fetchGetWithToken } from "../handlers/tokenFetch";
-import { rolesTarget, setRolesTarget } from "../handlers/rolesTarget";
+import { rolesTarget } from "../handlers/rolesTarget";
 import back from "../assets/back/backLines.png";
 import anketa from "../assets/lk/anketa.svg";
 import like from "../assets/lk/like.png";
@@ -17,50 +14,49 @@ import likeBack from "../assets/lk/likeBack.png";
 import rightBack from "../assets/lk/musBack.png";
 import personMob from "../assets/lk/person.png";
 import { backText } from "../mui/palette";
-import { useUserRefreshMutation } from "../redux/services";
+import { useGetProfileQuery } from "../redux/services";
 
 const MusicianPage = () => {
    const navigate = useNavigate();
+   const { data, isSuccess, error } = useGetProfileQuery(undefined, {
+      refetchOnMountOrArgChange: true,
+   });
+
+   if (error?.status === 401) {
+      navigate("/auth");
+   }
 
    const handleClick = () => {
       navigate("change");
    };
-   const [data, setData] = useState(null);
 
    const token = localStorage.getItem("access");
-   const url = "https://xn--80affwgpn.xn--p1ai/api/profile/my/";
-   const [refresh, refreshResult] = useUserRefreshMutation();
 
    useEffect(() => {
       document.body.classList.add("full-height-body");
+      // const getAccess = async () => {
+      //    if (localStorage.getItem("refresh")) {
+      //       try {
+      //          await refresh(undefined).unwrap();
+      //       } catch (err: any) {
+      //          if (err.status === 401) {
+      //             navigate("/auth");
+      //          }
+      //          console.log(err);
+      //       }
+      //    } else {
+      //       navigate("/auth");
+      //    }
+      // };
 
-      const getAccess = async () => {
-         if (localStorage.getItem("refresh")) {
-            try {
-               const data = await fetchGetWithToken(url, token);
-               setData(data);
-               await refresh(undefined).unwrap();
-            } catch (err: any) {
-               if (err.status === 401) {
-                  navigate("/auth");
-               }
-               console.log(err);
-            }
-         } else {
-            navigate("/auth");
-         }
-      };
-
-      getAccess();
+      // getAccess();
 
       return () => {
          document.body.classList.remove("full-height-body");
       };
    }, [token]);
 
-   // console.log(data)
-
-   if (refreshResult.isSuccess) {
+   if (isSuccess) {
       return (
          <>
             <Box

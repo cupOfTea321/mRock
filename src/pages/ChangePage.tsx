@@ -13,14 +13,9 @@ import MusRight from "../component/lk/MusRight";
 import AuthButton from "../component/ui/AuthButton";
 import { Input as MyInput, input } from "../component/ui/Input";
 import ItemText from "../component/ui/ItemText";
-import MyAuto from "../component/ui/MyAuto";
-import { rolesTarget, setRolesTarget } from "../handlers/rolesTarget";
-import { fetchGetWithToken } from "../handlers/tokenFetch";
+import { setRolesTarget } from "../handlers/rolesTarget";
 import { backText } from "../mui/palette";
-import {
-   useChangeDataMutation,
-   useUserRefreshMutation,
-} from "../redux/services";
+import { useChangeDataMutation, useGetProfileQuery } from "../redux/services";
 import ChangeSelect from "../component/lk/ChangeSelect";
 
 const inputStyle = {
@@ -51,23 +46,26 @@ const basicInput = {
 };
 
 const ChangePage = () => {
+   const navigate = useNavigate();
    const [formState, setFormState] = React.useState({
       name: "",
       avatar: "",
       role: "",
       social_link: "",
    });
+   const { data, isSuccess, error } = useGetProfileQuery(undefined, {
+      refetchOnMountOrArgChange: true,
+   });
 
-   const [userData, setUserData] = React.useState();
+   if (error?.status === 401) {
+      navigate("/auth");
+   }
+
+   const [userData, setUserData] = useState();
    const handleChange = ({ target: { name, value } }) => {
       setFormState((prev) => ({ ...prev, [name]: value }));
    };
 
-   const navigate = useNavigate();
-
-   const formData = new FormData();
-   const token = localStorage.getItem("access");
-   const [role, setRole] = useState("");
    const [reg, regResult] = useChangeDataMutation();
 
    const handleFormSubmit = async (e) => {
@@ -105,9 +103,6 @@ const ChangePage = () => {
       }
    };
 
-   const [data, setData] = useState(null);
-
-   const url = "https://xn--80affwgpn.xn--p1ai/api/profile/my/";
    const setUser = async () => {
       const { avatar, name, role, social_link } = data;
       return { avatar, name, role, social_link };
@@ -142,36 +137,13 @@ const ChangePage = () => {
       isAuth();
    }, [regResult]);
 
-   const [refresh, refreshResult] = useUserRefreshMutation();
-
-   useEffect(() => {
-      const getAccess = async () => {
-         if (localStorage.getItem("refresh")) {
-            try {
-               const data = await fetchGetWithToken(url, token);
-               setData(data);
-               await refresh(undefined).unwrap();
-            } catch (err: any) {
-               if (err.status === 401) {
-                  navigate("/auth");
-               }
-               console.log(err);
-            }
-         } else {
-            navigate("/auth");
-         }
-      };
-
-      getAccess();
-   }, [token]);
-
    useEffect(() => {
       setUser().then((res) => {
          setFormState(res);
       });
    }, [data]);
 
-   if (refreshResult.isSuccess) {
+   if (isSuccess) {
       return (
          <>
             <Box

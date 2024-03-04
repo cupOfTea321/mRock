@@ -1,11 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { useNavigate } from "react-router-dom";
 
 const baseQuery = fetchBaseQuery({
    baseUrl: "https://xn--80affwgpn.xn--p1ai/api",
    prepareHeaders: (headers) => {
       const access = localStorage.getItem("access");
-      const refresh = localStorage.getItem("refresh");
 
       if (access) {
          headers.set("Authorization", `Bearer ${access}`);
@@ -20,7 +18,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
    // console.log(extraOptions); //custom like {shout: true}
 
    let result = await baseQuery(args, api, extraOptions);
-
    if (result?.error?.status === 401) {
       const refresh = localStorage.getItem("refresh");
       if (refresh) {
@@ -44,6 +41,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
             result = await baseQuery(args, api, extraOptions);
          } else {
             if (refreshResult?.error?.status === 401) {
+               localStorage.removeItem("access");
+               localStorage.removeItem("refresh");
                return refreshResult;
             }
          }
