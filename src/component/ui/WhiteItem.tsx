@@ -41,10 +41,9 @@ const WhiteItem = ({ sx }) => {
             fontWeight: 400,
          }}>
          {/*<div id="ya-widget-frame"></div>*/}
-         <y:ticket
-            data-session-id="ticketsteam-6369@16168107"
-            data-template="yandex-button"></y:ticket>
-         <Typography sx={h3}>Билеты</Typography>
+         <div id="yandex-button">
+            <Typography sx={h3}>Билеты</Typography>
+         </div>
       </Box>
    );
 };
