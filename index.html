@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--      <script src="https://widgets.yandex.ru/ticketdealer-widget/v1/ticketdealer-widget.js"></script>-->
-  <title>МЕГАРОК. Шоу тысячи музыкантов</title>
-  <meta name="description" content="МЕГАРОК. Шоу тысячи музыкантов" />
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/logo.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--      <script src="https://widgets.yandex.ru/ticketdealer-widget/v1/ticketdealer-widget.js"></script>-->
+	<title>МЕГАРОК. Шоу тысячи музыкантов</title>
+	<meta name="description" content="МЕГАРОК. Шоу тысячи музыкантов" />
 </head>
 
 <body>
@@ -15,13 +15,13 @@
 
 
 
-  <div id="root">
+	<div id="root">
 
-  </div>
+	</div>
 
-  <y:ticket data-session-id="ticketsteam-6369@16168107"
-    data-template="yandex-button"></y:ticket>
-  <script id="yandex-button" type="text/html">
+	<y:ticket data-session-id="ticketsteam-6369@16168107"
+		data-template="yandex-button"></y:ticket>
+	<!-- <script id="yandex-button" type="text/html">
       <b style="position: absolute;
     top: 0;
     right: 0;
@@ -31,70 +31,74 @@
     /*left: -9999px;*/
     opacity: 0;
   ">Билеты</b>
-  </script>
-  <script>
-    // /* Настройка */-- >
-    var dealerName = 'YandexTicketsDealer';
-    var dealer = window[dealerName] = window[dealerName] || [];
+  </script> -->
 
-    dealer.push(['setDefaultClientKey', '86c85884-4caf-4d9b-8eea-b422d62442e4']);
-    dealer.push(['setDefaultRegionId', 213]);
+	<script id="yandex-button" type="text/html">
+  		<b style="color:#333 !important; font-size:15px !important; font-family:Arial, Helvetica Neue, Helvetica, sans-serif !important; font-weight:normal !important; line-height:36px !important; text-decoration:none !important; white-space:nowrap !important; display:inline-block !important; vertical-align:middle; background:#ffde41 !important; border-radius:2px !important; padding:0 16px !important; cursor:pointer; margin:0">Купить билет</b>
+	</script>
+	<script>
+		// /* Настройка */-- >
+		var dealerName = 'YandexTicketsDealer';
+		var dealer = window[dealerName] = window[dealerName] || [];
 
-    YandexTicketsDealer.push(['getDealer', function (dealer) {
+		dealer.push(['setDefaultClientKey', '86c85884-4caf-4d9b-8eea-b422d62442e4']);
+		dealer.push(['setDefaultRegionId', 213]);
 
-      const widget = dealer.Widget('ticketsteam-6369@16168107', 'session', {
-        target: document.getElementById('ya-widget-frame'),
-        onRequestClose: function () {
+		YandexTicketsDealer.push(['getDealer', function (dealer) {
 
-          widget.unmount();
-          widget.destroy();
-        },
-      });
+			const widget = dealer.Widget('ticketsteam-6369@16168107', 'session', {
+				target: document.getElementById('ya-widget-frame'),
+				onRequestClose: function () {
 
-      widget.mount({ style: { height: '600px' } });
-    }]);
+					widget.unmount();
+					widget.destroy();
+				},
+			});
 
-    /* Загрузка */
-    (function () {
+			widget.mount({ style: { height: '600px' } });
+		}]);
 
-      var rnd = '?' + new Date().getTime() * Math.random();
-      var script = document.createElement('script');
-      var target = document.getElementsByTagName('script')[0];
-      // script.async = true;-->
-      script.src = 'https://widget.afisha.yandex.ru/dealer/dealer.js' + rnd;
-      target.parentNode.insertBefore(script, target);
-    })();
-  </script>
+		/* Загрузка */
+		(function () {
+
+			var rnd = '?' + new Date().getTime() * Math.random();
+			var script = document.createElement('script');
+			var target = document.getElementsByTagName('script')[0];
+			// script.async = true;-->
+			script.src = 'https://widget.afisha.yandex.ru/dealer/dealer.js' + rnd;
+			target.parentNode.insertBefore(script, target);
+		})();
+	</script>
 
 
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    ym(96408862, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true,
-      ecommerce: "utm_source"
-    });
-  </script>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/96408862"
-        style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
-  <!-- /Yandex.Metrika counter -->
-  <script
-    type="text/javascript">!function () { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = 'https://vk.com/js/api/openapi.js?169', t.onload = function () { VK.Retargeting.Init("VK-RTRG-1853675-2aOnT"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();</script>
-  <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1853675-2aOnT"
-      style="position:fixed; left:-999px;" alt="" /></noscript>
-  <script type="module" src="/src/main.tsx"></script>
+		ym(96408862, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true,
+			webvisor: true,
+			ecommerce: "utm_source"
+		});
+	</script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/96408862"
+				style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+	<script
+		type="text/javascript">!function () { var t = document.createElement("script"); t.type = "text/javascript", t.async = !0, t.src = 'https://vk.com/js/api/openapi.js?169', t.onload = function () { VK.Retargeting.Init("VK-RTRG-1853675-2aOnT"), VK.Retargeting.Hit() }, document.head.appendChild(t) }();</script>
+	<noscript><img src="https://vk.com/rtrg?p=VK-RTRG-1853675-2aOnT"
+			style="position:fixed; left:-999px;" alt="" /></noscript>
+	<script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
