@@ -12,6 +12,7 @@ const WhiteItem = ({ sx }) => {
    };
    return (
       <Box
+         id="yandex-button"
          component={motion.button}
          sx={{
             ...backText,
@@ -41,9 +42,7 @@ const WhiteItem = ({ sx }) => {
             fontWeight: 400,
          }}>
          {/*<div id="ya-widget-frame"></div>*/}
-         <div id="yandex-button">
-            <Typography sx={h3}>Билеты</Typography>
-         </div>
+         <Typography sx={h3}>Билеты</Typography>
       </Box>
    );
 };
