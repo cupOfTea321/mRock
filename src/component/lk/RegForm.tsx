@@ -1,6 +1,5 @@
 import {Box, Checkbox, TextField, Typography} from "@mui/material";
 import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import item1 from "../../assets/lk/item1.png";
 import FormBack from "../../assets/mobileFormBack.png";
@@ -10,8 +9,7 @@ import {backText, changeStyle, colStyle} from "../../mui/palette";
 import {useUserCreateMutation} from "../../redux/services";
 import {ModalPolice} from "../main/ModalPolice";
 import AuthButton from "../ui/AuthButton";
-import {Input, input} from "../ui/Input";
-import MyAuto from "../ui/MyAuto";
+import {input} from "../ui/Input";
 import {ModalData} from "./ModalData";
 import {TextMaskCustom} from "./TextMaskCustom";
 import ChangeSelect from "./ChangeSelect";
@@ -20,17 +18,24 @@ const RegForm: React.FC = ({}) => {
     const handleChange = ({target: {name, value}}) => {
         setFormState((prev) => ({...prev, [name]: value}));
     };
-    const dispatch = useDispatch();
     const [reg, regResult] = useUserCreateMutation();
-    const [role, setRole] = useState("");
+    const initialRole = localStorage.getItem('role')
+    const [role, setRole] = useState(initialRole);
     const [formState, setFormState] = React.useState({
         name: "",
         phone: "",
     });
+
+    useEffect(() => {
+        localStorage.removeItem('role')
+    }, [formState?.role])
+    useEffect(() => {
+        localStorage.setItem('role', initialRole)
+    }, [])
     const navigate = useNavigate();
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        setFormState((prev) => ({...prev, ["role"]: role}));
+        setFormState((prev) => ({...prev, ["role"]:   role}));
         const cleanedPhoneNumber = formState.phone.replace(/\D/g, "");
         // const modifiedPhoneNumber = cleanedPhoneNumber.replace(/^7/, "8");
         formState.phone = cleanedPhoneNumber;
@@ -40,12 +45,14 @@ const RegForm: React.FC = ({}) => {
             await reg(formState)
                 .unwrap()
                 .then((payload) => {
+                    localStorage.setItem('reg', 'true')
                     navigate("/auth");
                     // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
-                    // return console.error("rejected", error);
+                    setRole(localStorage.getItem('role'))
                 });
+
             if (!regResult.isSuccess) return;
         } catch (e) {
             console.error(e);
@@ -59,18 +66,23 @@ const RegForm: React.FC = ({}) => {
         width: {lg: "403px ", md: "268px", sm: "268px", xs: "268px"},
         marginBottom: 0,
     };
-    const [err, setErr] = useState(false);
+    const [err, setErr] = useState('');
     const [open, setOpen] = useState(false);
     const [openData, setDataOpen] = useState(false);
     const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
     useEffect(() => {
         const isAuth = () => {
             if (regResult.isSuccess) {
-                // navigate("/musician");
-                setErr(false);
+                setErr('');
             }
             if (regResult.isError) {
-                setErr(true);
+                if (regResult.error.status !== 400){
+                    setErr('Данные введены неккоректно');
+                } else {
+                    setErr('Пользователь с такими данными уже существует')
+
+                }
+
             }
         };
         isAuth();
@@ -107,16 +119,6 @@ const RegForm: React.FC = ({}) => {
             >
                 <Typography variant={"h2"}>Регистрация</Typography>
             </Box>
-            {/*<Input*/}
-            {/*  value={formState.name}*/}
-            {/*  name="name"*/}
-            {/*  handleChange={handleChange}*/}
-            {/*  title={"Ваше имя"}*/}
-            {/*  placehold={"Введите имя"}*/}
-            {/*  sx={{*/}
-            {/*    ...authText,*/}
-            {/*  }} required={true}*/}
-            {/*/>*/}
             <TextField
                 label="Ваше имя"
                 variant="outlined"
@@ -241,7 +243,7 @@ const RegForm: React.FC = ({}) => {
                         color: "red",
                     }}
                 >
-                    Введены некорректные данные
+                    {err}
                 </Box>
             )}
         </Box>

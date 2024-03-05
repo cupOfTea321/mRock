@@ -1,5 +1,6 @@
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import {
+    Alert,
     Box,
     IconButton,
     InputAdornment,
@@ -10,7 +11,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {NavLink, useNavigate} from "react-router-dom";
 import authIcon from "../../assets/items/authIcon.svg";
-
+import CheckIcon from '@mui/icons-material/Check';
 import FormBack from "../../assets/mobileFormBack.png";
 import {colStyle, h3} from "../../mui/palette";
 import {setUser} from "../../redux/features/userSlice";
@@ -29,7 +30,7 @@ const AuthForm: React.FC = ({}) => {
     const handleTogglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    const dispatch = useDispatch();
+    const [message, setMessage] = useState('')
     const [login, loginResult] = useUserAuthMutation();
     const [refresh, refreshResult] = useUserRefreshMutation();
     const [formState, setFormState] = React.useState({
@@ -51,19 +52,27 @@ const AuthForm: React.FC = ({}) => {
                     // return console.log("fulfilled", payload);
                 })
                 .catch((error) => {
-                    if (error.status === 403 || error.status === 401){
+                    if (error.data.detail == "No active account found with the given credentials") {
+                        setMessage('Аккаунт с такими данными не найден')
+                    }
+                    if (error.status === 403 || error.status === 401) {
                         const refreshToken = localStorage.getItem("refresh");
                         refresh(refreshToken)
                         return console.error("rejected 403", error);
                     }
+
                     return console.error("rejected", error);
                 });
 
             if (!loginResult.isSuccess) return;
         } catch (e) {
-            console.error(e);
         }
     };
+    let regSuccess = localStorage.getItem('reg')
+    useEffect(() => {
+        // regSuccess = localStorage.getItem('reg')
+        return () => localStorage.removeItem('reg')
+    }, [])
     const authText = {
         label: {
             color: "#131313",
@@ -86,6 +95,9 @@ const AuthForm: React.FC = ({}) => {
         };
         isAuth();
     }, [loginResult]);
+    const handleTG = (to) => {
+        window.location.href = "https://t.me/mega_rock_bot";
+    };
     return (
         <Box
             sx={{
@@ -96,6 +108,14 @@ const AuthForm: React.FC = ({}) => {
             component={"form"}
             onSubmit={handleFormSubmit}
         >
+            {regSuccess && <Alert sx={{
+                position: 'absolute',
+                top: {sm: 100, xs: 50}
+            }} icon={<CheckIcon fontSize="inherit" />} severity="success">
+                Вы зарегистрированы, пароль для авторизации будет отправлен в смс.
+                Администратор перезвонит вам, чтобы помочь активировать аккаунт.
+            </Alert>}
+
             <Box
                 component={"img"}
                 src={authIcon}
@@ -156,17 +176,21 @@ const AuthForm: React.FC = ({}) => {
             />
             <Box sx={{width: "90%"}}>
                 <Typography
-                    onClick={() => navigate("/reset")}
+                    onClick={handleTG}
                     sx={{
                         color: "#C9C9C9",
                         cursor: "pointer",
                         marginTop: "20px",
-                        textAlign: "right",
+                        textAlign: "center",
+                        textDecoration: 'underline'
                     }}
                 >
-                    Забыли пароль?
+                    Забыли пароль? Напишите нам в Telegram
                 </Typography>
             </Box>
+            {message && <Typography sx={{color: 'red'}}>
+                {message}
+            </Typography>}
             <AuthButton
                 text={"Войти"}
                 sx={{
