@@ -7,10 +7,17 @@ import slider1 from "../../assets/slides/hard1.jpg";
 import slider2 from "../../assets/slides/hard2.jpg";
 import slider3 from "../../assets/slides/hard3.jpg";
 import { blackText, h3 } from "../../mui/palette";
-import Swiper from "../../utils/Swiper";
 import WhiteContainer from "../../utils/WhiteContainer";
 import ItemText from "../ui/ItemText";
-import RandomBlock from "../ui/RandomBlock";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import person1 from "../../assets/thousand/img1.png";
+import person2 from "../../assets/thousand/img2.png";
+import person3 from "../../assets/thousand/img3.png";
+import person4 from "../../assets/thousand/img4.png";
+import { FreeMode } from "swiper/modules";
+
 const MainThousand = () => {
    const navigate = useNavigate();
 
@@ -30,43 +37,31 @@ const MainThousand = () => {
          name: "Никита Муравьев",
          role: "Бас",
       },
-      // {
-      //     avatar: slider4,
-      //     name: 'Маргарита Илющенко',
-      //     role: 'режиссер'
-      // },
+      {
+         avatar: person1,
+         name: "Евгений Симанин",
+         role: "Бас",
+      },
    ];
    return (
       <WhiteContainer
          sx={{
             paddingBottom: { sm: "120px", xs: "80px" },
-            // // backgroundRepeat: {sm: 'repeat', xs: 'no-repeat'},
-            // backgroundRepeat: 'no-repeat',
-            // width: '120%',
-            // marginLeft: '20%'
          }}>
          <Box
             sx={{
                display: "flex",
-               // flexDirection: {sm: 'row', xs: 'column'},
                alignItems: "center",
                width: { sm: "100%", xs: "70%" },
                flexWrap: "wrap",
-               margin: "0 auto",
+               margin: "0 auto 30px auto",
                justifyContent: "center",
-               // marginTop: '200px',
                paddingTop: { sm: "100px", xs: "60px" },
-               // marginBottom: {sm: 0, xs: '-250px'}
-               // paddingTop: '-50px'
             }}
             className={"animate__fadeInUp animate__animated wow"}>
             <Typography variant={"h2"} sx={blackText}>
                Самый масштабный
             </Typography>
-            {/*<Box component={'img'} src={item1} sx={{*/}
-            {/*    width: {md: '238px', sm: '180px', xs: '144px'},*/}
-            {/*    height: {md: '55px', sm: '40px', xs: '28px'},*/}
-            {/*}}/>*/}
             <ItemText
                variant={"h2"}
                text
@@ -81,19 +76,63 @@ const MainThousand = () => {
                страны
             </Typography>
          </Box>
-         <RandomBlock
-            sx={{
-               display: { lg: "flex", md: "none", sm: "none", xs: "none" },
-            }}
-            data={data}
-         />
+         <div className="thousand">
+            {data.map((data, index) => {
+               let rotateValue = 2.84;
+               if (index % 2 === 0) {
+                  rotateValue = -2.84;
+               }
+               return (
+                  <div
+                     key={index}
+                     className="thousand__card"
+                     style={{
+                        rotate: `${rotateValue}deg`,
+                     }}>
+                     <img src={data.avatar} alt="картинка" />
+                     <b>{data.name}</b>
+                     <small>{data.role}</small>
+                  </div>
+               );
+            })}
+         </div>
          <Swiper
+            spaceBetween={80}
+            modules={[FreeMode]}
+            slidesPerView={"auto"}
+            initialSlide={1}
+            freeMode={true}
+            centeredSlides={true}
+            className="thousand__swiper">
+            {data.map((data, index) => {
+               let rotateValue = 2.84;
+               if (index % 2 === 0) {
+                  rotateValue = -2.84;
+               }
+
+               return (
+                  <SwiperSlide
+                     key={index}
+                     style={{
+                        width: "auto",
+                        rotate: `${rotateValue}deg`,
+                     }}>
+                     <div className="thousand__card">
+                        <img src={data.avatar} alt="картинка" />
+                        <b>{data.name}</b>
+                        <small>{data.role}</small>
+                     </div>
+                  </SwiperSlide>
+               );
+            })}
+         </Swiper>
+         {/* <Swiper
             random={true}
             sx={{
                display: { lg: "none", md: "flex", sm: "flex", xs: "flex" },
             }}
             slides={data}
-         />
+         /> */}
          <ItemText
             typo={{ color: "white", ...h3 }}
             img={thousand}

@@ -1,10 +1,6 @@
-import React from "react";
 import { blackText, h3, title2 } from "../../mui/palette";
 import { Box, Container, Typography } from "@mui/material";
 
-import { useGetRandomQuery } from "../../redux/services/musiciansCore";
-import Loader from "../../utils/Loader";
-import { rolesTarget } from "../../handlers/rolesTarget";
 import { musiciansSwitch, sliderSwitch } from "../../handlers/sliderSwitch";
 
 const RandomBlock = ({ sx, data }) => {

@@ -53,6 +53,7 @@ const MyBar = () => {
    const handleClick = (event: ChangeEvent) => {
       setAnchorEl(event.currentTarget);
    };
+
    const [background, setBackground] = useState("transparent");
 
    const navigate = useNavigate();

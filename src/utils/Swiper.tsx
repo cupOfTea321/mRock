@@ -60,7 +60,7 @@ const MySwiper = ({
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
-            loop={true}
+            spaceBetween={50}
             style={{
                position: "relative",
                zIndex: 500,
@@ -70,20 +70,18 @@ const MySwiper = ({
             coverflowEffect={{
                rotate: 0,
                stretch: 0,
-               depth: 100,
+               depth: 50,
                modifier: 2.5,
             }}
             pagination={{ el: ".swiper-pagination", clickable: true }}
             navigation={{
                nextEl: ".swiper-button-next",
                prevEl: ".swiper-button-prev",
-               clickable: true,
             }}
             modules={[EffectCoverflow, Pagination, Navigation]}
             className="swiper_container animate__animated animate__bounceIn wow">
             {!about &&
                slides.map((item, index) => {
-                  let role = rolesTarget(item.role);
                   let styles;
                   random
                      ? (styles = musiciansSwitch(index))
@@ -149,18 +147,10 @@ const MySwiper = ({
                            marginRight: "250px",
                         }}>
                         <Box
-                           key={item}
                            src={item}
                            component={"img"}
                            sx={{
                               ...imgStyle,
-                              // background: '#1e1e1e',
-                              // backgroundSize: 'cover'
-                              // display: 'flex'
-
-                              // display: {lg: 'block', md: 'none', sm: 'none', xs: 'none'},
-                              // height: '100px',
-                              // width: '100px',
                            }}
                         />
                      </SwiperSlide>
@@ -175,6 +165,7 @@ const MySwiper = ({
                      margin: "0 auto",
                      zIndex: 1000,
                      marginBottom: "200px",
+                     paddingTop: "50px",
                      display: "flex",
                      justifyContent: "center",
                      width: "150px",

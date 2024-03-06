@@ -13,14 +13,12 @@ const MainEmoji = () => {
          sx={{
             zIndex: 250,
             position: "relative",
-            marginBottom: "300px",
+            marginBottom: "500px",
          }}>
          <BlackBackground
             back={peopleBack}
             sx={{
                height: "200%",
-               // backgroundSize: 'auto 80%',
-               // width: '150%'
             }}
          />
          <Container

@@ -129,12 +129,9 @@ const Footer = ({ path }) => {
                   }}>
                   <Typography
                      variant={"h2"}
-                     sx={
-                        {
-                           // width: '100%'
-                           // margin: '0 auto'
-                        }
-                     }>
+                     sx={{
+                        whiteSpace: "nowrap",
+                     }}>
                      Остались вопросы?
                   </Typography>
                   <Typography
@@ -143,17 +140,6 @@ const Footer = ({ path }) => {
                      }}>
                      Свяжитесь с нами
                   </Typography>
-                  {/* <Box
-              component={motion.img}
-              src={hovered ? greenHover : item5}
-              sx={{
-                ma3rginTop: "14px",
-                cursor: "pointer",
-              }}
-              onClick={handleHistory}
-              onHoverStart={()=>setHovered(true)}
-              onHoverEnd={()=>setHovered(false)}
-            /> */}
                   <ItemText
                      title="Написать организаторам"
                      onClick={handleHistory}
@@ -211,6 +197,8 @@ const Footer = ({ path }) => {
 
             <Box
                sx={{
+                  position: { xl: "relative", md: "static" },
+                  left: "-20px",
                   marginLeft: { xl: "17%", lg: "38%", md: "40%", sm: "38%" },
                   paddingBottom: "40px",
                }}>
@@ -298,6 +286,7 @@ const Footer = ({ path }) => {
                      paddingRight: "55px",
                      display: "flex",
                      flexDirection: "column",
+                     colol: "#262626",
                      textAlign: {
                         lg: "left",
                         md: "center",
