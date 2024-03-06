@@ -147,7 +147,7 @@ const Footer = ({ path }) => {
               component={motion.img}
               src={hovered ? greenHover : item5}
               sx={{
-                marginTop: "14px",
+                ma3rginTop: "14px",
                 cursor: "pointer",
               }}
               onClick={handleHistory}

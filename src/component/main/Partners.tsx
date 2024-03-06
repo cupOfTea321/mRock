@@ -14,12 +14,10 @@ import WhiteContainer from "../../utils/WhiteContainer";
 // import styles from "./Partners.module.css";
 
 const Partners = () => {
-   const handleFirst = (to) => {
-      window.location.href = "https://megamarket.ru/";
-   };
-   const handleSecond = (to) => {
-      window.location.href = "https://www.maximonline.ru/";
-   };
+
+   const handleClick = (to) => {
+       window.open(to, '_blank');
+   }
 
    return (
       <WhiteContainer
@@ -96,28 +94,11 @@ const Partners = () => {
                   whileHover={{
                      scale: 1.1,
                   }}
-                  onClick={() => handleFirst()}>
-                  {/* <Typography */}
-                  {/*  sx={{*/}
-                  {/*    fontSize: { lg: "80px", md: "60px", sm: "50px", xs: "40px" },*/}
-                  {/*    fontWeight: 700,*/}
-                  {/*    color: "#6833b0",*/}
-                  {/*    width: "60%",*/}
-                  {/*    lineHeight: {*/}
-                  {/*      lg: "63.6px",*/}
-                  {/*      md: "50px",*/}
-                  {/*      sm: "40px",*/}
-                  {/*      xs: "32px",*/}
-                  {/*    },*/}
-                  {/*    marginBottom: { sm: "50px", xs: "30px" },*/}
-                  {/*    // textAlign: 'center'*/}
-                  {/*  }}*/}
-                  {/*>*/}
-                  {/*  мега маркет*/}
-                  {/*</Typography> */}
+                  onClick={() => handleClick("https://megamarket.ru/")}>
                   <Box
                      src={mega}
                      component={"img"}
+                     alt={"Мегамаркет"}
                      sx={{
                         width: { md: "371px", sm: "280px", xs: "208px" },
                         height: { md: "149px", sm: "100px", xs: "90px" },
@@ -131,10 +112,13 @@ const Partners = () => {
                      scale: 1.1,
                   }}
                   src={rock}
+                  alt="Rock After Work"
+                  onClick={() => handleClick("https://rockafterwork.com/")}
                   sx={{
                      marginTop: { sm: 0, xs: "19px" },
                      position: "relative",
                      marginLeft: { sm: 0, xs: "50%" },
+                     cursor: "pointer",
                      width: {
                         lg: "254px",
                         md: "203px",
@@ -155,12 +139,14 @@ const Partners = () => {
                whileHover={{
                   scale: 1.1,
                }}
-               onClick={() => handleSecond()}
+               alt="Maxim Online"
+               onClick={() => handleClick("https://maximonline.ru/")}
                src={back4}
                sx={{
                   position: "absolute",
                   bottom: { sm: -100, xs: -150 },
                   zIndex: 500,
+                  cursor: "pointer",
                   right: { sm: 50, xs: 20, md: 0 },
                   width: { lg: "324px", md: "259px", sm: "200px", xs: "184px" },
                   height: {
@@ -178,7 +164,8 @@ const Partners = () => {
                   scale: 1.1,
                }}
                src={images.partner1}
-               alt="партнер"
+               alt="Blastbeat Shop"
+               onClick={() => handleClick("https://blastbeat-shop.ru/")}
                sx={{
                   position: "absolute",
                   top: {
@@ -193,6 +180,7 @@ const Partners = () => {
                      custom800: "40px",
                      sm: "50%",
                   },
+                  cursor: "pointer",
                   display: "block",
                   rotate: "18deg",
                   width: { lg: "327px", md: "257px", sm: "210px", xs: "154px" },

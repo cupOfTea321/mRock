@@ -23,9 +23,7 @@ function App() {
    const location = useLocation();
    useLayoutEffect(() => {
       afisha();
-      // afisha2();
-   }, [location.pathname]);
-   // const { isLoading } = useGetProjectsQuery(1);
+   }, []);
    const isLoading = false;
    const { nodeRef } =
       routes.find((route) => route.path === location.pathname) ?? {};
