@@ -73,9 +73,11 @@ const ChangeForm = () => {
       }
    };
    const [err, setErr] = useState(false);
+
    const handleChange = ({ target: { name, value } }) => {
       setFormState((prev) => ({ ...prev, [name]: value }));
    };
+
    useEffect(() => {
       const isAuth = () => {
          if (regResult.isSuccess) {
