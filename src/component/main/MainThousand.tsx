@@ -37,11 +37,6 @@ const MainThousand = () => {
          name: "Никита Муравьев",
          role: "Бас",
       },
-      {
-         avatar: person1,
-         name: "Евгений Симанин",
-         role: "Бас",
-      },
    ];
    return (
       <WhiteContainer
@@ -97,7 +92,7 @@ const MainThousand = () => {
             })}
          </div>
          <Swiper
-            spaceBetween={80}
+            spaceBetween={200}
             modules={[FreeMode]}
             slidesPerView={"auto"}
             initialSlide={1}

@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@mui/material";
 import { useEffect, useLayoutEffect } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import WOW from "wow.js";
 import Layout from "./component/layout/Layout";
-import { afisha, afisha2 } from "./handlers/afisha";
+import { afisha } from "./handlers/afisha";
 import { theme } from "./mui";
 import { privateRoutes, routes } from "./router/router.js";
 import ScrollToTop from "./utils/ScrollToTop";

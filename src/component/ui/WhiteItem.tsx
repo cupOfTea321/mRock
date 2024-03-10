@@ -12,7 +12,6 @@ const WhiteItem = ({ sx }) => {
    };
    return (
       <Box
-         id="yandex-button"
          component={motion.button}
          sx={{
             ...backText,
