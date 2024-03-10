@@ -21,13 +21,13 @@ const AuthButton = ({
 }) => {
    const navigate = useNavigate();
    const handleClick = (to) => {
-      // navigate(to)
+      // navigate(to);
       ym("reachGoal", "log_in");
    };
    const handleExit = () => {
       localStorage.removeItem("access");
       localStorage.removeItem("refresh");
-      navigate("");
+      navigate("/");
    };
    return (
       <Box

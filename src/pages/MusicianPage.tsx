@@ -22,6 +22,8 @@ const MusicianPage = () => {
       refetchOnMountOrArgChange: true,
    });
 
+   console.log(data);
+
    if (error?.status === 401) {
       navigate("/auth");
    }

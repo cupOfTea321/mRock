@@ -53,6 +53,7 @@ const ChangePage = () => {
       role: "",
       social_link: "",
    });
+
    const { data, isSuccess, error } = useGetProfileQuery(undefined, {
       refetchOnMountOrArgChange: true,
    });
@@ -93,7 +94,6 @@ const ChangePage = () => {
       }
 
       try {
-         console.log("work");
          await reg(formData).unwrap();
       } catch (e) {
          console.error(e);

@@ -1,5 +1,4 @@
-import { rolesTarget } from "../../handlers/rolesTarget";
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box } from "@mui/material";
 
 const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
 
@@ -9,6 +8,17 @@ const ChangeSelect = ({
    formState,
    handleChange,
 }: any) => {
+   let role: string;
+
+   if (formState.role === "VC") {
+      role = "Вокалист";
+   } else if (formState.role === "GT") {
+      role = "Гитарист";
+   } else if (formState.role === "BS") {
+      role = "Басист";
+   } else if (formState.role === "DR") {
+      role = "Барабанщик";
+   }
    return (
       <div className={"custom-select"}>
          <Box
@@ -24,18 +34,20 @@ const ChangeSelect = ({
             component={"select"}
             name={"role"}
             id="roleSelect"
-            value={formState?.role}
             onChange={handleChange}>
             <option
                style={{ color: "black" }}
-               value="Роль"
+               value={role!}
                disabled
                selected
                hidden>
-               Роль
+               {role!}
             </option>
             {roles.map((item) => (
-               <option style={{ color: "black" }} value={item}>
+               <option
+                  style={{ color: "black" }}
+                  selected={item === role}
+                  value={item}>
                   {item}
                </option>
             ))}

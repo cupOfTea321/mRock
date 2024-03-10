@@ -48,6 +48,8 @@ const RegForm: React.FC = ({}) => {
    });
    const navigate = useNavigate();
 
+   console.log(regResult);
+
    const handleChange = ({ target: { name, value } }: any) => {
       setFormState({ ...formState, [name]: value });
    };
@@ -66,6 +68,8 @@ const RegForm: React.FC = ({}) => {
       const cleanedPhoneNumber = formState.phone.replace(/\D/g, "");
       formState.phone = cleanedPhoneNumber;
       formState.role = setRolesTarget(formState.role);
+
+      console.log(formState);
 
       try {
          await reg(formState).unwrap();
