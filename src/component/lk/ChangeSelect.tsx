@@ -9,7 +9,6 @@ const ChangeSelect = ({
    handleChange,
 }: any) => {
    let role: string;
-
    if (formState.role === "VC") {
       role = "Вокалист";
    } else if (formState.role === "GT") {

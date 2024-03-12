@@ -7,30 +7,58 @@ import person4 from "../../assets/thousand/img4.png";
 import { input, Input } from "../ui/Input";
 import ItemText from "../ui/ItemText";
 import PeopleCard from "./PeopleCard";
-import ChangeSelect from "../lk/ChangeSelect";
-import React from "react";
 import ThousandChangeSelect from "../lk/ThuosandChangeSelect";
+import CustomSelect from "../lk/CustomSelect";
 
-const CardsBlock = ({ data }) => {
-   const people = [
-      { image: person1 },
-      { image: person2 },
-      { image: person3 },
-      { image: person4 },
-   ];
+import { ChangeEvent, useState } from "react";
+import arrow from "../../assets/CustomSelect/arrow.svg";
+
+import classNames from "classnames";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
+
+const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист", "Все"];
+
+const people = [
+   { image: person1 },
+   { image: person2 },
+   { image: person3 },
+   { image: person4 },
+];
+
+const CardsBlock = ({
+   data,
+   selectedValue,
+   setSelectedValue,
+   searchValue,
+   setSearchValue,
+}: any) => {
+   const [isOpen, setIsOpen] = useState(false);
+   const [isError, setIsError] = useState(false);
+   const selectRef = useOutsideClick(() => setIsOpen(false));
+
+   let cx = classNames;
+   const arrowClasses = cx({
+      select__arrow: true,
+      select__arrow_active: isOpen,
+   });
+
+   const selectClasses = cx({
+      select: true,
+      _active: isOpen,
+      _error: isError,
+   });
+
    return (
       <Container
          sx={{
             zIndex: 600,
             position: "relative",
-            // display: 'flex',
             marginBottom: "80px",
          }}>
          <Box
             sx={{
                display: "flex",
                alignItems: "center",
-               // justifyContent: 'center',
             }}
             className={"animate__fadeInUp animate__animated wow"}>
             <Input
@@ -40,41 +68,52 @@ const CardsBlock = ({ data }) => {
                      paddingLeft: "16px",
                   },
                }}
+               value={searchValue}
+               handleChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setSearchValue(e.target.value)
+               }
                title={"Имя"}
                placehold={""}
             />
-            <ThousandChangeSelect
-               inputStyle={{
-                  ...input,
-                  color: "white",
-
-                  width: { md: "216px", xs: "300px" },
-                  height: { md: "60px", xs: "50px" },
-                  label: {
-                     color: "black",
-                  },
-                  background: "transparent",
-                  border: "2px solid #8654CC",
-                  borderRadius: "100px",
-                  // marginBottom: '16px',
-                  paddingLeft: "16px",
-                  ":hover": {
-                     color: "white !important",
-                  },
-               }}
-               // basicInput={authText}
-               // formState={formState}
-               // handleChange={handleChange}
-               // roles={roles}
-            />
-            {/*<MyAuto   sxAuto={{*/}
-            {/*    width: "216px",*/}
-            {/*    color: 'white',*/}
-            {/*    label: {*/}
-            {/*        color: 'white',*/}
-            {/*        paddingLeft: "16px",*/}
-            {/*    },*/}
-            {/*}}/>*/}
+            <div
+               className="selectWrap"
+               style={{
+                  width: "213px",
+               }}>
+               <div className={selectClasses} ref={selectRef}>
+                  <div
+                     className="select__header"
+                     onClick={() => setIsOpen((prev) => !prev)}>
+                     <span>{selectedValue ? selectedValue : "Роль"}</span>
+                     <img
+                        src={arrow}
+                        alt="Выберите инструмент"
+                        className={arrowClasses}
+                     />
+                  </div>
+                  <div
+                     className={`listWrap ${isOpen ? "listWrap_active" : ""}`}>
+                     <ul className={"list"}>
+                        {roles.map((item) => (
+                           <li
+                              key={item}
+                              className={"list__item"}
+                              onClick={() => {
+                                 if (setIsError) setIsError(false);
+                                 if (
+                                    item.toLocaleLowerCase() !==
+                                    selectedValue?.toLocaleLowerCase()
+                                 ) {
+                                    setSelectedValue(item);
+                                 }
+                              }}>
+                              {item}
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+               </div>
+            </div>
          </Box>
          <Grid
             container
@@ -97,17 +136,6 @@ const CardsBlock = ({ data }) => {
                </Grid>
             ))}
          </Grid>
-         <ItemText
-            img={moreBtn}
-            title={"Загрузить ещё"}
-            typo={{ color: "white" }}
-            sx={{
-               margin: "0 auto",
-               width: { sm: "190px", xs: "189px" },
-               height: { sm: "43px", xs: "42px" },
-               marginTop: { sm: 0, xs: "40px" },
-            }}
-         />
       </Container>
    );
 };

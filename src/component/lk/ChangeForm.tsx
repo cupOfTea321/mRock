@@ -131,7 +131,6 @@ const ChangeForm = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            // margin: { sm: "none", xs: "0 auto" },
          }}
          component={"form"}
          onSubmit={handleFormSubmit}>

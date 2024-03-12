@@ -11,9 +11,11 @@ import {
 } from "@mui/material";
 import React, { FormEvent, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
 import item1 from "../../assets/lk/item1.png";
 import greenHover from "../../assets/hovers/leftHover.webp";
 import FormBack from "../../assets/mobileFormBack.png";
+import arrow from "../../assets/CustomSelect/arrow.svg";
 
 import { setRolesTarget } from "../../handlers/rolesTarget";
 import { backText, changeStyle, colStyle } from "../../mui/palette";
@@ -23,6 +25,8 @@ import AuthButton from "../ui/AuthButton";
 import { input } from "../ui/Input";
 import { ModalData } from "./ModalData";
 import { TextMaskCustom } from "./TextMaskCustom";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
+import classNames from "classnames";
 
 const authText = {
    label: {
@@ -45,6 +49,23 @@ const RegForm: React.FC = ({}) => {
       name: "",
       phone: "",
       role: "",
+   });
+
+   const [isOpen, setIsOpen] = useState(false);
+   const [isError, setIsError] = useState(false);
+   const [selectedValue, setSelectedValue] = useState<string | null>(null);
+   const selectRef = useOutsideClick(() => setIsOpen(false));
+
+   let cx = classNames;
+   const arrowClasses = cx({
+      select__arrow: true,
+      select__arrow_active: isOpen,
+   });
+
+   const selectClasses = cx({
+      select: true,
+      _active: isOpen,
+      _error: isError,
    });
    const navigate = useNavigate();
 

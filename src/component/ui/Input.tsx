@@ -34,10 +34,9 @@ export const Input = ({
    handleChange,
    value,
    required = false,
-   type = "",
    name,
    sx,
-}) => {
+}: any) => {
    return (
       <TextField
          label={
