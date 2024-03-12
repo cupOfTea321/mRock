@@ -2,12 +2,6 @@ import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import item9 from "../../assets/back/backItem9.webp";
 import back3 from "../../assets/back3.svg";
-// import blast from "../../assets/blast.svg";
-// import mega from "../../assets/sbermegamarket.svg";
-// import itemLeft from "../../assets/items/item4.svg";
-// import back4 from "../../assets/main/maxim.svg";
-// import rock from "../../assets/rock.svg";
-// import images from "../../assets/images/Images";
 import { backText, blackText } from "../../mui/palette";
 import WhiteContainer from "../../utils/WhiteContainer";
 
@@ -16,6 +10,8 @@ import partner2 from "../../assets/partners/partner-2.png";
 import partner3 from "../../assets/partners/partner-3.svg";
 import partner4 from "../../assets/partners/partner-4.svg";
 import partner4Bg from "../../assets/partners/partner-4-bg.png";
+import partner5 from "../../assets/partners/partner-5.svg";
+import partner6 from "../../assets/partners/partner-6.svg";
 
 const Partners = () => {
    const handleClick = (to) => {
@@ -77,6 +73,12 @@ const Partners = () => {
                <div className="partners__partner">
                   <img src={partner4} alt="партнер" />
                   <img src={partner4Bg} alt="bg" />
+               </div>
+               <div className="partners__partner">
+                  <img src={partner5} alt="партнер" />
+               </div>
+               <div className="partners__partner">
+                  <img src={partner6} alt="партнер" />
                </div>
             </div>
          </Container>
