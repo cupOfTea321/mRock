@@ -1,14 +1,6 @@
 import { Box, Container, Grid } from "@mui/material";
-import moreBtn from "../../assets/hovers/purpleHover.webp";
-import person1 from "../../assets/thousand/img1.png";
-import person2 from "../../assets/thousand/img2.png";
-import person3 from "../../assets/thousand/img3.png";
-import person4 from "../../assets/thousand/img4.png";
-import { input, Input } from "../ui/Input";
-import ItemText from "../ui/ItemText";
+import { Input } from "../ui/Input";
 import PeopleCard from "./PeopleCard";
-import ThousandChangeSelect from "../lk/ThuosandChangeSelect";
-import CustomSelect from "../lk/CustomSelect";
 
 import { ChangeEvent, useState } from "react";
 import arrow from "../../assets/CustomSelect/arrow.svg";
@@ -17,13 +9,6 @@ import classNames from "classnames";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист", "Все"];
-
-const people = [
-   { image: person1 },
-   { image: person2 },
-   { image: person3 },
-   { image: person4 },
-];
 
 const CardsBlock = ({
    data,

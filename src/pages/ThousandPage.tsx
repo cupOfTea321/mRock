@@ -14,7 +14,9 @@ const limit = 12;
 const ThousandPage = () => {
    const [params, setParams] = useState("");
    const [currentPage, setCurrentPage] = useState(0);
+
    const [canFetch, setCanFetch] = useState(true);
+   const [isCurrentPageAdded, setIsCurrentPageAdded] = useState(false);
 
    const [users, setUsers] = useState<Array<Object>>([]);
    const [totalUsers, setTotalUsers] = useState(0);
@@ -27,10 +29,15 @@ const ThousandPage = () => {
       `${params}&offset=${currentPage * limit}`
    );
 
-   ///// Fetch музыкантов
+   ///// Fetch музыкантов при скрлле
    useEffect(() => {
       if (isSuccess && !isFetching) {
-         setUsers([...users, ...data.results]);
+         if (isCurrentPageAdded) {
+            setUsers([...users, ...data.results]);
+            setIsCurrentPageAdded(false);
+         } else {
+            setUsers(data.results);
+         }
          setTotalUsers(data.count);
          setCanFetch(true);
       }
@@ -50,6 +57,7 @@ const ThousandPage = () => {
          500
       ) {
          if (currentPage * limit < totalUsers && canFetch) {
+            setIsCurrentPageAdded(true);
             setCanFetch(false);
             setCurrentPage(currentPage + 1);
          }
