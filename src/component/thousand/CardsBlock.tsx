@@ -100,6 +100,7 @@ const CardsBlock = ({
                               className={"list__item"}
                               onClick={() => {
                                  if (setIsError) setIsError(false);
+                                 setIsOpen(false);
                                  if (
                                     item.toLocaleLowerCase() !==
                                     selectedValue?.toLocaleLowerCase()

@@ -68,10 +68,6 @@ const ChangePage = () => {
       refetchOnMountOrArgChange: true,
    });
 
-   // if (error?.status === 401) {
-   //    navigate("/auth");
-   // }
-
    const [userData, setUserData] = useState();
 
    const handleChange = ({ target: { name, value } }) => {
@@ -340,6 +336,7 @@ const ChangePage = () => {
                                           className={"list__item"}
                                           onClick={() => {
                                              if (setIsError) setIsError(false);
+                                             setIsOpen(false);
                                              if (
                                                 item.toLocaleLowerCase() !==
                                                 formState.role?.toLocaleLowerCase()

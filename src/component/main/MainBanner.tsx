@@ -8,9 +8,7 @@ const MainBanner = () => {
    return (
       <Box
          sx={{
-            height: "105vh",
-            backgroundImage: `url(${back})`,
-            backgroundSize: "cover",
+            height: "100vh",
             position: "relative",
             zIndex: 320,
          }}>
@@ -37,6 +35,18 @@ const MainBanner = () => {
                <WhiteItem />
             </Box>
          </Box>
+         <img
+            src={back}
+            alt="Задний фон"
+            style={{
+               position: "absolute",
+               top: "0",
+               left: "0",
+               width: "100%",
+               height: "110%",
+               objectFit: "cover",
+            }}
+         />
       </Box>
    );
 };
