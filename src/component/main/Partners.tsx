@@ -1,5 +1,4 @@
 import { Box, Container, Typography } from "@mui/material";
-import { motion } from "framer-motion";
 import item9 from "../../assets/back/backItem9.webp";
 import back3 from "../../assets/back3.svg";
 import { backText, blackText } from "../../mui/palette";
@@ -15,12 +14,10 @@ import partner6 from "../../assets/partners/partner-6.svg";
 import partner7 from "../../assets/partners/partner-7.svg";
 import partner8 from "../../assets/partners/partner-8.svg";
 import partner9 from "../../assets/partners/partner-9.svg";
+import partner10 from "../../assets/partners/partner-10.png";
+import partner11 from "../../assets/partners/partner-11.png";
 
 const Partners = () => {
-   const handleClick = (to) => {
-      window.open(to, "_blank");
-   };
-
    return (
       <WhiteContainer
          sx={{
@@ -63,41 +60,72 @@ const Partners = () => {
                </Box>
             </Box>
             <div className="partners">
-               <a href="https://megamarket.ru/" className="partners__partner">
+               <a
+                  href="https://megamarket.ru/"
+                  target="_blank"
+                  className="partners__partner">
                   <img src={partner1} alt="Мегамаркет" />
                </a>
                <a
                   href="https://blastbeat-shop.ru/"
+                  target="_blank"
                   className="partners__partner">
                   <img src={partner2} alt="Blastbeat Shop" />
                </a>
-               <a href="https://maximonline.ru/" className="partners__partner">
+               <a
+                  href="https://maximonline.ru/"
+                  target="_blank"
+                  className="partners__partner">
                   <img src={partner3} alt="Maxim Online" />
                </a>
                <a
                   href="https://rockafterwork.com/"
+                  target="_blank"
                   className="partners__partner">
                   <img src={partner4} alt="Rock After Work" />
                   <img src={partner4Bg} alt="Rock After Work" />
                </a>
-               <a href="https://citydrive.ru/" className="partners__partner">
+               <a
+                  href="https://citydrive.ru/"
+                  target="_blank"
+                  className="partners__partner">
                   <img src={partner5} alt="Ситидрайв" />
                </a>
                <a
                   href="https://vk.com/revolutionfest"
+                  target="_blank"
                   className="partners__partner">
                   <img src={partner6} alt="Revolution Festival" />
                </a>
-               <a href="https://dailymoscow.ru/" className="partners__partner">
-                  <img src={partner7} alt="Revolution Festival" />
+               <a
+                  href="https://dailymoscow.ru/"
+                  target="_blank"
+                  className="partners__partner">
+                  <img src={partner7} alt="Daily Moscow" />
                </a>
-               <a href="https://kudago.com/" className="partners__partner">
-                  <img src={partner8} alt="Revolution Festival" />
+               <a
+                  href="https://kudago.com/"
+                  target="_blank"
+                  className="partners__partner">
+                  <img src={partner8} alt="Kudago" />
                </a>
                <a
                   href="https://typical-moscow.ru/"
+                  target="_blank"
                   className="partners__partner">
-                  <img src={partner9} alt="Revolution Festival" />
+                  <img src={partner9} alt="Typical Moscow" />
+               </a>
+               <a
+                  href="https://maximum.ru/"
+                  target="_blank"
+                  className="partners__partner">
+                  <img src={partner10} alt="MAXIMUM" />
+               </a>
+               <a
+                  href="https://nashrockfest.ru/"
+                  target="_blank"
+                  className="partners__partner">
+                  <img src={partner11} alt="НащРокФест" />
                </a>
             </div>
          </Container>
