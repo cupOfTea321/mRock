@@ -73,6 +73,12 @@
    grid-row: 5 / 6;
    grid-column: 1 / 2;
 }
+.partners__partner:nth-child(12) {
+   background-color: #edcffc;
+   grid-row: 6 / 7;
+   grid-column: 2 / 3;
+   padding: 10px;
+}
 .partners__partner img {
    height: 100%;
 }
@@ -127,6 +133,12 @@
    }
    .partners__partner:nth-child(10) {
       padding: 0 20px;
+   }
+   .partners__partner:nth-child(12) {
+      background-color: #edcffc;
+      grid-row: 6 / 7;
+      grid-column: 2 / 3;
+      padding: 5;
    }
 }
 

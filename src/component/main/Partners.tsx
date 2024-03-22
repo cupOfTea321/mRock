@@ -16,6 +16,7 @@ import partner8 from "../../assets/partners/partner-8.svg";
 import partner9 from "../../assets/partners/partner-9.svg";
 import partner10 from "../../assets/partners/partner-10.png";
 import partner11 from "../../assets/partners/partner-11.png";
+import partner12 from "../../assets/partners/partner-12.png";
 
 const Partners = () => {
    return (
@@ -126,6 +127,12 @@ const Partners = () => {
                   target="_blank"
                   className="partners__partner">
                   <img src={partner11} alt="НащРокФест" />
+               </a>
+               <a
+                  href="https://nashrockfest.ru/"
+                  target="_blank"
+                  className="partners__partner">
+                  <img src={partner12} alt="Real Bassist" />
                </a>
             </div>
          </Container>
