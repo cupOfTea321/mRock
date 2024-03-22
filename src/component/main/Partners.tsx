@@ -129,7 +129,7 @@ const Partners = () => {
                   <img src={partner11} alt="НащРокФест" />
                </a>
                <a
-                  href="https://nashrockfest.ru/"
+                  href="https://www.youtube.com/@RealBassist/featured"
                   target="_blank"
                   className="partners__partner">
                   <img src={partner12} alt="Real Bassist" />
