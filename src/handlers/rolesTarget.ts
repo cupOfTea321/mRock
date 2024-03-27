@@ -10,6 +10,8 @@ export const rolesTarget = (role) => {
         case 'BS':
             role = 'Басист'
             break
+        default:
+            role = 'Барабанщик'
     }
     return role
 }
@@ -24,6 +26,8 @@ export const setRolesTarget = (role) => {
         case 'Басист':
             role = 'BS'
             break
+        default:
+            role = 'DR'
     }
     return role
 }

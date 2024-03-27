@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-const roles = ["Гитарист", "Вокалист", "Басист"];
+const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
 
 const ChangeSelect = ({
    inputStyle,
@@ -15,6 +15,8 @@ const ChangeSelect = ({
       role = "Гитарист";
    } else if (formState.role === "BS") {
       role = "Басист";
+   } else if (formState.role === "DR") {
+      role = "Барабанщик";
    }
    return (
       <div className={"custom-select"}>

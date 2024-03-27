@@ -8,7 +8,7 @@ import arrow from "../../assets/CustomSelect/arrow.svg";
 import classNames from "classnames";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 
-const roles = ["Гитарист", "Вокалист", "Басист", "Все"];
+const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист", "Все"];
 
 const CardsBlock = ({
    data,
