@@ -46,7 +46,7 @@ const basicInput = {
    paddingLeft: "16px",
 };
 
-const roles = ["Вокалист", "Барабанщик", "Гитарист", "Басист"];
+const roles = ["Вокалист", "Гитарист", "Басист"];
 
 let cx = classNames;
 
@@ -120,8 +120,6 @@ const ChangePage = () => {
 
    const handleUpload = () => {
       if (selectedFile) {
-         // Выполните действия, связанные с загрузкой выбранного файла
-         // console.log(selectedFile);
       }
    };
    const [err, setErr] = useState(false);

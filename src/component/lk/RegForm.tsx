@@ -37,6 +37,8 @@ const authText = {
    marginBottom: 0,
 };
 
+const roles = ["Гитарист", "Вокалист", "Басист"];
+
 const RegForm: React.FC = ({}) => {
    const [reg, regResult] = useUserCreateMutation();
    const [role, setRole] = useState("");
@@ -44,7 +46,6 @@ const RegForm: React.FC = ({}) => {
    const [isSuccessForm, setIsSuccessForm] = useState(false);
    const [open, setOpen] = useState(false);
    const [openData, setDataOpen] = useState(false);
-   const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
    const [formState, setFormState] = useState({
       name: "",
       phone: "",
@@ -68,8 +69,6 @@ const RegForm: React.FC = ({}) => {
       _error: isError,
    });
    const navigate = useNavigate();
-
-   console.log(regResult);
 
    const handleChange = ({ target: { name, value } }: any) => {
       setFormState({ ...formState, [name]: value });
