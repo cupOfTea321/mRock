@@ -82,8 +82,6 @@ const ThousandPage = () => {
          role = "GT";
       } else if (selectedValue === "Басист") {
          role = "BS";
-      } else if (selectedValue === "Барабанщик") {
-         role = "DR";
       }
 
       let params: string;

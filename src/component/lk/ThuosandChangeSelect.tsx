@@ -1,7 +1,7 @@
 import { rolesTarget } from "../../handlers/rolesTarget";
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
+const roles = ["Гитарист", "Вокалист", "Басист"];
 
 const ThousandChangeSelect = ({
    inputStyle,

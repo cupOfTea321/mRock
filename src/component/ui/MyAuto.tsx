@@ -1,7 +1,7 @@
 import { Autocomplete, Box, TextField, Typography } from "@mui/material";
 import { input } from "./Input";
 import {rolesTarget} from "../../handlers/rolesTarget";
-const top100Films = ["гитарист", "вокалист", "барабанщик", "басист"];
+const top100Films = ["гитарист", "вокалист", "басист"];
 const MyAuto = (props) => {
   let { sxAuto, sx, onChange, name, value, setRole, role } = props;
     // value = rolesTarget(value)

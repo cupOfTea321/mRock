@@ -44,7 +44,7 @@ const RegForm: React.FC = ({}) => {
    const [isSuccessForm, setIsSuccessForm] = useState(false);
    const [open, setOpen] = useState(false);
    const [openData, setDataOpen] = useState(false);
-   const roles = ["Гитарист", "Вокалист", "Барабанщик", "Басист"];
+   const roles = ["Гитарист", "Вокалист", "Басист"];
    const [formState, setFormState] = useState({
       name: "",
       phone: "",

@@ -16,7 +16,6 @@ import ItemText from "../component/ui/ItemText";
 import { setRolesTarget } from "../handlers/rolesTarget";
 import { backText } from "../mui/palette";
 import { useChangeDataMutation, useGetProfileQuery } from "../redux/services";
-import ChangeSelect from "../component/lk/ChangeSelect";
 import classNames from "classnames";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
@@ -46,7 +45,7 @@ const basicInput = {
    paddingLeft: "16px",
 };
 
-const roles = ["Вокалист", "Барабанщик", "Гитарист", "Басист"];
+const roles = ["Вокалист", "Гитарист", "Басист"];
 
 let cx = classNames;
 
@@ -149,8 +148,6 @@ const ChangePage = () => {
             role = "Гитарист";
          } else if (res.role === "BS") {
             role = "Басист";
-         } else if (res.role === "DR") {
-            role = "Барабанщик";
          }
 
          res = {

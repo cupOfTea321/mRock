@@ -12,7 +12,7 @@ interface SelectProps {
    isError?: boolean;
 }
 
-const data = ["Вокалист", "Клавишные", "Барабаны", "Гитарист"];
+const data = ["Вокалист", "Клавишные", "Гитарист"];
 
 const CustomSelect = ({
    children,
